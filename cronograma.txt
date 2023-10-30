@@ -1,0 +1,4 @@
+criado estruturas de pasta
+criado Config.php
+criado ConfigController
+criado helper AdmsSlug , economiza codigo fiz sozinho
