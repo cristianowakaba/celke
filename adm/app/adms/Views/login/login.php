@@ -41,4 +41,4 @@ if(isset($_SESSION['msg'])){
 <p><a href="<?php echo URLADM; ?>new-user/index">Cadastrar</a> - <a href="<?php echo URLADM; ?>recover-password/index">Esqueceu a senha?</a></p>
 
 Usuário: cesar@celke.com.br<br>
-Senha: 123456a
+  senha: 123456a
