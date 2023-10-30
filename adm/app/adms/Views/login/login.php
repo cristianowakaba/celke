@@ -38,7 +38,7 @@ if(isset($_SESSION['msg'])){
 
     <button type="submit" name="SendLogin" value="Acessar">Acessar</button>
 </form>
-<p><a href="<?php echo URLADM; ?>new-user/index">Cadastrar</a> - <a href="<?php echo URLADM; ?>recover-password/index">Esqueceu a dsenha?</a></p>
+<p><a href="<?php echo URLADM; ?>new-user/index">Cadastrar</a> - <a href="<?php echo URLADM; ?>recover-password/index">Esqueceu a senha?</a></p>
 
 Usuário: cesar@celke.com.br<br>
-Senha: 123456a 
+Senha: 123456a
