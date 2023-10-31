@@ -86,6 +86,12 @@ class AdmsUpdatePassword
         $this->result = false;
        }
     }
+    /**
+     * instancia esse método quando a chave é valida.
+     * método que edita no banco de dados instanciando o helper
+     *
+     * @return void
+     */
     private function updatePassword():void
     {
         $this->dataSave['recover_password'] = null;

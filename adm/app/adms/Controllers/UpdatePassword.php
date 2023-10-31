@@ -58,6 +58,7 @@ class UpdatePassword
         header("Location: $urlRedirect");
         }
     }
+    // se for diferente de vazio a posição SendUPpass adiciona uma posição['key'] e atribui o valor da $key,intancia a AdmsUpdatePassword() eo método editPassword($this->dataForm).
     private function updatePassword():void
     {
         if(!empty($this->dataForm['SendUpPass'])){
@@ -82,6 +83,11 @@ class UpdatePassword
         }
 
     }
+    /**
+     * método para carregar a View
+     *
+     * @return void
+     */
     private function viewUpdatePassword():void
     {
         $loadView = new \Core\ConfigView("adms/Views/login/updatePassword", $this->data);
