@@ -13,6 +13,9 @@ class UpdatePassword
     private array|string|null $key;
     /** @var array|string|null $data Recebe os dados que devem ser enviados para VIEW */
     private array|string|null $data = [];
+    /** @var array $dataForm Recebe os dados do formulario */
+    private array|null $dataForm;
+
 
 
     /**
@@ -22,29 +25,67 @@ class UpdatePassword
      */
     public function index(): void
     {
+        //recebe a chave na url
         $this->key = filter_input(INPUT_GET, "key", FILTER_DEFAULT);
         // var_dump($this->key);
-        if (!empty($this->key)) {
+        //recebe todos os dados do formulário
+       $this->dataForm= filter_input_array(INPUT_POST,FILTER_DEFAULT);
+        var_dump( $this->dataForm);
+
+        if ((!empty($this->key)) and (empty($this->dataForm['SendUpPass'])) ) {
             $this->validateKey();
         } else {
-            echo "sem chave";
-        }
+           $this->updatePassword();
+              }
 
         // $loadView = new \Core\ConfigView("adms/Views/erro/erro", $this->data);
         // $loadView->loadView();
     }
-
+    /**
+     * se tiver a chave e não tiver clicado através do botão e sim pelo link instancia validateKey que instancia a models que intancia a helper e faz a consulta no banco de dados verificando se a chave que vem pela url é igual a chave que ta salva se for carrega o formulario para carregar  a nova senha
+     *
+     * @return void
+     */
     private function validateKey(): void
     {
         $valKey  = new \App\adms\Models\AdmsUpdatePassword();
         $valKey->valKey($this->key);
         if ($valKey->getResult()) {
-            $loadView = new \Core\ConfigView("adms/Views/login/updatePassword", $this->data);
-        $loadView->loadView();
+           $this->viewUpdatePassword();
         
         } else {
             $urlRedirect = URLADM . "login/index";
         header("Location: $urlRedirect");
         }
     }
+    private function updatePassword():void
+    {
+        if(!empty($this->dataForm['SendUpPass'])){
+            unset($this->dataForm['SendUpPass']);
+            $this->dataForm['key']=$this->key;
+          
+            $upPassword  = new \App\adms\Models\AdmsUpdatePassword();
+            $upPassword->editPassword($this->dataForm);
+           if($upPassword->getResult()){
+            $urlRedirect = URLADM . "login/index";
+            header("Location: $urlRedirect");
+           }else{
+            $this->viewUpdatePassword();
+           }
+
+          
+        }else{
+            $_SESSION['msg']= "<p style='color:#f00;'>Erro: Link invalido, solicite novo link <a href='" .URLADM ."recover-password/index'>Clique aqui</a>!</p>";
+            $urlRedirect = URLADM . "login/index";
+            header("Location: $urlRedirect");
+
+        }
+
+    }
+    private function viewUpdatePassword():void
+    {
+        $loadView = new \Core\ConfigView("adms/Views/login/updatePassword", $this->data);
+        $loadView->loadView();
+    }
+
 }
