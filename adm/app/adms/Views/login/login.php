@@ -25,7 +25,7 @@ if(isset($_SESSION['msg'])){
     }
     ?>
     <label>Usuário: </label>
-    <input type="text" name="user" id="user" placeholder="Digite o usuário" value="<?php echo $user; ?>"><br><br>
+    <input type="text" name="user" id="user" placeholder="Digite o usuário" value="<?php echo $user; ?>" required><br><br>
 
     <?php
     $password = "";
@@ -34,7 +34,8 @@ if(isset($_SESSION['msg'])){
     }
     ?>
     <label>Senha: </label>
-    <input type="password" name="password" id="password" placeholder="Digite a senha" value="<?php echo $password; ?>"><br><br>
+    <input type="password" name="password" id="password" placeholder="Digite a senha"  autocomplete="on"  value="<?php echo $password; ?>" required><span id="msgViewStrength"><br><br></span>
+  
 
     <button type="submit" name="SendLogin" value="Acessar">Acessar</button>
 </form>

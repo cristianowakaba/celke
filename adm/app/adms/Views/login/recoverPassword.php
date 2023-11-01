@@ -24,7 +24,7 @@ if(isset($_SESSION['msg'])){
     }
     ?>
     <label>E-mail: </label>
-    <input type="text" name="email" id="email" placeholder="Digite o seu  e-mail" value="<?php echo $email; ?>"><br><br>
+    <input type="text" name="email" id="email" placeholder="Digite o seu  e-mail" value="<?php echo $email; ?>"required><br><br>
 
     
     <button type="submit" name="SendRecoverPass" value="Recuperar">Recuperar</button>

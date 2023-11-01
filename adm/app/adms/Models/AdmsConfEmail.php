@@ -38,12 +38,12 @@ class AdmsConfEmail extends AdmsConn
             if ($this->resultBd) {
                 $this->updateSitUser();
             } else {
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Link inválido</p>";
+                $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
                 $this->result = false;
-                echo "<p style='color: #f00;'>Erro: Link inválido0o</p>";
+               
             }
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Link inválido</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
             $this->result = false;
         }
     }
@@ -62,7 +62,7 @@ class AdmsConfEmail extends AdmsConn
             $_SESSION['msg'] = "<p style='color: green;'>E-mail ativado com sucesso!</p>";
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Link inválido</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
                     $this->result=false;
         }
 

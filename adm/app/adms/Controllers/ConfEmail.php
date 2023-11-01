@@ -25,7 +25,7 @@ class ConfEmail
      if(!empty($this->key)){
         $this->valKey();
      }else{
-        $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Link inválido</p>";
+        $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
         $urlRedirect = URLADM . "login/index";
         header("Location: $urlRedirect");
      }
