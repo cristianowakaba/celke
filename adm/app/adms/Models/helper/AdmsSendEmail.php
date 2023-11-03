@@ -98,7 +98,7 @@ class AdmsSendEmail
         try {
            
             //credenciais do sevidor;
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
             $mail->CharSet = 'UTF-8';
             $mail->isSMTP();
             $mail->Host       = $this->dataInfoEmail['host'];

@@ -1,3 +1,8 @@
+//permitir retorno no navegador
+if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.herf);
+}
+
 //calcular a forca da senha
 function passwordStrength() {
     var password = document.getElementById("password").value;

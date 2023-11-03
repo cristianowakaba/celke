@@ -52,6 +52,7 @@ class AdmsConfEmail extends AdmsConn
     {
         $this->dataSave['conf_email'] = null;
         $this->dataSave['adms_sits_user_id'] = 1;
+        $this->dataSave['modified'] = date("Y-m-d H:i:s");
         // $conf_email = null;
         // $adms_sits_user_id=1;
 

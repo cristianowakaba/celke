@@ -74,6 +74,7 @@ class AdmsRecoverPassword
       
 
             $this->dataSave['recover_password'] = password_hash(date("y-m-d H:i:s") . $this->resultBd[0]['id'], PASSWORD_DEFAULT);
+            $this->dataSave['modified'] = date("Y-m-d H:i:s");
 
         
 

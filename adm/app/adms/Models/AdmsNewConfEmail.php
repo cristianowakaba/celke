@@ -73,6 +73,7 @@ class AdmsNewConfEmail extends AdmsConn
         if ((empty($this->resultBd[0]['conf_email'])) or ($this->resultBd[0]['conf_email']) == null) {
 
             $this->dataSave['conf_email'] = password_hash(date("y-m-d H:i:s") . $this->resultBd[0]['id'], PASSWORD_DEFAULT);
+            $this->dataSave['modified'] = date("Y-m-d H:i:s");
 
             //    $this->dataSave['exemplo1'] = password_hash(date("y-m-d H:i:s").$this->resultBd[0]['id'],PASSWORD_DEFAULT);
 
