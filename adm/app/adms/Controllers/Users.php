@@ -8,8 +8,17 @@ namespace App\adms\Controllers;
  */
 class Users
 {
-    public function index()
+    
+    /** @var array|string|null $data Recebe os dados que devem ser enviados para VIEW */
+    private array|string|null $data;
+
+    public function index(): void
     {
-        echo "Pagina listar usuarios<br>";
+     
+         $this->data = [];
+
+        $loadView = new \Core\ConfigView("adms/Views/users/users", $this->data);
+        $loadView->loadView();
+
     }
 }

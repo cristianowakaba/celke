@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use App\adms\Controllers\ViewUsers;
+
 /**
  * Verificar se existe a classe
  * Carregar a CONTROLLER
@@ -93,7 +95,7 @@ class CarregarPgAdm
      */
     private function pgPrivate():void
     {
-        $this->listPgPrivate = ["Dashboard", "Users"];
+        $this->listPgPrivate = ["Dashboard", "Users","ViewUsers"];
         if(in_array($this->urlController, $this->listPgPrivate)){
             $this->verifyLogin();
         }else{

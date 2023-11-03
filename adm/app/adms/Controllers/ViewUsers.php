@@ -18,7 +18,7 @@ class ViewUsers
      */
     public function index(): void
     {
-        echo "Pagina visualizar usuario<br>";
+     
 
         $this->data = [];
 
