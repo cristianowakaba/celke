@@ -28,11 +28,22 @@ class AdmsListUsers
         return $this->resultBd;
         // var_dump($this->result);
     }
-    public function listUser():void
+    public function listUsers():void
     {
       $listUsers = new \App\adms\Models\helper\AdmsRead();
-      $listUsers->fullRead("SELECT id, name,email FROM adms_users");
-      $listUsers->getResult();
+      $listUsers->fullRead("SELECT id, name,email FROM adms_users ");
+      $this->resultBd=$listUsers->getResult();
+      
+      if($this->resultBd){
+        
+        $this->result=true;
+      }else{
+        $_SESSION['msg']="<p style='color:#f00'>Erro: nenhum usuário encontrado!</p>";
+        $this->result=false;
+
+      }
+
+
     }
 
    
