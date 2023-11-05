@@ -6,7 +6,7 @@ namespace App\adms\Controllers;
  * Controller da página listar usuarios
  * @author Cesar <cesar@celke.com.br>
  */
-class ListUsers
+class Users
 {
     
     /** @var array|string|null $data Recebe os dados que devem ser enviados para VIEW */
@@ -17,7 +17,7 @@ class ListUsers
      
          $this->data = [];
 
-        $loadView = new \Core\ConfigView("adms/Views/users/listUsers", $this->data);
+        $loadView = new \Core\ConfigView("adms/Views/users/users", $this->data);
         $loadView->loadView();
 
     }
