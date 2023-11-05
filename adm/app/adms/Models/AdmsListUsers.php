@@ -21,7 +21,7 @@ class AdmsListUsers
     function getResult():bool
     {
         return $this->result;
-        // var_dump($this->result);
+       
     }
     function getResultBd():array|null
     {
