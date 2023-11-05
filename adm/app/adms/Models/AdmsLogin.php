@@ -59,7 +59,7 @@ class AdmsLogin
         // }
     }
     /**
-     * verifica  se o usuario ta com a situação ativa  1 segue em diante, senão redireciona para confirmar email
+     * verifica  se o usuario ta com a situação ativa  1 segue em diante, senão redireciona para confirmar email.
      *
      * @return void
      */
