@@ -10,9 +10,11 @@ if(!empty( $this->data['viewUser'])){
 // var_dump( $this->data['viewUser'][0]);
 extract( $this->data['viewUser'][0]);
 echo "ID: $id<br>";
-echo "NOME: $name<br>";
+echo "NOME: $name_usr<br>";
 echo "USUÁRIO: $user<br>";
 echo "IMAGEM: $image<br>";
+echo "SITUACÃO DO USUÁRIO: <span style='color:$color;'>$name_sit</span><br>";
+
 // função para converter data criacao para padrões normais
 echo "CADASTRADO:".date('d/m/Y H:i:s',strtotime($created))."<br>";
 echo "EDITADO: ";
