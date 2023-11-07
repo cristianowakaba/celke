@@ -22,6 +22,7 @@ class Dashboard
         $this->data = "Bem vindo";
 
         $loadView = new \Core\ConfigView("adms/Views/dashboard/dashboard", $this->data);
+        
         $loadView->loadView();
     }
 }

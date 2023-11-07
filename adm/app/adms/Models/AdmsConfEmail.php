@@ -18,7 +18,7 @@ class AdmsConfEmail extends AdmsConn
     private array|null $resultBd;
     private array $dataSave;
 
-
+ /**recebe true se executar com sucesso e false se houver erro */
     function getResult()
     {
         return $this->result;

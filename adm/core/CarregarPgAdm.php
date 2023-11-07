@@ -38,12 +38,16 @@ class CarregarPgAdm
         $this->urlController = $urlController;
         $this->urlMetodo = $urlMetodo;
         $this->urlParameter = $urlParameter;
-       
+        // var_dump($this->urlController);
+        // var_dump($this->urlMetodo);
+        // var_dump( $this->urlParameter);
+        
 
         //unset($_SESSION['user_id']);
         $this->pgPublic();
-
+        //é conferido se a página é publica ou privada, e atribuida q url ao atributo ex:$this->classLoad = "\\App\\adms\\Controllers\\" . $this->urlController; abaixo verifica se classe existe instancia o metodo
         if (class_exists($this->classLoad)) {
+            // var_dump($this->classLoad);
             $this->loadMetodo();
         } else {
             //die("Erro - 003: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
@@ -65,8 +69,11 @@ class CarregarPgAdm
     private function loadMetodo():void
     {
         $classLoad = new $this->classLoad();
+        // var_dump($classLoad);
         if(method_exists( $classLoad,$this->urlMetodo)){
-            $classLoad->{$this->urlMetodo}();
+            // var_dump($this->urlMetodo);
+            $classLoad->{$this->urlMetodo}($this->urlParameter);
+            
         }else{
             die("Erro - 003: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
         }
@@ -82,7 +89,7 @@ class CarregarPgAdm
 
         if (in_array($this->urlController, $this->listPgPublic)) {
             $this->classLoad = "\\App\\adms\\Controllers\\" . $this->urlController;
-            
+            // var_dump($this->urlController);
         
         } else {
             $this->pgPrivate();
@@ -95,7 +102,9 @@ class CarregarPgAdm
      */
     private function pgPrivate():void
     {
+      
         $this->listPgPrivate = ["Dashboard", "ListUsers","ViewUsers"];
+        // var_dump($this->urlController);
         if(in_array($this->urlController, $this->listPgPrivate)){
             $this->verifyLogin();
         }else{
@@ -114,6 +123,7 @@ class CarregarPgAdm
     {
         if((isset($_SESSION['user_id'])) and (isset($_SESSION['user_name']))  and (isset($_SESSION['user_email'])) ){
             $this->classLoad = "\\App\\adms\\Controllers\\" . $this->urlController;
+            // var_dump($this->classLoad);
         }else{
             $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Para acessar a página realize o login!</p>";
             $urlRedirect = URLADM . "login/index";
