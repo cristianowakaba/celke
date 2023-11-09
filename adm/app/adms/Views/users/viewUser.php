@@ -7,7 +7,7 @@ if(isset($_SESSION['msg'])){
     unset($_SESSION['msg']);
 }
 if(!empty( $this->data['viewUser'])){
-// var_dump( $this->data['viewUser'][0]);
+ //var_dump( $this->data['viewUser'][0]);
 extract( $this->data['viewUser'][0]);
 echo "ID: $id<br>";
 echo "NOME: $name_usr<br>";

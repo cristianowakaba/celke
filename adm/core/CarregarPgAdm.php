@@ -4,7 +4,7 @@ namespace Core;
 
 use App\adms\Controllers\ViewUsers;
 
-/**
+/**s
  * Verificar se existe a classe
  * Carregar a CONTROLLER
  * @author Cesar <cesar@celke.com.br>
@@ -69,9 +69,9 @@ class CarregarPgAdm
     private function loadMetodo():void
     {
         $classLoad = new $this->classLoad();
-        // var_dump($classLoad);
+        //var_dump($classLoad);
         if(method_exists( $classLoad,$this->urlMetodo)){
-            // var_dump($this->urlMetodo);
+           //  var_dump($this->urlMetodo);
             $classLoad->{$this->urlMetodo}($this->urlParameter);
             
         }else{
@@ -103,7 +103,7 @@ class CarregarPgAdm
     private function pgPrivate():void
     {
       
-        $this->listPgPrivate = ["Dashboard", "ListUsers","ViewUsers"];
+        $this->listPgPrivate = ["Dashboard", "ListUsers","ViewUsers","AddUsers"];
         // var_dump($this->urlController);
         if(in_array($this->urlController, $this->listPgPrivate)){
             $this->verifyLogin();

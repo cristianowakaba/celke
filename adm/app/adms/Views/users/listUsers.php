@@ -1,6 +1,7 @@
 <?php
 
 echo "<h2>Listar Usuários</h2>";
+echo "<a href='".URLADM."add-users/index'>Cadastrar</a><br><br>";
 // var_dump($this->data['listUsers']);
 if(isset($_SESSION['msg'])){
     echo $_SESSION['msg'];

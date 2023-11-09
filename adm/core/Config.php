@@ -31,7 +31,7 @@ abstract class Config
         define('HOST', 'localhost');
         define('USER', 'root');
         define('PASS', '');
-        define('DBNAME', 'projetosalao');
+        define('DBNAME', 'celke');
         define('PORT', 3306);
 
         define('EMAILADM', 'cristianowakaba@gmail.com');
