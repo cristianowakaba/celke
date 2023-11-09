@@ -3,7 +3,7 @@
 namespace App\adms\Controllers;
 
 /**
- * Controller da página novo usuário
+ * Controller da página novo usuário.
  * @author Cesar <cesar@celke.com.br>
  */
 class AddUsers
