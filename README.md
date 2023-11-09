@@ -65,3 +65,11 @@ Fazer o push dessas alterações
 Retirar o arquivo do staging area
 ### git restore --staged <file_path>
 ### git restore --staged index.html
+# Define a branch upstream para a branch local 'aula'
+git branch --set-upstream-to=origin/aula aula
+
+# Busca as alterações mais recentes do repositório remoto
+git fetch
+
+# Mescla as alterações mais recentes na branch local 'aula'
+git pull
