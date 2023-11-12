@@ -20,7 +20,15 @@ if(isset($_SESSION['msg'])){
 ?>
 <span id="msg"></span>
 
-<form method="POST" action="" id="form-add-user">    
+<form method="POST" action="" id="form-add-user"> 
+<?php
+//mandar o id  oculto
+    $id = "";
+    if (isset($valorForm['id'])) {
+        $name = $valorForm['id'];
+    }
+    ?>
+    <input type="hidden" name="id" id="id"  value="<?php echo $id; ?>" ><br><br>   
     <?php
     $name = "";
     if (isset($valorForm['name'])) {
@@ -36,7 +44,7 @@ if(isset($_SESSION['msg'])){
     }
     ?>
     <label>Apelido: </label>
-    <input type="text" name="name" id="nickname" placeholder="Digite o apelido" value="<?php echo $nickname; ?>"required ><br><br>
+    <input type="text" name="nickname" id="nickname" placeholder="Digite o apelido" value="<?php echo $nickname; ?>"required ><br><br>
     
     <?php
     $email = "";
@@ -58,6 +66,6 @@ if(isset($_SESSION['msg'])){
    
  
 
-    <button type="submit" name="SendAddUser" value="Cadastrar">Cadastrar</button>
+    <button type="submit" name="SendEditUser" value="Salvar">Salvar</button>
 </form>
-<p><a href="<?php echo URLADM; ?>">Clique aqui</a> para acessar</p>
+

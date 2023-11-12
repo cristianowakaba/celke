@@ -16,6 +16,11 @@ class AdmsEditUsers
   private array|null $resultBd;
   /** @var array|string|null $id recebeo id do registro */
   private int|string| null $id;
+ /**
+  * 
+  * // @var array|string|null $data Recebe a sinformações do formulário 
+  */
+  private array|string|null $data;
 
 
 
@@ -61,6 +66,19 @@ class AdmsEditUsers
     } else {
       $_SESSION['msg'] = "<p style='color:#f00'>Erro: Usuário não encontrado!</p>";
       $this->result = false;
+    }
+  }
+  public function update(array $data =null):void
+  {
+    $this->data=$data;
+    var_dump($this->data);
+    $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();       
+    $valEmptyField->valField($this->data);
+    if ($valEmptyField->getResult()) {
+        // $this->valInput();
+        $this->result = false;
+    } else {
+        $this->result = false;
     }
   }
 }
