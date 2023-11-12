@@ -13,19 +13,25 @@ if (isset($this->data['form'][0])) {
 <h1>Editar  Usuário</h1>
 
 <?php
+echo "<a href='".URLADM."list-users/index'>Listar</a><br>";
+if(!empty($valorForm['id'])){
+    echo "<a href='".URLADM."view-users/index/".$valorForm['id']."'>Visualizar</a><br><br>";
+}
+
 if(isset($_SESSION['msg'])){
     echo $_SESSION['msg'];
     unset($_SESSION['msg']);
 }
 ?>
+<!--span exibe msg através do javascript-->
 <span id="msg"></span>
 
-<form method="POST" action="" id="form-add-user"> 
+<form method="POST" action="" id="form-edit-user"> 
 <?php
 //mandar o id  oculto
     $id = "";
     if (isset($valorForm['id'])) {
-        $name = $valorForm['id'];
+        $id = $valorForm['id'];
     }
     ?>
     <input type="hidden" name="id" id="id"  value="<?php echo $id; ?>" ><br><br>   
@@ -36,7 +42,7 @@ if(isset($_SESSION['msg'])){
     }
     ?>
     <label>Nome: </label>
-    <input type="text" name="name" id="name" placeholder="Digite o nome completo" value="<?php echo $name; ?>"required ><br><br>
+    <input type="text" name="name" id="name" placeholder="Digite o nome completo" value="<?php echo $name; ?>"><br><br>
     <?php
     $nickname = "";
     if (isset($valorForm['nickname'])) {
@@ -44,7 +50,7 @@ if(isset($_SESSION['msg'])){
     }
     ?>
     <label>Apelido: </label>
-    <input type="text" name="nickname" id="nickname" placeholder="Digite o apelido" value="<?php echo $nickname; ?>"required ><br><br>
+    <input type="text" name="nickname" id="nickname" placeholder="Digite o apelido" value="<?php echo $nickname; ?>" ><br><br>
     
     <?php
     $email = "";
@@ -53,7 +59,7 @@ if(isset($_SESSION['msg'])){
     }
     ?>
     <label>E-mail: </label>
-    <input type="email" name="email" id="email" placeholder="Digite o seu melhor e-mail" value="<?php echo $email; ?>"required ><br><br>
+    <input type="text" name="email" id="email" placeholder="Digite o seu melhor e-mail" value="<?php echo $email; ?>" ><br><br>
     <?php
     $user = "";
     if (isset($valorForm['user'])) {
@@ -61,7 +67,7 @@ if(isset($_SESSION['msg'])){
     }
     ?>
     <label>Usuário: </label>
-    <input type="text" name="user" id="user" placeholder="Digite o Usuário para acessar o adm" value="<?php echo $email; ?>"required ><br><br>
+    <input type="text" name="user" id="user" placeholder="Digite o Usuário para acessar o adm" value="<?php echo $email; ?>" ><br><br>
 
    
  

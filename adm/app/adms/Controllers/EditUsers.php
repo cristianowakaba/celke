@@ -29,9 +29,9 @@ class EditUsers
     public function index(int|string|null $id): void
     {
         $this->dataForm= filter_input_array(INPUT_POST,FILTER_DEFAULT);
-        // var_dump( $this->dataForm);
+       
         if((!empty($id)) and(empty( $this->dataForm['SendEditUser']))){
-            // var_dump($id);
+            var_dump($id);
             $this->id = (int)$id;
             $viewUser= new \App\adms\Models\AdmsEditUsers();
            $viewUser->viewUser($this->id);
@@ -45,12 +45,16 @@ class EditUsers
         }   
        
     }
-
+     /**
+     * Instantiar a classe responsável em carregar a View e enviar os dados para View.
+     * 
+     */
     private function viewEditUser(): void
     {
         $loadView = new \Core\ConfigView("adms/Views/users/editUser", $this->data);
         $loadView->loadView();
     }
+
     private function editUser():void
     {
        
@@ -59,13 +63,15 @@ class EditUsers
             $editUser = new \App\adms\Models\AdmsEditUsers();
             $editUser->update($this->dataForm);
             if($editUser->getResult()){
-
+                $urlRedirect = URLADM . "view-users/index/".$this->dataForm['id'];
+            header("Location: $urlRedirect");
             }else{
-
+                $this->data['form'] =$this->dataForm;
+                $this->viewEditUser();
             }
 
         }else{
-             $_SESSION['msg'] = "<p style='color:#f00;'>Erro: Usuário não encontrado!</p>";
+             $_SESSION['msg'] = "<p style='color:#f00;'>Erro: Usuário não encontrado controller EditUsers!</p>";
             $urlRedirect = URLADM . "list-users/index";
             header("Location: $urlRedirect");
         }

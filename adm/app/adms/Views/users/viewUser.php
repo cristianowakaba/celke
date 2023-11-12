@@ -2,6 +2,12 @@
 
 echo "<h2>Detalhes do Usuário!</h2><br>";
 
+echo "<a href='".URLADM."list-users/index'>Listar</a><br>";
+if(!empty($this->data['viewUser'])){
+    echo "<a href='".URLADM."edit-users/index/".$this->data['viewUser'][0]['id']."'>Editar</a><br><br>";
+}
+
+
 if(isset($_SESSION['msg'])){
     echo $_SESSION['msg'];
     unset($_SESSION['msg']);

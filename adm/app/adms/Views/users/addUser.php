@@ -54,4 +54,4 @@ if(isset($_SESSION['msg'])){
 
     <button type="submit" name="SendAddUser" value="Cadastrar">Cadastrar</button>
 </form>
-<p><a href="<?php echo URLADM; ?>">Clique aqui</a> para acessar</p>
+

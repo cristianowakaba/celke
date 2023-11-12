@@ -15,6 +15,7 @@ if(isset($_SESSION['msg'])){
     unset($_SESSION['msg']);
 }
 ?>
+<!--tag para exibir a msg do javascript-->
 <span id="msg"></span>
 
 <form method="POST" action="" id="form-login">
