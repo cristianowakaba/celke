@@ -95,8 +95,10 @@ class AdmsEditUsers
     $valEmail = new \App\adms\Models\helper\AdmsValEmail();
     $valEmail->validateEmail($this->data['email']);
 
+   $valEmailSingle= new \App\adms\Models\helper\AdmsValEmailSingle();
+   $valEmailSingle->validateEmailSingle($this->data['email'],true,$this->data['id']);
 
-    if (($valEmail->getResult())) {
+    if (($valEmail->getResult())and ($valEmailSingle->getResult())) {
       $this->edit();
     } else {
       $this->result = false;

@@ -59,7 +59,7 @@ if(isset($_SESSION['msg'])){
     }
     ?>
     <label>E-mail: </label>
-    <input type="text" name="email" id="email" placeholder="Digite o seu melhor e-mail" value="<?php echo $email; ?>" ><br><br>
+    <input type="email" name="email" id="email" placeholder="Digite o seu melhor e-mail" value="<?php echo $email; ?>" ><br><br>
     <?php
     $user = "";
     if (isset($valorForm['user'])) {

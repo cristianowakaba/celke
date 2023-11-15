@@ -25,7 +25,7 @@ class AdmsValEmailSingle
 // recebe o email, instancia a classe AdmsRead() se $this->edit==true e o id for diferente de vazio significa que vai editar(veremos mais a frente o editar) ai instancia o fullread do if que pega o id diferente do id do usuario para ignorar o email, se nao for editar cai no else e instancia o fullread com a query, apos instancia o $valEmailSingle->getResult()
    $valEmailSingle =new \App\adms\Models\helper\AdmsRead();
         if(($this->edit==true)and (!empty($this->id))){
-            $valEmailSingle->fullRead("SELECT id FROM adms_users WHERE email=:email id<>:id LIMIT :limit","email={$this->email}&id={$this->id}&limit=1");
+            $valEmailSingle->fullRead("SELECT id FROM adms_users WHERE (email=:email OR user =:user) AND id<>:id LIMIT :limit","email={$this->email}&:user={$this->email}&id={$this->id}&limit=1");
         }else{
             $valEmailSingle->fullRead("SELECT id FROM adms_users WHERE email=:email LIMIT :limit","email={$this->email}&limit=1");
         }

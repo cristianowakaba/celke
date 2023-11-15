@@ -2,7 +2,7 @@
 
 namespace App\adms\Models\helper;
 /**
- * classe responsável por validar email unico
+ * classe responsável por validar email 
  */
 class AdmsValEmail
 {
