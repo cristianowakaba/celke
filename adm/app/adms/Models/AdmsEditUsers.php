@@ -21,6 +21,12 @@ class AdmsEditUsers
    * // @var array|string|null $data Recebe a sinformações do formulário 
    */
   private array|string|null $data;
+/**
+ * $dataExitVal recebe os campos que devem ser retirados
+ *
+ * @var array|null
+ */
+  private array|null $dataExitVal;
 
 
 
@@ -69,12 +75,20 @@ class AdmsEditUsers
 
   public function update(array $data = null): void
   {
+
     $this->data = $data;
-    var_dump($this->data);
+    /* var_dump($this->data); */
+    $this->dataExitVal['nickname']=$this->data['nickname'];
+    // $this->dataExitVal['name']=$this->data['name'];
+    unset($this->data['nickname']);
+   /*  var_dump($this->data);
+    var_dump( $this->dataExitVal); */
+
     $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();
     $valEmptyField->valField($this->data);
     if ($valEmptyField->getResult()) {
       $this->valInput();
+     
     } else {
       $this->result = false;
     }
@@ -109,7 +123,12 @@ class AdmsEditUsers
   }
   private function edit(): void
   {
+    // var_dump($this->data);
     $this->data['modified'] = date("y-m-d H:i:s");
+    $this->data['nickname'] = $this->dataExitVal['nickname'];
+    // $this->data['name'] =$this->dataExitVal['name'];
+   
+    // var_dump($this->data);
     $upUser = new \App\adms\Models\helper\AdmsUpdate();
     $upUser->exeUpdate("adms_users", $this->data, "WHERE id=:id", "id={$this->data['id']}");
     if ($upUser->getResult()) {
