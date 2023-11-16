@@ -4,7 +4,7 @@ namespace App\adms\Models;
 
 
 /**
- * visualizar o usuários do banco de dados
+ * EDITAR o usuários do banco de dados
  */
 class AdmsEditUsers
 {
@@ -41,31 +41,31 @@ class AdmsEditUsers
    * @return array|null
    */
   function getResultBd(): array|null
-    {
-        return $this->resultBd;
-    }
+  {
+    return $this->resultBd;
+  }
 
-    public function viewUser(int $id): void
-    {
-        $this->id = $id;
+  public function viewUser(int $id): void
+  {
+    $this->id = $id;
 
-        $viewUser = new \App\adms\Models\helper\AdmsRead();
-        $viewUser->fullRead(
-            "SELECT id, name, nickname, email, user
+    $viewUser = new \App\adms\Models\helper\AdmsRead();
+    $viewUser->fullRead(
+      "SELECT id, name, nickname, email, user
                             FROM adms_users
                             WHERE id=:id
                             LIMIT :limit",
-            "id={$this->id}&limit=1"
-        );
+      "id={$this->id}&limit=1"
+    );
 
-        $this->resultBd = $viewUser->getResult();        
-        if ($this->resultBd) {
-            $this->result = true;
-        } else {
-            $_SESSION['msg'] = "<p style='color: #f00'>Erro: Usuário não encontrado!</p>";
-            $this->result = false;
-        }
+    $this->resultBd = $viewUser->getResult();
+    if ($this->resultBd) {
+      $this->result = true;
+    } else {
+      $_SESSION['msg'] = "<p style='color: #f00'>Erro: Usuário não encontrado!</p>";
+      $this->result = false;
     }
+  }
 
   public function update(array $data = null): void
   {
@@ -80,43 +80,44 @@ class AdmsEditUsers
     }
   }
   /** 
-     * Instanciar o helper "AdmsValEmail" para verificar se o e-mail válido
-     * Instanciar o helper "AdmsValEmailSingle" para verificar se o e-mail não está cadastrado no banco de dados, não permitido cadastro com e-mail duplicado
-     * Instanciar o helper "validatePassword" para validar a senha
-     * Instanciar o helper "validateUserSingleLogin" para verificar se o usuário não está cadastrado no banco de dados, não permitido cadastro com usuário duplicado
-     * Instanciar o método "add" quando não houver nenhum erro de preenchimento 
-     * Retorna FALSE quando houve algum erro
-     * 
-     * @return void
-     */
+   * Instanciar o helper "AdmsValEmail" para verificar se o e-mail válido
+   * Instanciar o helper "AdmsValEmailSingle" para verificar se o e-mail não está cadastrado no banco de dados, não permitido cadastro com e-mail duplicado
+   * Instanciar o helper "validatePassword" para validar a senha
+   * Instanciar o helper "validateUserSingleLogin" para verificar se o usuário não está cadastrado no banco de dados, não permitido cadastro com usuário duplicado
+   * Instanciar o método "add" quando não houver nenhum erro de preenchimento 
+   * Retorna FALSE quando houve algum erro
+   * 
+   * @return void
+   */
   private function valInput(): void
   {
 
     $valEmail = new \App\adms\Models\helper\AdmsValEmail();
     $valEmail->validateEmail($this->data['email']);
 
-   $valEmailSingle= new \App\adms\Models\helper\AdmsValEmailSingle();
-   $valEmailSingle->validateEmailSingle($this->data['email'],true,$this->data['id']);
+    $valEmailSingle = new \App\adms\Models\helper\AdmsValEmailSingle();
+    $valEmailSingle->validateEmailSingle($this->data['email'], true, $this->data['id']);
 
-    if (($valEmail->getResult())and ($valEmailSingle->getResult())) {
+    $valUserSingle = new \App\adms\Models\helper\AdmsValUserSingle();
+    $valUserSingle->validateUserSingle($this->data['user'], true, $this->data['id']);
+    // se o email for valido e não tiver email e usuario no banco de dados ja cadastrado segue o procesamento para editar
+    if (($valEmail->getResult()) and ($valEmailSingle->getResult()) and ($valUserSingle->getResult())) {
       $this->edit();
     } else {
       $this->result = false;
     }
   }
-  private function edit():void
+  private function edit(): void
   {
     $this->data['modified'] = date("y-m-d H:i:s");
-    $upUser=new \App\adms\Models\helper\AdmsUpdate();
-    $upUser->exeUpdate("adms_users",$this->data,"WHERE id=:id","id={$this->data['id']}");
-    if ($upUser->getResult()){
+    $upUser = new \App\adms\Models\helper\AdmsUpdate();
+    $upUser->exeUpdate("adms_users", $this->data, "WHERE id=:id", "id={$this->data['id']}");
+    if ($upUser->getResult()) {
       $_SESSION['msg'] = "<p style='color: green;'>Usuário editado com sucesso!</p>";
       $this->result = true;
-
-    }else{
+    } else {
       $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário não editado com sucesso!</p>";
       $this->result = false;
-
     }
   }
 }

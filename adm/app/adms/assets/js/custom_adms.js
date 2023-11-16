@@ -150,6 +150,7 @@ if (formUpdatePass) {
       
     }); 
 }
+
 const formAddUser = document.getElementById("form-add-user");
 if (formAddUser) {
     formAddUser.addEventListener("submit", async (e) => {
@@ -205,5 +206,38 @@ if (formAddUser) {
             document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: a senha deve ter pelo menos uma letra!</p>";
             return;
         }
+    });
+}
+
+const formEditUser = document.getElementById("form-edit-user");
+if (formEditUser) {
+    formEditUser.addEventListener("submit", async (e) => {
+        //Receber o valor do campo
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
+        if (name === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo nome!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var email = document.querySelector("#email").value;
+        // Verificar se o campo esta vazio
+        if (email === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo e-mail!</p>";
+            return;
+        }
+        //Receber o valor do campo
+        var user = document.querySelector("#user").value;
+        // Verificar se o campo esta vazio
+        if (user === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo Usuário!</p>";
+            return;
+        }
+
+   
     });
 }

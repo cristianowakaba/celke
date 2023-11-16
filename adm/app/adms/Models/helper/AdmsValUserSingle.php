@@ -29,7 +29,7 @@ class AdmsValUserSingle
         return $this->result;
     }
    /**recebe o $user e verifica se tiver $edit e id for diferente entra no if editar senão entra no else e instancia o método fullRed  do AdmsRead e passa a query e  a parsestring, se tiver resultado o metogo getResul retorna true senão false*/
-    public function validateUserSingleLogin(string $user, bool|null $edit=null, int|null $id=null):void
+    public function validateUserSingle(string $user, bool|null $edit=null, int|null $id=null):void
     {
     $this->user=$user;
     $this->edit=$edit;
@@ -37,7 +37,7 @@ class AdmsValUserSingle
 
    $valUserSingle =new \App\adms\Models\helper\AdmsRead();
         if(($this->edit==true)and (!empty($this->id))){
-            $valUserSingle->fullRead("SELECT id FROM adms_users WHERE user=:user id<>:id LIMIT :limit","user={$this->user}&id={$this->id}&limit=1");
+            $valUserSingle->fullRead("SELECT id FROM adms_users WHERE (user=:user OR email =:email) AND id<>:id LIMIT :limit", "user={$this->user}&email={$this->user}&id={$this->id}&limit=1");
         }else{
             $valUserSingle->fullRead("SELECT id FROM adms_users WHERE user=:user LIMIT :limit","user={$this->user}&limit=1");
         }
