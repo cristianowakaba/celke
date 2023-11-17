@@ -4,9 +4,9 @@ namespace App\adms\Models;
 
 
 /**
- * EDITAR o usuários do banco de dados
+ * EDITAR a senha do usuários do banco de dados
  */
-class AdmsEditUsers
+class AdmsEditUsersPassword
 {
 
 
@@ -57,7 +57,7 @@ class AdmsEditUsers
 
     $viewUser = new \App\adms\Models\helper\AdmsRead();
     $viewUser->fullRead(
-      "SELECT id, name, nickname, email, user
+      "SELECT id
                             FROM adms_users
                             WHERE id=:id
                             LIMIT :limit",
@@ -78,15 +78,12 @@ class AdmsEditUsers
 
     $this->data = $data;
     /* var_dump($this->data); */
-    $this->dataExitVal['nickname']=$this->data['nickname'];
-   /*  $this->dataExitVal['name']=$this->data['name']; */
-    unset($this->data['nickname']);
-    /* var_dump($this->data);
-    var_dump( $this->dataExitVal); */
+    
 
     $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();
     $valEmptyField->valField($this->data);
     if ($valEmptyField->getResult()) {
+     
       $this->valInput();
       
      
@@ -95,28 +92,18 @@ class AdmsEditUsers
     }
   }
   /** 
-   * Instanciar o helper "AdmsValEmail" para verificar se o e-mail válido
-   * Instanciar o helper "AdmsValEmailSingle" para verificar se o e-mail não está cadastrado no banco de dados, não permitido cadastro com e-mail duplicado
-   * Instanciar o helper "validatePassword" para validar a senha
-   * Instanciar o helper "validateUserSingleLogin" para verificar se o usuário não está cadastrado no banco de dados, não permitido cadastro com usuário duplicado
-   * Instanciar o método "add" quando não houver nenhum erro de preenchimento 
-   * Retorna FALSE quando houve algum erro
-   * 
+   * Instanciar o helper "AdmsValPassword" para validar a senha
+   
    * @return void
    */
   private function valInput(): void
   {
 
-    $valEmail = new \App\adms\Models\helper\AdmsValEmail();
-    $valEmail->validateEmail($this->data['email']);
+    $valPassword = new \App\adms\Models\helper\AdmsValPassword();
+    $valPassword->validatePassword($this->data['password']);
 
-    $valEmailSingle = new \App\adms\Models\helper\AdmsValEmailSingle();
-    $valEmailSingle->validateEmailSingle($this->data['email'], true, $this->data['id']);
-
-    $valUserSingle = new \App\adms\Models\helper\AdmsValUserSingle();
-    $valUserSingle->validateUserSingle($this->data['user'], true, $this->data['id']);
-    // se o email for valido e não tiver email e usuario no banco de dados ja cadastrado segue o procesamento para editar
-    if (($valEmail->getResult()) and ($valEmailSingle->getResult()) and ($valUserSingle->getResult())) {
+ 
+    if ($valPassword->getResult())  {
       $this->edit();
     } else {
       $this->result = false;
@@ -124,19 +111,19 @@ class AdmsEditUsers
   }
   private function edit(): void
   {
+    $this->data['password'] = password_hash($this->data['password'], PASSWORD_DEFAULT);
     // var_dump($this->data);
     $this->data['modified'] = date("y-m-d H:i:s");
-    $this->data['nickname'] = $this->dataExitVal['nickname'];
-    // $this->data['name'] =$this->dataExitVal['name'];
+   
    
     // var_dump($this->data);
     $upUser = new \App\adms\Models\helper\AdmsUpdate();
     $upUser->exeUpdate("adms_users", $this->data, "WHERE id=:id", "id={$this->data['id']}");
     if ($upUser->getResult()) {
-      $_SESSION['msg'] = "<p style='color: green;'>Usuário editado com sucesso!</p>";
+      $_SESSION['msg'] = "<p style='color: green;'> a senha do usuário editado com sucesso!</p>";
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário não editado com sucesso!</p>";
+      $_SESSION['msg'] = "<p style='color: #f00;'>Erro: a senha do usuário não editada com sucesso!</p>";
       $this->result = false;
     }
   }

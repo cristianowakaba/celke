@@ -20,7 +20,7 @@ class AdmsValEmptyField
     public function valField(array $data = null): void
     {
         $this->data = $data;
-        // var_dump($this->data);
+        var_dump($this->data);
         //retira as tags
         $this->data = array_map('strip_tags', $this->data);
         //retirar espaço em branco do inicio e final
