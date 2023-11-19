@@ -21,12 +21,14 @@ class AdmsEditUsersImage
    * // @var array|string|null $data Recebe a sinformações do formulário 
    */
   private array|string|null $data;
-/**
- * $dataExitVal recebe os campos que devem ser retirados da validação
- *
- * @var array|null
- */
-  private array|null $dataExitVal;
+  /** @var array|null $dataImagem Recebe os dados da imagem */
+  private array|null $dataImagem;
+  /** @var string $directory Recebe o endereço de upload da imagem */
+  private string $directory;
+
+  /** @var string $delImg Recebe o endereço da imagem que deve ser excluida */
+  private string $delImg;
+
 
 
 
@@ -51,7 +53,7 @@ class AdmsEditUsersImage
     return $this->resultBd;
   }
 
-  public function viewUser(int $id): void
+  public function viewUser(int $id): bool
   {
     $this->id = $id;
 
@@ -67,73 +69,114 @@ class AdmsEditUsersImage
     $this->resultBd = $viewUser->getResult();
     if ($this->resultBd) {
       $this->result = true;
+      return true;
     } else {
       $_SESSION['msg'] = "<p style='color: #f00'>Erro: Usuário não encontrado!</p>";
       $this->result = false;
+      return false;
     }
   }
 
   public function update(array $data = null): void
   {
-
     $this->data = $data;
     var_dump($this->data);
-    $this->result = false;
-    
-   /*  $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();
+    $this->dataImagem = $this->data['new_image'];
+    unset($this->data['new_image']);
+
+    $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();
     $valEmptyField->valField($this->data);
     if ($valEmptyField->getResult()) {
-      $this->valInput();
-      
-     
+      /*           valida se tiver a posição name quer dizer que tem a imagem
+ */
+      if (!empty($this->dataImagem['name'])) {
+        //$this->result = false;
+        $this->valInput();
+      } else {
+        $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário selecionar uma imagem!</p>";
+        $this->result = false;
+      }
     } else {
       $this->result = false;
-    } */
+    }
   }
   /** 
-   * Instanciar o helper "AdmsValEmail" para verificar se o e-mail válido
-   * Instanciar o helper "AdmsValEmailSingle" para verificar se o e-mail não está cadastrado no banco de dados, não permitido cadastro com e-mail duplicado
-   * Instanciar o helper "validatePassword" para validar a senha
-   * Instanciar o helper "validateUserSingleLogin" para verificar se o usuário não está cadastrado no banco de dados, não permitido cadastro com usuário duplicado
-   * Instanciar o método "add" quando não houver nenhum erro de preenchimento 
+   * Verificar se existe o usuário com o ID recebido
    * Retorna FALSE quando houve algum erro
    * 
    * @return void
    */
   private function valInput(): void
   {
-
-    $valEmail = new \App\adms\Models\helper\AdmsValEmail();
-    $valEmail->validateEmail($this->data['email']);
-
-    $valEmailSingle = new \App\adms\Models\helper\AdmsValEmailSingle();
-    $valEmailSingle->validateEmailSingle($this->data['email'], true, $this->data['id']);
-
-    $valUserSingle = new \App\adms\Models\helper\AdmsValUserSingle();
-    $valUserSingle->validateUserSingle($this->data['user'], true, $this->data['id']);
-    // se o email for valido e não tiver email e usuario no banco de dados ja cadastrado segue o procesamento para editar
-    if (($valEmail->getResult()) and ($valEmailSingle->getResult()) and ($valUserSingle->getResult())) {
-      $this->edit();
-    } else {
-      $this->result = false;
-    }
+      if ($this->viewUser($this->data['id'])) {
+          $this->result = false;
+          $this->upload();
+      } else {
+          $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário não encontrado!</p>";
+          $this->result = false;
+      }
   }
+  private function upload(): void
+  {
+      $this->directory = "app/adms/assets/image/users/" . $this->data['id'] . "/";
+      /*  verifica se o diretório especificado não existe e não é um diretório existente. Se essa condição for verdadeira, um novo diretório é criado usando a função mkdir. O segundo argumento, 0755, define as permissões do diretório recém-criado. */
+      if ((!file_exists($this->directory)) and (!is_dir($this->directory))) {
+          mkdir($this->directory, 0755);
+      }
+     /*  VERIFICA SE CONSEGUIU FAZER UPLOAD
+     move_uploaded_file($this->dataImagem['tmp_name'], $this->directory . $this->dataImagem['name']): Esta função move um arquivo enviado via formulário HTML para o local especificado. 
+
+        $this->dataImagem['tmp_name']: É o caminho temporário da imagem que vai ser enviada.
+        $this->directory . $this->dataImagem['name']: É o caminho completo para onde o arquivo deve ser movido, incluindo o nome do arquivo. */
+      if (move_uploaded_file($this->dataImagem['tmp_name'], $this->directory . $this->dataImagem['name'])) {
+          $this->edit();
+          
+      } else {
+          $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Upload da imagem não realizado com sucesso!</p>";
+          $this->result = false;
+      }
+  }
+/**
+ * edita o nome da imagam no banco de dados
+ *
+ * @return void
+ */
   private function edit(): void
   {
     // var_dump($this->data);
+    // pega o name da imagem e atribui na posição image para salvar na coluna image no banco
+    $this->data['image'] = $this->dataImagem['name'];
     $this->data['modified'] = date("y-m-d H:i:s");
-    $this->data['nickname'] = $this->dataExitVal['nickname'];
-    // $this->data['name'] =$this->dataExitVal['name'];
-   
-    // var_dump($this->data);
+ 
     $upUser = new \App\adms\Models\helper\AdmsUpdate();
     $upUser->exeUpdate("adms_users", $this->data, "WHERE id=:id", "id={$this->data['id']}");
     if ($upUser->getResult()) {
-      $_SESSION['msg'] = "<p style='color: green;'>Usuário editado com sucesso!</p>";
-      $this->result = true;
+      $this->deleteImage();
     } else {
       $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário não editado com sucesso!</p>";
       $this->result = false;
     }
-  }
+}
+/* deleta a imagem antiga se o usuário fizer novo upload
+ if (file_exists($this->delImg)) {
+            unlink($this->delImg);
+        } essa parte verifica se existe, se existir unlink  apaga, após apagar apresenta mensagem
+ */
+private function deleteImage(): void
+{
+  // se for diferente de vazio o resultado que vem do Banco de dados com o nome da imagem que foi salva ou mão for nulo e a imagem que esta fazendo upload tiver nome diferente da que esta no banco de dados atribui o caminho a  $this->delImg.
+ /*  ai verifica se existir arquivo no caminho  $this->delImg deleta.
+  isso serve para se o usuario fizer upload por exemplo imagem celke.jpg mas ja tiver uma imagem no diretorio com mesmo nome ele deleta antiga e salva a nova, sem os if de verificacão ele deletaria e ficariao diretório sem imagem
+  // */
+    if (((!empty($this->resultBd[0]['image'])) or ($this->resultBd[0]['image'] != null)) and ($this->resultBd[0]['image'] != $this->data['image'])) {
+        $this->delImg = "app/adms/assets/image/users/" . $this->data['id'] . "/" . $this->resultBd[0]['image'];
+        if (file_exists($this->delImg)) {
+            unlink($this->delImg);
+        }
+    }
+
+
+    $_SESSION['msg'] = "<p style='color: green;'>Imagem editada com sucesso!</p>";
+    $this->result = false;
+}
 }
