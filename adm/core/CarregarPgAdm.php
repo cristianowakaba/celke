@@ -53,12 +53,12 @@ class CarregarPgAdm
             //die("Erro - 003: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
 
             //instancia a classe AdmsSlug para tratar a controller,
-            $urlController = new \App\adms\Models\helper\AdmsSlug;
+            $urlController = new \App\adms\Models\helper\AdmsSlugController();
             //envio a constatente CONTROLLER(Login) para fazer o tratamento deixar primeira letra maiuscula
            $this->urlController= $urlController->slugController(CONTROLLER);
             
             //instancia a classe para tratar o método;
-            $urlMetodo = new \App\adms\Models\helper\AdmsSlug;
+            $urlMetodo = new \App\adms\Models\helper\AdmsSlugController();
             // trata o método index para deixar a primeira letra minuscula
             $this->urlMetodo=$urlMetodo->slugMetodo(METODO);
             $this->urlParameter="";
