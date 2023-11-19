@@ -72,7 +72,7 @@ class EditUsersImage
                 header("Location: $urlRedirect");
             } else {
                 $this->data['form'] = $this->dataForm;
-                $this->viewEditUserImage();
+                $this->viewEditUserImage(); 
             }
         } else {
             $_SESSION['msg'] = "<p style='color:#f00;'>Erro: Usuário não encontrado controller EditUsers!</p>";
