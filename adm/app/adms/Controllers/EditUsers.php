@@ -38,7 +38,10 @@ class EditUsers
            if($viewUser->getResult()){
             $this->data['form']=$viewUser->getResultBd();
             $this->viewEditUser();
-           }
+           }else {
+            $urlRedirect = URLADM . "list-users/index";
+            header("Location: $urlRedirect");
+        }
         }else{
            
             $this->editUser();
