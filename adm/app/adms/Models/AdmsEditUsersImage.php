@@ -28,8 +28,8 @@ class AdmsEditUsersImage
 
   /** @var string $delImg Recebe o endereço da imagem que deve ser excluida */
   private string $delImg;
-     /** @var string $nameImg Recebe o slug/nome da imagem */
-     private string $nameImg;
+  /** @var string $nameImg Recebe o slug/nome da imagem */
+  private string $nameImg;
 
 
 
@@ -85,7 +85,7 @@ class AdmsEditUsersImage
     var_dump($this->data);
     $this->dataImagem = $this->data['new_image'];
     unset($this->data['new_image']);
-    
+
     $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();
     $valEmptyField->valField($this->data);
     if ($valEmptyField->getResult()) {
@@ -113,45 +113,62 @@ class AdmsEditUsersImage
     $valExtImg = new \App\adms\Models\helper\AdmsValExtImg();
     $valExtImg->validateExtImg($this->dataImagem['type']);
 
-      if (($this->viewUser($this->data['id'])) and ($valExtImg->getResult())) {
-          $this->result = false;
-          $this->upload();
-      } else {
-         
-          $this->result = false;
-      }
+    if (($this->viewUser($this->data['id'])) and ($valExtImg->getResult())) {
+      $this->result = false;
+      $this->upload();
+    } else {
+
+      $this->result = false;
+    }
   }
+  /**
+   * instancia a slug  atribui o caminho do diretório,instancia a helper de upload
+   *
+   * @return void
+   */
   private function upload(): void
   {
     $slugImg = new \App\adms\Models\helper\AdmsSlug();
-        $this->nameImg = $slugImg->slug($this->dataImagem['name']);
+    $this->nameImg = $slugImg->slug($this->dataImagem['name']);
 
-        $this->directory = "app/adms/assets/image/users/" . $this->data['id'] . "/";
+    $this->directory = "app/adms/assets/image/users/" . $this->data['id'] . "/";
 
-        if ((!file_exists($this->directory)) and (!is_dir($this->directory))) {
+    $uploadImg = new \App\adms\Models\helper\AdmsUpload();
+    $uploadImg->upload($this->directory, $this->dataImagem['tmp_name'], $this->nameImg);
+
+
+    if ($uploadImg->getResult()) {
+      $this->edit();
+    } else {
+      $this->result = false;
+    }
+
+
+
+    /*    if ((!file_exists($this->directory)) and (!is_dir($this->directory))) {
             mkdir($this->directory, 0755);
-        }
+        } */
 
-        if (move_uploaded_file($this->dataImagem['tmp_name'], $this->directory . $this->nameImg)) {
+    /*   if (move_uploaded_file($this->dataImagem['tmp_name'], $this->directory . $this->nameImg)) {
             $this->edit();
         } else {
             $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Upload da imagem não realizado com sucesso!</p>";
             $this->result = false;
         }
-     
+      */
   }
-/**
- * edita o nome da imagam no banco de dados
- *
- * @return void
- */
+  /**
+   * edita o nome da imagam no banco de dados
+   *
+   * @return void
+   */
   private function edit(): void
   {
     // var_dump($this->data);
     // pega o name da imagem e atribui na posição image para salvar na coluna image no banco
     $this->data['image'] = $this->nameImg;
     $this->data['modified'] = date("y-m-d H:i:s");
- 
+
     $upUser = new \App\adms\Models\helper\AdmsUpdate();
     $upUser->exeUpdate("adms_users", $this->data, "WHERE id=:id", "id={$this->data['id']}");
     if ($upUser->getResult()) {
@@ -160,27 +177,27 @@ class AdmsEditUsersImage
       $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário não editado com sucesso!</p>";
       $this->result = false;
     }
-}
-/* deleta a imagem antiga se o usuário fizer novo upload
+  }
+  /* deleta a imagem antiga se o usuário fizer novo upload
  if (file_exists($this->delImg)) {
             unlink($this->delImg);
         } essa parte verifica se existe, se existir unlink  apaga, após apagar apresenta mensagem
  */
-private function deleteImage(): void
-{
-  // se for diferente de vazio o resultado que vem do Banco de dados com o nome da imagem que foi salva ou mão for nulo e a imagem que esta fazendo upload tiver nome diferente da que esta no banco de dados atribui o caminho a  $this->delImg.
- /*  ai verifica se existir arquivo no caminho  $this->delImg deleta.
+  private function deleteImage(): void
+  {
+    // se for diferente de vazio o resultado que vem do Banco de dados com o nome da imagem que foi salva ou mão for nulo e a imagem que esta fazendo upload tiver nome diferente da que esta no banco de dados atribui o caminho a  $this->delImg.
+    /*  ai verifica se existir arquivo no caminho  $this->delImg deleta.
   isso serve para se o usuario fizer upload por exemplo imagem celke.jpg mas ja tiver uma imagem no diretorio com mesmo nome ele deleta antiga e salva a nova, sem os if de verificacão ele deletaria e ficariao diretório sem imagem
   // */
     if (((!empty($this->resultBd[0]['image'])) or ($this->resultBd[0]['image'] != null)) and ($this->resultBd[0]['image'] != $this->nameImg)) {
-        $this->delImg = "app/adms/assets/image/users/" . $this->data['id'] . "/" . $this->resultBd[0]['image'];
-        if (file_exists($this->delImg)) {
-            unlink($this->delImg);
-        }
+      $this->delImg = "app/adms/assets/image/users/" . $this->data['id'] . "/" . $this->resultBd[0]['image'];
+      if (file_exists($this->delImg)) {
+        unlink($this->delImg);
+      }
     }
 
 
     $_SESSION['msg'] = "<p style='color: green;'>Imagem editada com sucesso!</p>";
     $this->result = true;
-}
+  }
 }
