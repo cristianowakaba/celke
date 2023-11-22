@@ -29,7 +29,7 @@ class AddUsers
      $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         if (!empty($this->dataForm['SendAddUser'])) {
-            var_dump($this->dataForm);
+           /*  var_dump($this->dataForm); */
           unset($this->dataForm['SendAddUser']);
            $createUser = new \App\adms\Models\AdmsAddUsers();
             $createUser->create($this->dataForm);
@@ -45,11 +45,16 @@ class AddUsers
         }
        
     }
-
+    /**
+     * intancia a models e o metodo  listSelect() que fazx a leitura e retorna um array associativo que é atribuido a uma posição  $this->data['select'] , é enviada os dados para a view e carrega a view
+     *
+     * @return void
+     */
     private function viewAddUser(): void
     {
         $listSelect = new \App\adms\Models\AdmsAddUsers();
         $this->data['select'] = $listSelect->listSelect();
+        
         
         $loadView = new \Core\ConfigView("adms/Views/users/addUser", $this->data);
         $loadView->loadView();

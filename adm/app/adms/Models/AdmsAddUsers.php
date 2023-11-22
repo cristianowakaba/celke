@@ -90,15 +90,19 @@ class AdmsAddUsers
         }      
      
     }
-   
+   /**
+    * instancia a helper que faz a leitura dos registros no BD , atribui a um objeto com uma posicao sit e atribui chave sit e valor objeto criado ao atributo $this->listRegistryAdd
+    *
+    * @return array
+    */
     public function listSelect(): array
     {
         $list = new \App\adms\Models\helper\AdmsRead();
         $list->fullRead("SELECT id id_sit, name name_sit FROM adms_sits_users ORDER BY name ASC");
         $registry['sit'] = $list->getResult();
-
+       /*  var_dump($registry['sit']); */
         $this->listRegistryAdd = ['sit' => $registry['sit']];
-        
+        /* var_dump($this->listRegistryAdd); */
         return $this->listRegistryAdd;
     }
         

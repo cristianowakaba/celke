@@ -40,19 +40,23 @@ if(isset($_SESSION['msg'])){
     ?>
     <label>Usuário:<span style="color:#f00">*</span> </label>
     <input type="text" name="user" id="user" placeholder="Digite o Usuário para acessar o adm" value="<?php echo $email; ?>" ><br><br>
-
+    <?php
+   
+    ?>
+<!-- se o usuario preencher o campo situacao com a mesma situacao que vem do banco de dados maném pré selecionado, senão fica aparecendo selecione -->
     <label>Situação:<span style="color: #f00;">*</span> </label>
     <select name="adms_sits_user_id" id="adms_sits_user_id">
         <option value="">Selecione</option>
+        
         <?php
-        foreach($this->data['select']['sit'] as $sit){
+       foreach($this->data['select']['sit'] as $sit){
             extract($sit);
             if((isset($valorForm['adms_sits_user_id'])) and ($valorForm['adms_sits_user_id'] == $id_sit)){
                 echo "<option value='$id_sit' selected>$name_sit</option>";
             }else{
                 echo "<option value='$id_sit'>$name_sit</option>";
             }
-        }
+        } 
         ?>
     </select><br><br>
 
