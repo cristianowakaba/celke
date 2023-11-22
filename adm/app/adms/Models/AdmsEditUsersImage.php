@@ -133,11 +133,11 @@ class AdmsEditUsersImage
 
     $this->directory = "app/adms/assets/image/users/" . $this->data['id'] . "/";
 
-    $uploadImg = new \App\adms\Models\helper\AdmsUpload();
-    $uploadImg->upload($this->directory, $this->dataImagem['tmp_name'], $this->nameImg);
-
-
-    if ($uploadImg->getResult()) {
+    /* $uploadImg = new \App\adms\Models\helper\AdmsUpload();
+    $uploadImg->upload($this->directory, $this->dataImagem['tmp_name'], $this->nameImg); */
+   $uploadImgRes= new \App\adms\Models\helper\AdmsUploadImgRes();
+   $uploadImgRes->upload($this->dataImagem, $this->directory,  $this->nameImg, 300,300);
+    if ($uploadImgRes->getResult()) {
       $this->edit();
     } else {
       $this->result = false;
@@ -145,17 +145,6 @@ class AdmsEditUsersImage
 
 
 
-    /*    if ((!file_exists($this->directory)) and (!is_dir($this->directory))) {
-            mkdir($this->directory, 0755);
-        } */
-
-    /*   if (move_uploaded_file($this->dataImagem['tmp_name'], $this->directory . $this->nameImg)) {
-            $this->edit();
-        } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Upload da imagem não realizado com sucesso!</p>";
-            $this->result = false;
-        }
-      */
   }
   /**
    * edita o nome da imagam no banco de dados
