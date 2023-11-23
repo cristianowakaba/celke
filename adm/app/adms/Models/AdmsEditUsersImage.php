@@ -135,16 +135,15 @@ class AdmsEditUsersImage
 
     /* $uploadImg = new \App\adms\Models\helper\AdmsUpload();
     $uploadImg->upload($this->directory, $this->dataImagem['tmp_name'], $this->nameImg); */
-   $uploadImgRes= new \App\adms\Models\helper\AdmsUploadImgRes();
-   $uploadImgRes->upload($this->dataImagem, $this->directory,  $this->nameImg, 300,300);
+
+    //envia os parametros pra helper
+    $uploadImgRes = new \App\adms\Models\helper\AdmsUploadImgRes();
+    $uploadImgRes->upload($this->dataImagem, $this->directory,  $this->nameImg, 300, 300);
     if ($uploadImgRes->getResult()) {
       $this->edit();
     } else {
       $this->result = false;
     }
-
-
-
   }
   /**
    * edita o nome da imagam no banco de dados
