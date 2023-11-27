@@ -19,10 +19,14 @@ if(isset($_SESSION['msg'])){
 if(!empty( $this->data['viewUser'])){
  //var_dump( $this->data['viewUser'][0]);
 extract( $this->data['viewUser'][0]);
+if ((!empty($image)) and (file_exists("app/adms/assets/image/users/$id/$image"))) {
+    echo "<img src='" . URLADM . "app/adms/assets/image/users/$id/$image' width='100' height ='100'><br><br>";
+}else{
+    echo "<img src='" . URLADM . "app/adms/assets/image/users/icon_user.png' width='100' height ='100'><br><br>";
+}
 echo "ID: $id<br>";
 echo "NOME: $name_usr<br>";
 echo "USUÁRIO: $user<br>";
-echo "IMAGEM: $image<br>";
 echo "SITUACÃO DO USUÁRIO: <span style='color:$color;'>$name_sit</span><br>";
 
 // função para converter data criacao para padrões normais
