@@ -18,7 +18,7 @@ class ViewProfile
      */
     public function index(int|string|null $id): void
     {
-        echo "perfil";
+      
         
            $viewProfile= new \App\adms\Models\AdmsViewProfile();
            $viewProfile->viewProfile();

@@ -14,9 +14,7 @@ if (isset($this->data['form'][0])) {
 
 <?php
 
-/* if(!empty($valorForm['id'])){
-    echo "<a href='".URLADM."view-users/index/".$valorForm['id']."'>Visualizar</a><br><br>";
-} */
+echo "<a href='".URLADM."view-profile/index'>Perfil</a><br><br>";
 
 if(isset($_SESSION['msg'])){
     echo $_SESSION['msg'];

@@ -91,6 +91,9 @@ class AdmsSendEmail
             $mail->SMTPSecure = $this->dataInfoEmail['smtpsecure'];
             $mail->Port       = $this->dataInfoEmail['port'];
 
+            
+         
+
             $mail->setFrom($this->dataInfoEmail['fromEmail'], $this->dataInfoEmail['fromName']);
             $mail->addAddress($this->data['toEmail'], $this->data['toName']);
 
