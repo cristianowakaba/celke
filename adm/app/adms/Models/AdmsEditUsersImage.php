@@ -114,7 +114,7 @@ class AdmsEditUsersImage
     $valExtImg->validateExtImg($this->dataImagem['type']);
 
     if (($this->viewUser($this->data['id'])) and ($valExtImg->getResult())) {
-      $this->result = false;
+     
       $this->upload();
     } else {
 

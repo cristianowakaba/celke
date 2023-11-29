@@ -3,8 +3,10 @@
 echo "<h2>Perfil</h2>";
 
 if (!empty($this->data['viewProfile'])) {
-     echo "<a href='".URLADM."edit-profile/index'>Editar</a><br><br>";
-     echo "<a href='".URLADM."edit-profile-password/index'>Editar Senha</a><br><br>";
+     echo "<a href='".URLADM."edit-profile/index'>Editar</a><br>";
+     echo "<a href='".URLADM."edit-profile-password/index'>Editar Senha</a><br>";
+     echo "<a href='".URLADM."edit-profile-image/index'>Editar Imagem</a><br><br>";
+
    
 }
 
