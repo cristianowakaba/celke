@@ -22,7 +22,7 @@ if(isset($_SESSION['msg'])){
     }
     ?>
     <label>Nome:<span style="color:#f00">*</span> </label>
-    <input type="text" name="name" id="name" placeholder="Digite o nome completo" value="<?php echo $name; ?>" required><br><br>
+    <input type="text" name="name" id="name" placeholder="Digite o nome completo" value="<?php echo $name; ?>" ><br><br>
     
     <?php
     $email = "";

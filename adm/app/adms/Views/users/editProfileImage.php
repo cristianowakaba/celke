@@ -28,7 +28,7 @@ if(isset($_SESSION['msg'])){
    
   <!--  atencão imagem tipo file -->
     <label>Imagem:<span style="color:#f00">*</span> 300x300 </label>
-    <input type="file" name="new_image" id="new_image"><br><br>
+    <input type="file" name="new_image" id="new_image" onchange="inputFileValImg()"required><br><br>
    
     
 
