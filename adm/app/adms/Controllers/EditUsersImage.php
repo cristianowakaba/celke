@@ -33,7 +33,7 @@ class EditUsersImage
         if ((!empty($id)) and (empty($this->dataForm['SendEditUseImage']))) {
             var_dump($id);
             $this->id = (int)$id;
-            $viewUser = new \App\adms\Models\AdmsEditUsers();
+            $viewUser = new \App\adms\Models\AdmsEditUsersImage();
             $viewUser->viewUser($this->id);
             if ($viewUser->getResult()) {
                 $this->data['form'] = $viewUser->getResultBd();

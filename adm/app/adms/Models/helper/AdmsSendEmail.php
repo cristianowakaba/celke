@@ -80,8 +80,8 @@ class AdmsSendEmail
     {
         $mail = new PHPMailer(true);
 
-        try {
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        try {/* 
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER; */
             $mail->CharSet = 'UTF-8';
             $mail->isSMTP();
             $mail->Host       = $this->dataInfoEmail['host'];
