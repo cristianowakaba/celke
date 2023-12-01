@@ -2,6 +2,10 @@
 
 namespace Core;
 
+if(!defined('C8L6K7E')){
+    /*  header("Location:/"); */
+ die("Erro: Página não encontrada!<br>");
+ }
 /**
  * Recebe a URL e manipula
  * Carregar a CONTROLLER

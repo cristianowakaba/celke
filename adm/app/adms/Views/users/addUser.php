@@ -1,4 +1,8 @@
 <?php
+if(!defined('C8L6K7E')){
+    /*  header("Location:/"); */
+ die("Erro: Página não encontrada!<br>");
+ }
 if (isset($this->data['form'])) {
     $valorForm = $this->data['form'];
 }
@@ -7,6 +11,7 @@ if (isset($this->data['form'])) {
 <h1>Cadastrar Usuário</h1>
 
 <?php
+echo "<a href='".URLADM."list-users/index'>Listar</a><br>";
 if(isset($_SESSION['msg'])){
     echo $_SESSION['msg'];
     unset($_SESSION['msg']);

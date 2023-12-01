@@ -2,7 +2,10 @@
 
 namespace App\adms\Models;
 
-
+if(!defined('C8L6K7E')){
+    /*  header("Location:/"); */
+ die("Erro: Página não encontrada!<br>");
+ }
 /** classe recebe os dados da controller NewUser e instancia a helper generica AdmsCreate para criar registro e instancia helper AdmsValEmptyField que verifica se tem campos vazios
  * instancia a AdmsValEmail para verificar se o email e valido e
  * instancia a AdmsValEmailSingle para verificar se o email não esta cadastrado

@@ -1,8 +1,11 @@
 <?php
 
 namespace Core;
+if(!defined('C8L6K7E')){
+    /*  header("Location:/"); */
+ die("Erro: Página não encontrada!<br>");
+ }
 
-use App\adms\Controllers\ViewUsers;
 
 /**s
  * Verificar se existe a classe

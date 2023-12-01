@@ -2,6 +2,10 @@
 
 namespace App\adms\Controllers;
 
+if(!defined('C8L6K7E')){
+    /*  header("Location:/"); */
+ die("Erro: Página não encontrada!<br>");
+ }
 /**
  * Controller da pagina Dashboard
  * @author Cesar <cesar@celke.com.br>

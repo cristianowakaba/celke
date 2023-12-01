@@ -1,6 +1,10 @@
 <?php
 
 namespace App\adms\Models\helper;
+if(!defined('C8L6K7E')){
+    /*  header("Location:/"); */
+ die("Erro: Página não encontrada!<br>");
+ }
 /**
  * classe responsável por validar email unico
  */

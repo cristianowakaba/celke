@@ -1,4 +1,8 @@
 <?php
 
-echo "VIEW - Página Dashboard!<br>";
-echo $this->data . " " . $_SESSION['user_name'] . "!<br>";
+if(!defined('C8L6K7E')){
+   /*  header("Location:/"); */
+die("Erro: Página não encontrada!<br>");
+}
+echo "VIEW - Páginsa Dashboard!<br>";
+/* echo $this->data . " " . $_SESSION['user_name'] . "!<br>"; */

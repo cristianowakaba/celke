@@ -1,5 +1,9 @@
 <?php
-
+if(!defined('C8L6K7E')){
+    /*  header("Location:/"); */
+ die("Erro: Página não encontrada!<br>");
+ }
+ 
 echo "<h2>Detalhes do Usuário!</h2><br>";
 
 echo "<a href='".URLADM."list-users/index'>Listar</a><br>";
