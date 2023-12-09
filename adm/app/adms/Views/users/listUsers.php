@@ -13,11 +13,12 @@ if(isset($_SESSION['msg'])){
 
 foreach($this->data['listUsers'] as $user){
 
-    // var_dump($user);
+// var_dump($user);
     extract($user);
     echo "ID: $id <br>";
-    echo "Nome: $name <br>";
+    echo "Nome: $name_usr <br>";
     echo "email: $email <br>";
+    echo "Situação:<span style='color:$color'>$name_sit </span> <br>";
     //quando clicar no link, manda o id como parametro
     echo "<a href='".URLADM."view-users/index/$id'>Visualizar</a><br>";
     echo "<a href='".URLADM."edit-users/index/$id'>Editar</a><br>";
