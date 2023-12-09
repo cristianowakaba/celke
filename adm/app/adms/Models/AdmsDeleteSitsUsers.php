@@ -24,12 +24,7 @@ class AdmsDeleteSitsUsers
     /** @var array|null $resultBd Recebe os registros do banco de dados */
     private array|null $resultBd;
 
-    /** @var string $delDirectory Recebe o endereço para apagar o diretório */
-    private string $delDirectory;
-
-    /** @var string $delImg Recebe o endereço para apagar a imagem */
-    private string $delImg;
-
+   
     /**
      * @return bool Retorna true quando executar o processo com sucesso e false quando houver erro
      */
@@ -37,12 +32,17 @@ class AdmsDeleteSitsUsers
     {
         return $this->result;
     }
-
+/**
+ * verifica se existe a situação do usuário cadastrada no banco de dados e se asituação não esta sendo utilizada por nenhum usuario.
+ * se existir a situação e ela não estiver sendo utilizada instancia a helper para deletar o registros
+ * @param integer $id
+ * @return void
+ */
     public function deleteSitUser(int $id): void
     {
         $this->id = (int) $id;
-
-        if($this->viewSitUser()){
+//verifica se existe a situação do usuário cadastrada no banco de dados e se asituação não esta sendo utilizada por nenhum usuario.
+        if(($this->viewSitUser())and($this->checkStatus())){
             $deleteUser = new \App\adms\Models\helper\AdmsDelete();
             $deleteUser->exeDelete("adms_sits_users", "WHERE id =:id", "id={$this->id}");
     
@@ -58,7 +58,11 @@ class AdmsDeleteSitsUsers
         }
         
     }
-
+/**
+ * verifica se existe a situação no banco de dados
+ *
+ * @return boolean
+ */
     private function viewSitUser(): bool
     {
 
@@ -75,8 +79,24 @@ class AdmsDeleteSitsUsers
         if ($this->resultBd) {
             return true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00'>Erro: Usuário não encontrado!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00'>Erro: Situação não encontrada!</p>";
             return false;
+        }
+    }
+    /**
+     * verifica status se tem algum usuário usando a chave estrangeira 
+     *adms_sits_user_id
+     * @return boolean
+     */
+    private function checkStatus():bool
+    {
+        $viewUserAdd = new \app\adms\Models\helper\AdmsRead();
+        $viewUserAdd->fullRead("SELECT id FROM adms_users WHERE adms_sits_user_id =:adms_sits_user_id LIMIT :limit", "adms_sits_user_id={$this->id}&limit=1");
+        if($viewUserAdd->getResult()){
+            $_SESSION['msg'] = "<p style='color: #f00'>Erro:Situação não pode ser apagada, ha usuários com essa situação!</p>";
+            return false;
+        }else{
+            return true;
         }
     }
 }
