@@ -50,7 +50,6 @@ class CarregarPgAdm
         $this->pgPublic();
         //é conferido se a página é publica ou privada, e atribuida q url ao atributo ex:$this->classLoad = "\\App\\adms\\Controllers\\" . $this->urlController; abaixo verifica se classe existe instancia o metodo
         if (class_exists($this->classLoad)) {
-            // var_dump($this->classLoad);
             $this->loadMetodo();
         } else {
             //die("Erro - 003: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
@@ -69,14 +68,22 @@ class CarregarPgAdm
             $this->loadPage($this->urlController, $this->urlMetodo, $this->urlParameter);
         }
     }
+    /**
+     * ConfigController recebe a controller, método e parametro e envia para CarregarPgAdm
+     * verifica se classe existe   é atribuido ao atributo o caminho e a $this->urlController   carrega o nome da controller que possui o método index $this->classLoad = "\\App\\adms\\Controllers\\" . $this->urlController;
+     * instancia a classe e atribui para o objeto   $classLoad = new $this->classLoad();
+     * verifica se o método existe  pois o objeto $classLoad possui o caminho até a controller if(method_exists( $classLoad,$this->urlMetodo))
+     *se existe o metodo na classe  $classLoad->{$this->urlMetodo}($this->urlParameter); instancia o método e envia o parametro, como na controller o método index carrega a view ela e carregada e recebe o parametro  $classLoad->{$this->urlMetodo}($this->urlParameter);
+     * @return void
+     */
     private function loadMetodo():void
     {
         $classLoad = new $this->classLoad();
-        //var_dump($classLoad);
+      
         if(method_exists( $classLoad,$this->urlMetodo)){
-           //  var_dump($this->urlMetodo);
+          
             $classLoad->{$this->urlMetodo}($this->urlParameter);
-            
+           
         }else{
             die("Erro - 003: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
         }
@@ -88,7 +95,7 @@ class CarregarPgAdm
      */
     private function pgPublic(): void
     {
-        $this->listPgPublic = ["Login", "Erro", "Logout", "NewUser","ConfEmail","NewConfEmail","RecoverPassword","UpdatePassword",];
+        $this->listPgPublic = ["Login", "Erro", "Logout", "NewUser","ConfEmail","NewConfEmail","RecoverPassword","UpdatePassword","ViewSitsUsers"];
 
         if (in_array($this->urlController, $this->listPgPublic)) {
             $this->classLoad = "\\App\\adms\\Controllers\\" . $this->urlController;
@@ -106,7 +113,7 @@ class CarregarPgAdm
     private function pgPrivate():void
     {
       
-        $this->listPgPrivate = ["Dashboard", "ListUsers","ViewUsers","AddUsers","EditUsers","EditUsersPassword","EditUsersImage","DeleteUsers","ViewProfile","ViewProfile","EditProfile","EditProfilePassword","EditProfileImage"];
+        $this->listPgPrivate = ["Dashboard", "ListUsers","ViewUsers","AddUsers","EditUsers","EditUsersPassword","EditUsersImage","DeleteUsers","ViewProfile","ViewProfile","EditProfile","EditProfilePassword","EditProfileImage","ListSitsUsers","AddSitsUsers","EditSitsUsers","DeleteSitsUsers"];
         // var_dump($this->urlController);
         if(in_array($this->urlController, $this->listPgPrivate)){
             $this->verifyLogin();
@@ -126,7 +133,7 @@ class CarregarPgAdm
     {
         if((isset($_SESSION['user_id'])) and (isset($_SESSION['user_name']))  and (isset($_SESSION['user_email'])) ){
             $this->classLoad = "\\App\\adms\\Controllers\\" . $this->urlController;
-            // var_dump($this->classLoad);
+           
         }else{
             $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Para acessar a página realize o login!</p>";
             $urlRedirect = URLADM . "login/index";

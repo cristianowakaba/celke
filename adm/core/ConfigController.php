@@ -46,10 +46,11 @@ class ConfigController extends Config
         $this->configAdm();
         if (!empty(filter_input(INPUT_GET, 'url', FILTER_DEFAULT))) {
             $this->url = filter_input(INPUT_GET, 'url', FILTER_DEFAULT);
-            //var_dump($this->url);
+            // var_dump($this->url);
             $this->clearUrl();
+            // var_dump($this->url);
             $this->urlArray = explode("/", $this->url);
-            //var_dump($this->urlArray);
+            // var_dump($this->urlArray);
 
             if (isset($this->urlArray[0])) {
                 $this->urlController = $this->slugController($this->urlArray[0]);
