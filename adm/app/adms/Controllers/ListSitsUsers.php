@@ -16,12 +16,17 @@ class ListSitsUsers
     /** @var array|string|null $data Recebe os dados que devem ser enviados para VIEW */
     private array|string|null $data;
 
-    public function index(): void
+    /** @var string|int|null $page Recebe o número página */
+    private string|int|null $page;
+
+    public function index(string|int|null $page = null): void
     {
+        $this->page = (int) $page ? $page : 1;
        $listSitsUsers= new \App\adms\Models\AdmsListSitsUsers();
-       $listSitsUsers->listSitsUsers();
+       $listSitsUsers->listSitsUsers($this->page );
        if($listSitsUsers->getResult()){
         $this->data['listSitsUsers'] = $listSitsUsers->getResultBd();
+        $this->data['pagination']  = $listSitsUsers->getResultPg();
         
        }else{
         $this->data['listSitsUsers'] = [];

@@ -1,0 +1,16 @@
+crud  cores
+CONTROLLER ListColors
+Models 
+AdmsAddColors
+AdmsDeleteColors
+AdmsEditColors
+AdmsListColors
+
+
+Views
+-addColors
+-editColors
+-listColors
+-viewColors
+
+primeiero listar, depois visualizar, cadastrar

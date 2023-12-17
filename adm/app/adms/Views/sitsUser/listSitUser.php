@@ -18,3 +18,4 @@ foreach ($this->data['listSitsUsers'] as $sitUser) {
     echo "<a href='" . URLADM . "delete-sits-users/index/$id'>Apagar</a><br>";
     echo "<hr>";
 }
+echo $this->data['pagination'];

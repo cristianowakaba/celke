@@ -31,3 +31,4 @@ foreach($this->data['listUsers'] as $user){
     // echo "name:".$user['name']."<br>";
     // echo "email:".$user['email']."<br><hr>";
 }
+echo $this->data['pagination'];
