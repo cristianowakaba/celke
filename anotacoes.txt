@@ -12,5 +12,39 @@ Views
 -editColors
 -listColors
 -viewColors
+-deletColors
 
-primeiero listar, depois visualizar, cadastrar
+roteiro
+criar controler - adicionar nas páginas privadas- 
+criar view
+mudar titulo para Listar Cores, criar o link da pagina cadastrar,
+ir para controller  usar expressão regular, se receber a página por parametro usa, senão atribui : 1
+- instanciar na controller a models AdmsListColors
+- criar a models  AdmsListColors, cria o método listColors que vai  receber a pagina por parametor e instanciar as helpers de consulta no banco de dados,
+na controller instancia o metodo listColors e passa a  $this->page por parametto.
+essa parte altera pouca coisa a paginação esta criada ja 
+
+instancia a helper pagination e passa o link por parametro,
+instancia o método págination e passa a query  que vai ser recebida no helper AdmsPaginatiom no metodo pagination e nesse metodo instancia a helper de leitura e passa a query
+ainda na Models AdmsPagination
+o retorno da query atribui ao this->resultBd e instancia o $this->pageInstruction();
+esse método divide  o numero de registros retornados pelo numero de registros que dev eter por página   $this->totalPages = (int) ceil($this->resultBd[0]['num_result'] / $this->limitResult);
+verifica se o usuario não estiver acessando uma página maior ele intancia a  $this->layoutPagination(); que por sua vez exibe a paginação.
+volta para a CONTROLLER e instancia no objeto o getResult (na models esse atributo retorna o result e o result retorna true ou false) e verifica se for true adiciona essas posições ao this-> data   
+  $this->data['listColors'] = $listColors->getResultBd();
+$this->data['pagination']=  $listColors->getResultPg();
+
+é enviado esse dados para view EFETUA O FORECH 
+foreach ($this->data['listColors'] as $colors) {
+     extract($colors);
+    echo "ID: $id <br>";
+    echo "Nome: $name <br>";
+    echo "Cor: <span style='color: $color'>$color</span> <br>";
+    echo "<a href='" . URLADM . "view-colors/index/$id'>Visualizar</a><br>";
+    echo "<a href='" . URLADM . "edit-colors/index/$id'>Editar</a><br>";
+    echo "<a href='" . URLADM . "delete-colors/index/$id'>Apagar</a><br>";
+    echo "<hr>";
+ }
+echo $this->data['pagination'];
+
+IMPLANTADO MÉTODO LISTAR

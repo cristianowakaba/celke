@@ -75,7 +75,7 @@ class AdmsPagination
     {
         $this->page = (int) $page ? $page : 1;
         $this->limitResult = (int) $limitResult;
-        //var_dump($this->page);
+        var_dump($this->page);
         //var_dump($this->limitResult);
         //pega a pagina que o usuario esta e multiplica pelo numero limite de registros por página e subtrai pelo mesmo numero de registros this->limitResult  exemplo   o usuário esta na pagina 2 e vai retornar 5 resultados por pagina, 2x5 =10 diminui o limite por pagina - 5  vai retornar apartir do cinco  se eu to na segunda vai aparecer 6,7,8,9,10
         $this->offset = (int) ($this->page * $this->limitResult) - $limitResult;
@@ -92,6 +92,7 @@ class AdmsPagination
         $count = new \App\adms\Models\helper\AdmsRead();
         $count->fullRead($this->query, $this->parseString);
         $this->resultBd = $count->getResult();
+        // var_dump($this->resultBd);
         $this->pageInstruction();
     }
     /**
