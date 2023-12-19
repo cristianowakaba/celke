@@ -47,4 +47,41 @@ foreach ($this->data['listColors'] as $colors) {
  }
 echo $this->data['pagination'];
 
-IMPLANTADO MÉTODO LISTAR
+LISTAR IMPLANTADO
+
+
+IMPLANTAR ADICIONAR
+cria a controller addColors
+coloca a view nas paginas restritas
+Cria a view
+NA view edita h1  e o link para listas cores
+cria o formuilário sem o foreach pois não vai ser selecionado e sim inserido as informações
+
+VAI PARA A CONTROLLER
+no método index verifica se o usuário clicou no botão do formulário e destroi a posição
+se clicou intancia a models e passa os dados para o método create por parametro
+ $createSitUser= new \App\adms\Models\AdmsAddColors();
+            $createSitUser->create($this->dataForm);
+
+cria a models e no método create  instancia a helper para validar os campos vazios
+$valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();       
+        $valEmptyField->valField($this->data);
+ se nao tiver erro instancia o metodo add()
+ atribui uma posição 'created' para o this->data  com horario 
+ instancia a helper AdmsCreate e envia o nome da tavela e os dados.
+
+retorna true ou false no $this->result
+
+e o metodo getResult retorna o que tiver em $this->result para a controller.
+
+
+IMPLANTAR EDITAR
+
+cria controller - no metodo index recebe id por parametro e dentro do método index recebe pela url os dados e armazena na dataForm
+-verifica se recebeu id e foi clicado n o formulario instancia a helper. se foi
+-na models instancia a classe  e o metodo viewColor  o metodo recebe ID por parametro e intacia a helper de leitura para retornar a cor referente ao id
+-retorna true ou false se encontrou,se nao instancia o editColor
+Na Controller se retornou resultado atribui a uma posição form e e instancia o metodo viewEditColor para carregar a view w mandas os dados a senao redireciona 
+
+cria a view
+

@@ -23,6 +23,7 @@ if (!empty($this->data['viewSitUser'])){
     echo "ID: $id <br>";
     echo "Situação do Usuário: <span style='color: $color;'>$name</span><br>";
     echo "Cadastrado: " . date('d/m/Y H:i:s', strtotime($created)) . " <br>";
+    echo "Editado:";
     if (!empty($modified)) {
         echo date('d/m/Y H:i:s', strtotime($modified));
     }

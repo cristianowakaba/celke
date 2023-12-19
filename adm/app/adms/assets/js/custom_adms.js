@@ -505,10 +505,58 @@ function previewImage(new_image) {
         //FileReader(); ler conteúdo dos arquivos
         var reader = new FileReader();
         //onload- dispara um evento quando qualquer elemento for carregado
-        reader.onload = function(e) {
-            document.getElementById('preview-img').innerHTML = "<img src='"+ e.target.result+"' alt='imagem' style='width: 100px;'>";
+        reader.onload = function (e) {
+            document.getElementById('preview-img').innerHTML = "<img src='" + e.target.result + "' alt='imagem' style='width: 100px;'>";
         }
     }
     //readAsDataURL- retorna os dados do formato blob como uma URL de dados Blob representa um marquivo
     reader.readAsDataURL(new_image.files[0])
+}
+
+const formEditSitUser = document.getElementById("form-add-sit-user");
+if (formEditSitUser) {
+    formEditSitUser.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
+        if (name === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo nome!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var adms_color_id = document.querySelector("#adms_color_id").value;
+        // Verificar se o campo esta vazio
+        if (adms_color_id === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo Cor!</p>";
+            return;
+        } else {
+            document.getElementById("msg").innerHTML = "<p></p>";
+            return;
+        }
+    });
+}
+const formAddColors = document.getElementById("form-add-color");
+if (formAddColors) {
+    formAddColors.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
+        if (name === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo nome!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var color = document.querySelector("#color").value;
+        // Verificar se o campo esta vazio
+        if (color === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo cor!</p>";
+            return;
+        }
+    });
 }

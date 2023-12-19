@@ -31,10 +31,10 @@ if (isset($_SESSION['msg'])) {
     }
     ?>
     <label>Nome:<span style="color: #f00;">*</span> </label>
-    <input type="text" name="name" id="name" placeholder="Digite o nome da situação" value="<?php echo $name; ?>" ><br><br>
+    <input type="text" name="name" id="name" placeholder="Digite o nome da situação" value="<?php echo $name; ?>" required ><br><br>
 
     <label>Cor:<span style="color: #f00;">*</span> </label>
-    <select name="adms_color_id" id="adms_color_id"d>
+    <select name="adms_color_id" id="adms_color_id" required>
         <option value="">Selecione</option>
         <?php
         foreach($this->data['select']['col'] as $col){
