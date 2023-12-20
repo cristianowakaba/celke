@@ -48,7 +48,7 @@ class AdmsUpdatePassword
             
           
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Link inválido, solicite novo link <a href='" . URLADM . "recover-password/index'>clique aqui</a>!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0069: Link inválido, solicite novo link <a href='" . URLADM . "recover-password/index'>clique aqui</a>!</p>";
             $this->result = false;
             return false;
             
@@ -107,7 +107,7 @@ class AdmsUpdatePassword
             $_SESSION['msg'] = "<p style='color: green;'>Senha atualizada com sucesso!</p>";
             $this->result = true;
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Senha não atualizada, tente novamente!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0070: Senha não atualizada, tente novamente!</p>";
             $this->result = false;
         }
 

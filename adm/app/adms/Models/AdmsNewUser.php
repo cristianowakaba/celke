@@ -96,7 +96,7 @@ class AdmsNewUser
             // $this->result = true;
             $this->sendEmail();
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário não cadastrado com sucesso!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0064: Usuário não cadastrado com sucesso!</p>";
             $this->result = false;
         }      
      
@@ -116,7 +116,7 @@ class AdmsNewUser
         $this->result =true;
        }else{
         $this->fromEmail=$sendemail->getFromEmail();
-        $_SESSION['msg'] = "<p style='color: #f00;'>Usuário cadastrado com sucesso. Houve erro ao enviar o e-mail de confirmação, entre em contato com {$this->fromEmail} </p>";
+        $_SESSION['msg'] = "<p style='color: #f00;'>Usuário cadastrado com sucesso. Houve erro(0065) ao enviar o e-mail de confirmação, entre em contato com {$this->fromEmail} </p>";
         $this->result = true;
        }
 

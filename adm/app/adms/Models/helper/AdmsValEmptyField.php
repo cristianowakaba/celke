@@ -31,7 +31,7 @@ class AdmsValEmptyField
         $this->data = array_map('trim', $this->data);
 //verifica se tem campo vazio no array
         if(in_array('', $this->data)){
-            $_SESSION['msg'] = "<p style='color: #f00'>Erro: Necessário preencher todos os campos!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00'>Erro 0081: Necessário preencher todos os campos!</p>";
             $this->result = false;
         }else{
             $this->result = true;

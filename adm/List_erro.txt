@@ -3,15 +3,93 @@
 003 - CarregarPgAdm.php - Erro carregar a classe
 004 - CarregarPgAdm.php - Erro carregar a método
 005 -ConfigView.php - Erro ao carregar a VIEW login
-007-
-008-
-009-
-0010
-0011
-0012
-0013
-0014
-0015
-0016
-0017
-0018
+006 - CONTROLLER - ConfEmail
+007 - CONTROLLER - DeleteColors
+008 - CONTROLLER - DeleteSitsUsers
+009 - CONTROLLER - DeleteUsers
+0010 - CONTROLLER - EditColors
+0011 - CONTROLLER - EditProfile
+0012 - CONTROLLER - EditProfileImage
+0013 - CONTROLLER - EditProfilePassword
+0014 - CONTROLLER - EditSitsUsers
+0015 - CONTROLLER - EditUsers
+0016 - CONTROLLER - EditUsersImage
+0017 - CONTROLLER - EditUsersPassword
+0018 - CONTROLLER - UpdatePassword
+0019 - CONTROLLER - ViewColors
+0020 - CONTROLLER - ViewSitsUsers
+0021 - CONTROLLER - ViewUsers
+
+0022 - MODELS - AdmsAddColors
+0023 - MODELS - AdmsAddSitsUsers
+0024 - MODELS - AdmsAddUsers
+0025 - MODELS - AdmsConfEmail
+0026 - MODELS - AdmsConfEmail
+0027 - MODELS - AdmsConfEmail
+0028 - MODELS - AdmsDeleteColors
+0029 - MODELS - AdmsDeleteColors
+0030 - MODELS - AdmsDeleteColors
+0031 - MODELS - AdmsDeleteSitsUsers
+0032 - MODELS - AdmsDeleteSitsUsers
+0033 - MODELS - AdmsDeleteSitsUsers
+0034 - MODELS - AdmsDeleteUsers
+0035 - MODELS - AdmsDeleteUsers
+0036 - MODELS - AdmsEditColors
+0037 - MODELS - AdmsEditColors
+0038 - MODELS - AdmsEditProfile
+0039 - MODELS - AdmsEditProfile
+0040 - MODELS - AdmsEditProfileImage
+0041 - MODELS - AdmsEditProfileImage
+0042 - MODELS - AdmsEditProfileImage
+0043 - MODELS - AdmsEditProfilePassword
+0044 - MODELS - AdmsEditProfilePassword
+0045 - MODELS - AdmsEditSitsUsers
+0046 - MODELS - AdmsEditSitsUsers
+0047 - MODELS - AdmsEditUsers
+0048 - MODELS - AdmsEditUsers
+0049 - MODELS - AdmsEditUsersImage
+0050 - MODELS - AdmsEditUsersImage
+0051 - MODELS - AdmsEditUsersImage
+0052 - MODELS - AdmsEditUsersPassword
+0053 - MODELS - AdmsEditUsersPassword
+0054 - MODELS - AdmsListColors
+0055 - MODELS - AdmsListSitsUsers
+0056 - MODELS - AdmsListUsers
+0057 - MODELS - AdmsLogin
+0058 - MODELS - AdmsLogin
+0059 - MODELS - AdmsLogin
+0060 - MODELS - AdmsLogin
+0061 - MODELS - AdmsNewConfEmail
+0062 - MODELS - AdmsNewConfEmail
+0063 - MODELS - AdmsNewConfEmail
+0064 - MODELS - AdmsNewUser
+0065 - MODELS - AdmsNewUser
+0066 - MODELS - AdmsRecoverPassword
+0067 - MODELS - AdmsRecoverPassword
+0068 - MODELS - AdmsRecoverPassword
+0069 - MODELS - AdmsUpdatePassword
+0070 - MODELS - AdmsUpdatePassword
+0071 - MODELS - AdmsViewColors
+0072 - MODELS - AdmsViewProfile
+0073 - MODELS - AdmsViewSitsUsers
+
+0074 - HELPERS - AdmsUpload
+0075 - HELPERS - AdmsUploadImgRes
+0076 - HELPERS - AdmsUploadImgRes
+0077 - HELPERS - AdmsUploadImgRes
+0078 - HELPERS - AdmsUploadImgRes
+0079 - HELPERS - AdmsValEmail
+0080 - HELPERS - AdmsValEmailSingle
+0081 - HELPERS - AdmsValEmptyField
+0082 - HELPERS - AdmsValExtImg
+0083 - HELPERS - AdmsValPassword
+0084 - HELPERS - AdmsValPassword
+0085 - HELPERS - AdmsValPassword
+0086 - HELPERS - AdmsValPassword
+0087 - HELPERS - AdmsValUserSingle
+0088 - HELPERS - AdmsValUserSingleLogin
+0089 - HELPERS -
+0090 - HELPERS -
+0091 - HELPERS -
+0092 - HELPERS -
+0093 - HELPERS -

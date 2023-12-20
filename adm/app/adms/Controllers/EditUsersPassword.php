@@ -72,7 +72,7 @@ class EditUsersPassword
             }
 
         }else{
-             $_SESSION['msg'] = "<p style='color:#f00;'>Erro: Usuário não encontrado controller EditUsers!</p>";
+             $_SESSION['msg'] = "<p style='color:#f00;'>Erro 0017: Usuário não encontrado controller EditUsers!</p>";
             $urlRedirect = URLADM . "list-users/index";
             header("Location: $urlRedirect");
         }

@@ -74,7 +74,7 @@ class AdmsAddColors
              $this->result = true;
            
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Cor não cadastrada com sucesso!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0022: Cor não cadastrada com sucesso!</p>";
             $this->result = false;
         }      
      

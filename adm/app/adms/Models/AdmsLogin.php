@@ -36,7 +36,7 @@ class AdmsLogin
             // Var_dump( $this->resultBd );
             $this->valEmailPerm();
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário ou a senha incorreta!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0057: Usuário ou a senha incorreta!</p>";
             $this->result = false;
         }
         // Instanciar o metodo quando a classe he abstrata e a classe AdmsLogin é filha da classe AdmsConn
@@ -75,14 +75,14 @@ class AdmsLogin
             $this->result=false;
         
         }elseif(($this->resultBd[0]['adms_sits_user_id']==5)){
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: E-mail descadastrado, entre em contato com a empresa!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0058: E-mail descadastrado, entre em contato com a empresa!</p>";
             $this->result=false;
         
         }elseif(($this->resultBd[0]['adms_sits_user_id']==2)){
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: E-mail inativo, entre em contato com a empresa!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0059: E-mail inativo, entre em contato com a empresa!</p>";
             $this->result=false;
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: E-mail inativo, entre em contato com a empresa!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0060: E-mail inativo, entre em contato com a empresa!</p>";
             $this->result=false;
         }
     }
@@ -104,7 +104,7 @@ class AdmsLogin
             //echo $_SESSION['msg'];
         }else{
             //$_SESSION['msg'] = "<p style='color: #f00;'>Erro: Senha incorreta!</p>";
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário ou a senha incorreta!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0060: Usuário ou a senha incorreta!</p>";
             $this->result = false;
             //echo $_SESSION['msg'];
         }

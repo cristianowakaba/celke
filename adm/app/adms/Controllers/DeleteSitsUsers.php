@@ -34,7 +34,7 @@ class DeleteSitsUsers
             $deleteSitUser->deleteSitUser($this->id);    
                  
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário selecionar um usuário!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 008: Necessário selecionar um usuário!</p>";
         }
 
         $urlRedirect = URLADM . "list-users/index";

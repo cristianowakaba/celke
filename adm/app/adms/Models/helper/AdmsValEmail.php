@@ -24,7 +24,7 @@ class AdmsValEmail
         if(filter_var($this->email,FILTER_VALIDATE_EMAIL)){
             $this->result= true;
         }else{
-            $_SESSION['msg'] ="<p style ='color:#f00;'>E-mail invalido!</p>";
+            $_SESSION['msg'] ="<p style ='color:#f00;'>E-mail invalido!(0079)</p>";
             $this->result= false;
         }
     }    

@@ -82,7 +82,7 @@ class EditColors
                 $this->viewEditColor();
             }
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: cor não encontrada!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0010: cor não encontrada!</p>";
             $urlRedirect = URLADM . "list-sits-users/index";
             header("Location: $urlRedirect");
         }

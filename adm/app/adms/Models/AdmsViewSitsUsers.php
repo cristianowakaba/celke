@@ -63,7 +63,7 @@ class AdmsViewSitsUsers
 
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color:#f00'>Erro: Usuário não encontrado!</p>";
+      $_SESSION['msg'] = "<p style='color:#f00'>Erro 0073: Usuário não encontrado!</p>";
       $this->result = false;
     }
   }

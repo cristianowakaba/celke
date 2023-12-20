@@ -79,7 +79,7 @@ class EditUsersImage
                 $this->viewEditUserImage(); 
             }
         } else {
-            $_SESSION['msg'] = "<p style='color:#f00;'>Erro: Usuário não encontrado controller EditUsers!</p>";
+            $_SESSION['msg'] = "<p style='color:#f00;'>Erro 0016: Usuário não encontrado controller EditUsers!</p>";
             $urlRedirect = URLADM . "list-users/index";
             header("Location: $urlRedirect");
         }

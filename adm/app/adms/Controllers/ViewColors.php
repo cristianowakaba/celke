@@ -45,7 +45,7 @@ class ViewColors
 
             }
         }else{
-            $_SESSION['msg'] = "<p style='color:#f00;'>Erro: Cor não encontrada!</p>";
+            $_SESSION['msg'] = "<p style='color:#f00;'>Erro 0019: Cor não encontrada!</p>";
             $urlRedirect = URLADM . "list-colors/index";
             header("Location: $urlRedirect");
 

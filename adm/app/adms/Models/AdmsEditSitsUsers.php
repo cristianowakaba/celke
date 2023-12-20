@@ -75,7 +75,7 @@ class AdmsEditSitsUsers
     if ($this->resultBd) {
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color: #f00'>Erro: Situação não encontrada!</p>";
+      $_SESSION['msg'] = "<p style='color: #f00'>Erro 0045: Situação não encontrada!</p>";
       $this->result = false;
     }
   }
@@ -111,7 +111,7 @@ class AdmsEditSitsUsers
       $_SESSION['msg'] = "<p style='color: green;'>Situação editada com sucesso!</p>";
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Situação não editada com sucesso!</p>";
+      $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0046: Situação não editada com sucesso!</p>";
       $this->result = false;
     }
   }

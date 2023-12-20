@@ -76,7 +76,7 @@ class AdmsEditUsersPassword
     if ($this->resultBd) {
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color: #f00'>Erro: Usuário não encontrado!</p>";
+      $_SESSION['msg'] = "<p style='color: #f00'>Erro 0052: Usuário não encontrado!</p>";
       $this->result = false;
     }
   }
@@ -131,7 +131,7 @@ class AdmsEditUsersPassword
       $_SESSION['msg'] = "<p style='color: green;'> a senha do usuário editado com sucesso!</p>";
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color: #f00;'>Erro: a senha do usuário não editada com sucesso!</p>";
+      $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0053: a senha do usuário não editada com sucesso!</p>";
       $this->result = false;
     }
   }
