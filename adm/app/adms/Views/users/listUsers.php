@@ -22,7 +22,14 @@ foreach($this->data['listUsers'] as $user){
     //quando clicar no link, manda o id como parametro
     echo "<a href='".URLADM."view-users/index/$id'>Visualizar</a><br>";
     echo "<a href='".URLADM."edit-users/index/$id'>Editar</a><br>";
-    echo "<a href='".URLADM."delete-users/index/$id'>Apagar</a><br>";
+    echo "<a href='".URLADM."delete-users/index/$id' onclick= 'return confirm(\"Tem certeza que deseja excluir este registro?\")'>Apagar</a><br>";
+/* ?>
+
+outro jeito de fazer a funcão onclic fora do php
+
+<a href="<?php echo URLADM .'delete-users/index/'.$id ?>" onclick="return confirm('Tem certeza que deseja excluir este registro?')">Apagar</a>
+
+<?php */
     echo "<hr>";
    
 

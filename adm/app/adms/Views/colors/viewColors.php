@@ -9,7 +9,7 @@ if(!defined('C8L6K7E')){
 
  if(!empty($this->data['viewColors'])){
     echo "<a href='" . URLADM . "edit-colors/index/" . $this->data['viewColors'][0]['id'] . "'>Editar</a><br>";
-    echo "<a href='" . URLADM . "delete-colors/index/" . $this->data['viewColors'][0]['id'] . "'>Apagar</a><br><br>";
+    echo "<a href='" . URLADM . "delete-colors/index/" . $this->data['viewColors'][0]['id'] . "'onclick= 'return confirm(\"Tem certeza que deseja excluir este registro?\")'>Apagar</a><br><br>";
 
  }
  if (isset($_SESSION['msg'])) {

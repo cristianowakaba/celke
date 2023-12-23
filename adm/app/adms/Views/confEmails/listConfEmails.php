@@ -20,7 +20,7 @@ foreach ($this->data['listConfEmails'] as $confEmail) {
     
     echo "<a href='" . URLADM . "view-conf-emails/index/$id'>Visualizar</a><br>";
     echo "<a href='" . URLADM . "edit-conf-emails/index/$id'>Editar</a><br>";
-    echo "<a href='" . URLADM . "delete-conf-emails/index/$id'>Apagar</a><br>";
+    echo "<a href='" . URLADM . "delete-conf-emails/index/$id'onclick= 'return confirm(\"Tem certeza que deseja excluir este registro?\")'>Apagar</a><br>";
     echo "<hr>";
 }
 echo $this->data['pagination'];
