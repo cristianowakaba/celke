@@ -75,7 +75,7 @@ class AdmsPagination
     {
         $this->page = (int) $page ? $page : 1;
         $this->limitResult = (int) $limitResult;
-        var_dump($this->page);
+        // var_dump($this->page);
         //var_dump($this->limitResult);
         //pega a pagina que o usuario esta e multiplica pelo numero limite de registros por página e subtrai pelo mesmo numero de registros this->limitResult  exemplo   o usuário esta na pagina 2 e vai retornar 5 resultados por pagina, 2x5 =10 diminui o limite por pagina - 5  vai retornar apartir do cinco  se eu to na segunda vai aparecer 6,7,8,9,10
         $this->offset = (int) ($this->page * $this->limitResult) - $limitResult;
@@ -86,13 +86,13 @@ class AdmsPagination
     {
         $this->query = (string) $query;
         $this->parseString = (string) $parseString;
-        //var_dump($this->query);
-        //var_dump($this->parseString);
+        // var_dump($this->query);
+        // var_dump($this->parseString);
 
         $count = new \App\adms\Models\helper\AdmsRead();
         $count->fullRead($this->query, $this->parseString);
         $this->resultBd = $count->getResult();
-        // var_dump($this->resultBd);
+   
         $this->pageInstruction();
     }
     /**
@@ -126,7 +126,7 @@ class AdmsPagination
         $this->result = "<ul>";
 
         $this->result .= "<li><a href='{$this->link}{$this->var}'>Primeira</a></li>";
-        //atribui a $beforePage o resultado da página que o usuario esta - maxLink  exemplo usuário esta na página 6-2 vai das 4 ai compara a página que o usuário esta que no exemplo é a 6 subtri 1 (6-1) resultado 5 e verifica se 5 é maior ou igual ao  $beforePage que seria 4 se sim  incrementa $beforePage++ ou seja vaiu ter o link 4,5 antes da página atual que é 6
+        //atribui a $beforePage o resultado da página que o usuario está - maxLink  exemplo usuário esta na página 6-2 vai das 4 ai compara a página que o usuário esta que no exemplo é a 6 subtri 1 (6-1) resultado 5 e verifica se 5 é maior ou igual ao  $beforePage que seria 4 se sim  incrementa $beforePage++ ou seja vaiu ter o link 4,5 antes da página atual que é 6
 
         //mas antes apresnto um if pra verificar se $beforePage é maior ou igual a 1 senão apresenta páginas negativas
         for ($beforePage = $this->page - $this->maxLinks; $beforePage <= $this->page - 1; $beforePage++) {

@@ -13,7 +13,7 @@ class AdmsEditUsers
 {
 
 
-  /**recebe true se executar com sucesso e false se houver erro */
+  /**recebe true se executar com sucesso e false se houver Erro - */
   private bool $result = false;
   /**Recebe os registros do banco de dados */
   private array|null $resultBd;
@@ -75,7 +75,7 @@ class AdmsEditUsers
     if ($this->resultBd) {
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color: #f00'>Erro 0047: Usuário não encontrado!</p>";
+      $_SESSION['msg'] = "<p style='color: #f00'>Erro - 0047: Usuário não encontrado!</p>";
       $this->result = false;
     }
   }
@@ -106,7 +106,7 @@ class AdmsEditUsers
    * Instanciar o helper "AdmsValEmailSingle" para verificar se o e-mail não está cadastrado no banco de dados, não permitido cadastro com e-mail duplicado
    * Instanciar o helper "validatePassword" para validar a senha
    * Instanciar o helper "validateUserSingleLogin" para verificar se o usuário não está cadastrado no banco de dados, não permitido cadastro com usuário duplicado
-   * Instanciar o método "add" quando não houver nenhum erro de preenchimento 
+   * Instanciar o método "add" quando não houver nenhum Erro - de preenchimento 
    * Retorna FALSE quando houve algum erro
    * 
    * @return void
@@ -143,7 +143,7 @@ class AdmsEditUsers
       $_SESSION['msg'] = "<p style='color: green;'>Usuário editado com sucesso!</p>";
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0048: Usuário não editado com sucesso!</p>";
+      $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0048: Usuário não editado com sucesso!</p>";
       $this->result = false;
     }
   }

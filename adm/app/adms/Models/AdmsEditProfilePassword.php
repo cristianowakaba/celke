@@ -13,7 +13,7 @@ if(!defined('C8L6K7E')){
 class AdmsEditProfilePassword
 {
 
-    /** @var bool $result Recebe true quando executar o processo com sucesso e false quando houver erro */
+    /** @var bool $result Recebe true quando executar o processo com sucesso e false quando houver Erro - */
     private bool $result = false;
 
     /** @var array|null $resultBd Recebe os registros do banco de dados */
@@ -52,7 +52,7 @@ class AdmsEditProfilePassword
         if ($this->resultBd) {
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00'>Erro 0043: Perfil não encontrado!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00'>Erro - 0043: Perfil não encontrado!</p>";
             $this->result = false;
         }
     }
@@ -94,7 +94,7 @@ class AdmsEditProfilePassword
             $_SESSION['msg'] = "<p style='color: green;'>Senha editada com sucesso!</p>";
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0044: Senha não editada com sucesso!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0044: Senha não editada com sucesso!</p>";
             $this->result = false;
         }
     }

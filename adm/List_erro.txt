@@ -88,8 +88,16 @@
 0086 - HELPERS - AdmsValPassword
 0087 - HELPERS - AdmsValUserSingle
 0088 - HELPERS - AdmsValUserSingleLogin
-0089 - HELPERS -
-0090 - HELPERS -
-0091 - HELPERS -
-0092 - HELPERS -
-0093 - HELPERS -
+0089 - MODELS - AdmsListConfEmails
+
+0090 - MODELS -  AdmsViewConfEmails
+0091 - CONTROLLER - ViewConfEmail
+0092 - MODELS - AdmsAddConfEmails
+0093 - MODELS -  AdmsEditConfEmails
+0094 - CONTROLLER - EditConfEmails
+0095 - MODELS - AdmsEditConfEmails
+0096 - CONTROLLER - DeleteConfEmails
+0097 - MODELS - AdmsDeleteConfEmails
+0098 - MODELS - AdmsDeleteConfEmails
+0099 - CONTROLLER - EditConfEmailsPassword
+0100 -CORE - CarregarPgAdm

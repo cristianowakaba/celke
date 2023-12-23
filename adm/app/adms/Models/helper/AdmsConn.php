@@ -44,7 +44,7 @@ abstract class AdmsConn
 
             return $this->connect;
         } catch (PDOException $err) {
-            die("Erro - 001: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
+            die("Erro - - 001: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
         }
     }
 }

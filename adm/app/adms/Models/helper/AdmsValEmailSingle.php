@@ -40,7 +40,7 @@ class AdmsValEmailSingle
             $this->result=true;
         }else{
             var_dump( $this->resultBd);
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0080: este e-mail ja esta cadastrado!.</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0080: este e-mail ja esta cadastrado!.</p>";
           $this->result = false;
         }
       

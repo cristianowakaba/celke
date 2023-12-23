@@ -13,7 +13,7 @@ class AdmsAddSitsUsers
     /**recebe as informações do formulario */
     private array|null $data;
     
-   /**recebe true se executar com sucesso e false se houver erro */
+   /**recebe true se executar com sucesso e false se houver Erro - */
     private $result;
 
     private array $listRegistryAdd;
@@ -74,7 +74,7 @@ class AdmsAddSitsUsers
              $this->result = true;
            
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0023: Situação não cadastrada com sucesso!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0023: Situação não cadastrada com sucesso!</p>";
             $this->result = false;
         }      
      

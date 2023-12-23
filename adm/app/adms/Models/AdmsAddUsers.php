@@ -13,7 +13,7 @@ class AdmsAddUsers
     /**recebe as informações do formulario */
     private array|null $data;
     
-   /**recebe true se executar com sucesso e false se houver erro */
+   /**recebe true se executar com sucesso e false se houver Erro - */
     private $result;
 
     private array $listRegistryAdd;
@@ -88,7 +88,7 @@ class AdmsAddUsers
              $this->result = true;
            
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0024: Usuário não cadastrado com sucesso!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0024: Usuário não cadastrado com sucesso!</p>";
             $this->result = false;
         }      
      

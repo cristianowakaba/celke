@@ -560,3 +560,143 @@ if (formAddColors) {
         }
     });
 }
+    const formAddConfEmails = document.getElementById("form-add-conf-emails");
+if (formAddConfEmails) {
+    formAddConfEmails.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var title = document.querySelector("#title").value;
+        // Verificar se o campo esta vazio
+        if (title === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo título!</p>";
+            return;
+        }
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
+        if (name === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo nome!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var email = document.querySelector("#email").value;
+        // Verificar se o campo esta vazio
+        if (email=== "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo email!</p>";
+            return;
+        }
+        //Receber o valor do campo
+        var host= document.querySelector("#host").value;
+        // Verificar se o campo esta vazio
+        if (host=== "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo host!</p>";
+            return;
+        }
+        var username= document.querySelector("#username").value;
+        // Verificar se o campo esta vazio
+        if (username=== "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo username!</p>";
+            return;
+        }
+        var password= document.querySelector("#password").value;
+        // Verificar se o campo esta vazio
+        if (password=== "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo password</p>";
+            return;
+        }
+        var smtpsecure= document.querySelector("#smtpsecure").value;
+        // Verificar se o campo esta vazio
+        if (smtpsecure=== "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo smtpsecure</p>";
+            return;
+        }
+        var port= document.querySelector("#port").value;
+        // Verificar se o campo esta vazio
+        if (port=== "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo porta</p>";
+            return;
+        }
+    });
+}
+const formEditConfEmails = document.getElementById("form-edit-conf-emails");
+if (formEditConfEmails) {
+    formEditConfEmails.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var title = document.querySelector("#title").value;
+        // Verificar se o campo esta vazio
+        if (title === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo titulo!</p>";
+            return;
+        }
+
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
+        if (name === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo nome!</p>";
+            return;
+        }
+        
+        var email = document.querySelector("#email").value;
+        // Verificar se o campo esta vazio
+        if (email === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo email!</p>";
+            return;
+        }
+
+        var host = document.querySelector("#host").value;
+        // Verificar se o campo esta vazio
+        if (host === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo host!</p>";
+            return;
+        }
+
+        var username = document.querySelector("#username").value;
+        // Verificar se o campo esta vazio
+        if (username === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo usuário!</p>";
+            return;
+        }
+
+        var smtpsecure = document.querySelector("#smtpsecure").value;
+        // Verificar se o campo esta vazio
+        if (smtpsecure === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo smtp!</p>";
+            return;
+        }
+
+        var port = document.querySelector("#port").value;
+        // Verificar se o campo esta vazio
+        if (port === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo porta!</p>";
+            return;
+        }
+    });
+}
+
+const formEditConfEmailsPass = document.getElementById("form-edit-conf-emails-pass");
+if (formEditConfEmailsPass) {
+    formEditConfEmailsPass.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var password = document.querySelector("#password").value;
+        // Verificar se o campo esta vazio
+        if (password === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo senha!</p>";
+            return;
+        }
+    });
+}

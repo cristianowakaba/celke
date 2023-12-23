@@ -16,13 +16,13 @@ class AdmsConfEmail extends AdmsConn
 {
     /* recebe a chave para confirmar o cadastro */
     private string $key;
-    /**recebe true se executar com sucesso e false se houver erro */
+    /**recebe true se executar com sucesso e false se houver Erro - */
     private $result;
     /**Recebe os registros do banco de dados */
     private array|null $resultBd;
     private array $dataSave;
 
- /**recebe true se executar com sucesso e false se houver erro */
+ /**recebe true se executar com sucesso e false se houver Erro - */
     function getResult()
     {
         return $this->result;
@@ -42,12 +42,12 @@ class AdmsConfEmail extends AdmsConn
             if ($this->resultBd) {
                 $this->updateSitUser();
             } else {
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0025: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
+                $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0025: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
                 $this->result = false;
                
             }
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0026: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0026: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
             $this->result = false;
         }
     }
@@ -67,7 +67,7 @@ class AdmsConfEmail extends AdmsConn
             $_SESSION['msg'] = "<p style='color: green;'>E-mail ativado com sucesso!</p>";
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0027: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0027: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
                     $this->result=false;
         }
 

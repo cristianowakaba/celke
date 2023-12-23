@@ -15,7 +15,7 @@ class AdmsNewUser
     /**recebe as informações do formulario */
     private array|null $data;
     
-   /**recebe true se executar com sucesso e false se houver erro */
+   /**recebe true se executar com sucesso e false se houver Erro - */
     private $result;
 
      /** @var string $fromEmail Recebe o e-mail do remetente */
@@ -96,7 +96,7 @@ class AdmsNewUser
             // $this->result = true;
             $this->sendEmail();
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0064: Usuário não cadastrado com sucesso!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0064: Usuário não cadastrado com sucesso!</p>";
             $this->result = false;
         }      
      

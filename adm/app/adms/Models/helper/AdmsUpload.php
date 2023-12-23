@@ -58,7 +58,7 @@ class AdmsUpload
         if ((!file_exists($this->directory)) and (!is_dir($this->directory))) {
             mkdir($this->directory, 0755);
             if ((!file_exists($this->directory)) and (!is_dir($this->directory))) {
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0074: Upload não realizado com sucesso. Tente novamente!</p>";
+                $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0074: Upload não realizado com sucesso. Tente novamente!</p>";
                 return false;
             }else{
                 return true;

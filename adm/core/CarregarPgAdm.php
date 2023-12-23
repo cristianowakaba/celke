@@ -52,7 +52,7 @@ class CarregarPgAdm
         if (class_exists($this->classLoad)) {
             $this->loadMetodo();
         } else {
-            //die("Erro - 003: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
+            //die("Erro - - 003: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
 
             //instancia a classe AdmsSlug para tratar a controller,
             $urlController = new \App\adms\Models\helper\AdmsSlugController();
@@ -85,7 +85,7 @@ class CarregarPgAdm
             $classLoad->{$this->urlMetodo}($this->urlParameter);
            
         }else{
-            die("Erro - 003: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
+            die("Erro - - 003: Por favor tente novamente. Caso o problema persista, entre em contato o administrador " . EMAILADM);
         }
     }
      /**
@@ -95,7 +95,7 @@ class CarregarPgAdm
      */
     private function pgPublic(): void
     {
-        $this->listPgPublic = ["Login", "Erro", "Logout", "NewUser","ConfEmail","NewConfEmail","RecoverPassword","UpdatePassword","ViewSitsUsers"];
+        $this->listPgPublic = ["Login", "Erro", "Logout", "NewUser","ConfEmail","NewConfEmail","RecoverPassword","UpdatePassword","ViewSitsUsers","EditConfEmails"];
 
         if (in_array($this->urlController, $this->listPgPublic)) {
             $this->classLoad = "\\App\\adms\\Controllers\\" . $this->urlController;
@@ -113,12 +113,12 @@ class CarregarPgAdm
     private function pgPrivate():void
     {
       
-        $this->listPgPrivate = ["Dashboard", "ListUsers","ViewUsers","AddUsers","EditUsers","EditUsersPassword","EditUsersImage","DeleteUsers","ViewProfile","ViewProfile","EditProfile","EditProfilePassword","EditProfileImage","ListSitsUsers","AddSitsUsers","EditSitsUsers","DeleteSitsUsers","ListColors","AddColors","EditColors","ViewColors","DeleteColors"];
+        $this->listPgPrivate = ["Dashboard", "ListUsers","ViewUsers","AddUsers","EditUsers","EditUsersPassword","EditUsersImage","DeleteUsers","ViewProfile","ViewProfile","EditProfile","EditProfilePassword","EditProfileImage","ListSitsUsers","AddSitsUsers","EditSitsUsers","DeleteSitsUsers","ListColors","AddColors","EditColors","ViewColors","DeleteColors","ListConfEmails","ViewConfEmails","AddConfEmails","EditConfEmailsPassword"];
         // var_dump($this->urlController);
         if(in_array($this->urlController, $this->listPgPrivate)){
             $this->verifyLogin();
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Página não encontrada!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0100: Página não encontrada!</p>";
             $urlRedirect = URLADM . "login/index";
             header("Location: $urlRedirect");
         }

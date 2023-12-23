@@ -50,7 +50,7 @@ class AdmsValUserSingleLogin
         if(!$this->resultBd){
             $this->result=true;
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0088: este e-mail ja esta cadastrado!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0088: este e-mail ja esta cadastrado!</p>";
           $this->result = false;
         }
       

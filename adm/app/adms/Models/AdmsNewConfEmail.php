@@ -16,7 +16,7 @@ class AdmsNewConfEmail extends AdmsConn
 {
     /**recebe as informações do formulario */
     private array|null $data;
-    /**recebe true se executar com sucesso e false se houver erro */
+    /**recebe true se executar com sucesso e false se houver Erro - */
     private $result;
     /** @var string $fromEmail Recebe o e-mail do remetente */
     private string $fromEmail =  EMAILADM;
@@ -67,7 +67,7 @@ class AdmsNewConfEmail extends AdmsConn
         if ($this->resultBd) {
             $this->valConfEmail();
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0061: email não cadastrado!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0061: email não cadastrado!</p>";
             $this->result = false;
         }
     }
@@ -89,7 +89,7 @@ class AdmsNewConfEmail extends AdmsConn
                 $this->resultBd[0]['conf_email'] = $this->dataSave['conf_email'];
                 $this->sendEmail();
             } else {
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0062: link não enviado, tente novamente!</p>";
+                $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0062: link não enviado, tente novamente!</p>";
                 $this->result = false;
             }
 
@@ -138,7 +138,7 @@ class AdmsNewConfEmail extends AdmsConn
             $this->result = true;
         } else {
             $this->fromEmail = $sendEmail->getFromEmail();
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0063: Link não enviado, tente novamente ou entre em contato com o e-mail {$this->fromEmail}!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0063: Link não enviado, tente novamente ou entre em contato com o e-mail {$this->fromEmail}!</p>";
             $this->result = false;
         }
     }

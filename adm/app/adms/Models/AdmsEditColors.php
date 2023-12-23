@@ -81,7 +81,7 @@ class AdmsEditColors
       $this->result = true;
       // var_dump($this->resultBd);
     } else {
-      $_SESSION['msg'] = "<p style='color: #f00'>Erro 0036: Cor não encontrada!</p>";
+      $_SESSION['msg'] = "<p style='color: #f00'>Erro - 0036: Cor não encontrada!</p>";
       $this->result = false;
     }
   }
@@ -117,7 +117,7 @@ class AdmsEditColors
       $_SESSION['msg'] = "<p style='color: green;'>Cor editada com sucesso!</p>";
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0037: Cor não editada com sucesso!</p>";
+      $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0037: Cor não editada com sucesso!</p>";
       $this->result = false;
     }
   }

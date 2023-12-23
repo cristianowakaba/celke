@@ -82,7 +82,7 @@ class AdmsListColors
 
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color:#f00'>Erro 0054: nenhum usuário encontrado!</p>";
+      $_SESSION['msg'] = "<p style='color:#f00'>Erro - 0054: nenhum usuário encontrado!</p>";
       $this->result = false;
     }
   }

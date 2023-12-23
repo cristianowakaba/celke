@@ -34,7 +34,7 @@ class DeleteColors
             $deleteColor->deleteColor($this->id);    
                  
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro 007: Necessário selecionar uma cor!</p>";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 007: Necessário selecionar uma cor!</p>";
         }
 
         $urlRedirect = URLADM . "list-colors/index";
