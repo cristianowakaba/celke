@@ -15,17 +15,24 @@ if (isset($this->data['form'])) {
         <div class="title">
             <span>Área Restrita</span>
         </div>
+        
+        <div class="msg-alert">
+                <?php
+                if (isset($_SESSION['msg'])) {
+                   // echo $_SESSION['msg'];
+                    echo "<span id='msg'> " . $_SESSION['msg'] . "</span>";
 
-        <?php
-        if (isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
-        }
-        ?>
-        <!--tag para exibir a msg do javascript-->
-        <span id="msg"></span>
+                    unset($_SESSION['msg']);
+                }else{
+                    echo " <span id='msg'></span>";
+                }
+                ?>
+               <!--tag para exibir a msg do javascript-->
+        </div>
+
 
         <form method="POST" action="" id="form-login" class="form-login">
+           
             <?php
             $user = "";
             if (isset($valorForm['user'])) {
@@ -34,7 +41,7 @@ if (isset($this->data['form'])) {
             ?>
             <div class="row">
                 <i class="fa-solid fa-user"></i>
-                <input type="text" name="user" id="user" placeholder="Digite o usuário" value="<?php echo $user; ?>" >
+                <input type="text" name="user" id="user" placeholder="Digite o usuário" value="<?php echo $user; ?>">
             </div>
 
             <?php
@@ -45,9 +52,9 @@ if (isset($this->data['form'])) {
             ?>
             <div class="row">
                 <i class="fa-solid fa-lock"></i>
-                <input type="password" name="password" id="password" placeholder="Digite a senha" autocomplete="on" value="<?php echo $password; ?>" >
+                <input type="password" name="password" id="password" placeholder="Digite a senha" autocomplete="on" value="<?php echo $password; ?>">
             </div>
-            
+
 
             <div class="row button">
                 <button type="submit" name="SendLogin" value="Acessar">Acessar</button>
@@ -58,6 +65,6 @@ if (isset($this->data['form'])) {
         </form>
 
 
-        
+
     </div>
 </div>

@@ -13,15 +13,17 @@ if (isset($this->data['form'])) {
         <div class="title">
             <span>Recuperar Senha</span>
         </div>
-
-
-        <?php
-        if (isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
-        }
-        ?>
-        <span id="msg"></span>
+        <div class="msg-alert">
+                <?php
+                if (isset($_SESSION['msg'])) {
+                    echo "<span id='msg'> " . $_SESSION['msg'] . "</span>";
+                    unset($_SESSION['msg']);
+                } else {
+                    echo "<span id='msg'></span>";
+                }
+                ?>
+                
+            </div>
 
         <form method="POST" action="" id="form-recover-pass" class="form-login">
 
@@ -34,7 +36,7 @@ if (isset($this->data['form'])) {
             ?>
              <div class="row">
                 <i class="fa-solid fa-envelope"></i>
-                <input type="email" name="email" id="email" placeholder="Digite o e-mail" value="<?php echo $email; ?>" required>
+                <input type="email" name="email" id="email" placeholder="Digite o e-mail" value="<?php echo $email; ?>" >
             </div>
 
             <div class="row button">

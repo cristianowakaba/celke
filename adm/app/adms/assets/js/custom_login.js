@@ -44,13 +44,13 @@ function passwordStrength() {
 // Exibir a força da senha em um elemento HTML
 function viewStrength(strength) {
     if (strength < 30) {
-        document.getElementById("msgViewStrength").innerHTML = "<p style='color: #f00;'>Senha Fraca</p>";
+        document.getElementById("msgViewStrength").innerHTML = "<p class='alert-danger'>Senha Fraca</p>";
     } else if ((strength >= 30) && (strength < 50)) {
-        document.getElementById("msgViewStrength").innerHTML = "<p style='color: #ff8c00;'>Senha Média</p>";
+        document.getElementById("msgViewStrength").innerHTML = "<p class='alert-warning'>Senha Média</p>";
     } else if ((strength >= 50) && (strength < 69)) {
-        document.getElementById("msgViewStrength").innerHTML = "<p style='color: #7cfc00;'>Senha Boa</p>";
+        document.getElementById("msgViewStrength").innerHTML = "<p class='alert-primary'>Senha Boa</p>";
     } else if (strength >= 70) {
-        document.getElementById("msgViewStrength").innerHTML = "<p style='color: #008000;'>Senha Forte</p>";
+        document.getElementById("msgViewStrength").innerHTML = "<p class='alert-success'>Senha Forte</p>";
     } else {
         document.getElementById("msgViewStrength").innerHTML = "";
     }
@@ -66,7 +66,7 @@ if (formNewUser) {
         // Verificar se o campo de nome está vazio e exibir mensagem de erro
         if (name === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo nome!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo nome!</p>";
             return;
         }
 
@@ -76,7 +76,7 @@ if (formNewUser) {
         // Verificar se o campo de e-mail está vazio e exibir mensagem de erro
         if (email === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo e-mail!</p>";
+            document.getElementById("msg").innerHTML ="<p class='alert-danger'>Erro: Necessário preencher o campo e-mail!</p>";
             return;
         }
 
@@ -86,28 +86,28 @@ if (formNewUser) {
         // Verificar se o campo de senha está vazio e exibir mensagem de erro
         if (password === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo senha!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo senha!</p>";
             return;
         }
 
         // Verificar se a senha tem pelo menos 6 caracteres e exibir mensagem de erro
         if (password.length < 6) {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: A senha deve ter no mínimo 6 caracteres!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: A senha deve ter no mínimo 6 caracteres!</p>";
             return;
         }
 
         // Verificar se a senha não possui números repetidos e exibir mensagem de erro
         if (password.match(/([1-9]+)\1{1,}/)) {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: A senha não deve ter número repetido!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: A senha não deve ter número repetido!</p>";
             return;
         }
 
         // Verificar se a senha possui pelo menos uma letra e exibir mensagem de erro
         if (!password.match(/[A-Za-z]/)) {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: A senha deve ter pelo menos uma letra!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: A senha deve ter pelo menos uma letra!</p>";
             return;
         } else {
             // Limpar mensagem de erro se todas as validações passarem
@@ -127,7 +127,7 @@ if (formLogin) {
         // Verificar se o campo de usuário está vazio e exibir mensagem de erro
         if (user === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo usuário!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo usuário!</p>";
             return;
         }
 
@@ -136,7 +136,7 @@ if (formLogin) {
         // Verificar se o campo de senha está vazio e exibir mensagem de erro
         if (password === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo senha!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo senha!</p>";
             return;
         } else {
             // Limpar mensagem de erro se todas as validações passarem
@@ -155,7 +155,7 @@ if (formNewConfEmail) {
         // Verificar se o campo de e-mail está vazio e exibir mensagem de erro
         if (email === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo e-mail!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo e-mail!</p>";
             return;
         } else {
             // Limpar mensagem de erro se todas as validações passarem
@@ -174,7 +174,7 @@ if (formRecoverPass) {
         // Verificar se o campo de e-mail está vazio e exibir mensagem de erro
         if (email === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo e-mail!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo e-mail!</p>";
             return;
         } else {
             // Limpar mensagem de erro se todas as validações passarem
@@ -193,7 +193,7 @@ if (formUpdatePass) {
         // Verificar se o campo de senha está vazio e exibir mensagem de erro
         if (email === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p style='color: #f00;'>Erro: Necessário preencher o campo senha!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo senha!</p>";
             return;
         } else {
             // Limpar mensagem de erro se todas as validações passarem
@@ -202,4 +202,3 @@ if (formUpdatePass) {
         }
     });
 }
-
