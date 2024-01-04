@@ -33,7 +33,7 @@ class UpdatePassword
         // var_dump($this->key);
         //recebe todos os dados do formulário
        $this->dataForm= filter_input_array(INPUT_POST,FILTER_DEFAULT);
-        var_dump( $this->dataForm);
+       // var_dump( $this->dataForm);
 
         if ((!empty($this->key)) and (empty($this->dataForm['SendUpPass'])) ) {
             $this->validateKey();

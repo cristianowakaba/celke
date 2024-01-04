@@ -38,7 +38,7 @@ if (isset($this->data['form'])) {
             </div>
 
             <div class="row button">
-                <button type="submit" name="SendNewConfEmail" value="Enviar">Enviar</button>
+                <button type="submit" name="SendRecoverPass" value="Recuperar">Recuperar</button>
             </div>
 
             <div class="signup-link">
