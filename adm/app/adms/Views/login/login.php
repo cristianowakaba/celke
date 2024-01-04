@@ -1,8 +1,8 @@
 <?php
-if(!defined('C8L6K7E')){
+if (!defined('C8L6K7E')) {
     /*  header("Location:/"); */
- die("Erro: Página não encontrada!<br>");
- }
+    die("Erro: Página não encontrada!<br>");
+}
 if (isset($this->data['form'])) {
     $valorForm = $this->data['form'];
 }
@@ -10,41 +10,54 @@ if (isset($this->data['form'])) {
 //Criptografar a senha
 //echo password_hash("123456a", PASSWORD_DEFAULT);
 ?>
+<div class="container-login">
+    <div class="wrapper-login">
+        <div class="title">
+            <span>Área Restrita</span>
+        </div>
 
-<h1>Área Restrita</h1>
+        <?php
+        if (isset($_SESSION['msg'])) {
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+        }
+        ?>
+        <!--tag para exibir a msg do javascript-->
+        <span id="msg"></span>
 
-<?php
-if(isset($_SESSION['msg'])){
-    echo $_SESSION['msg'];
-    unset($_SESSION['msg']);
-}
-?>
-<!--tag para exibir a msg do javascript-->
-<span id="msg"></span>
+        <form method="POST" action="" id="form-login" class="form-login">
+            <?php
+            $user = "";
+            if (isset($valorForm['user'])) {
+                $user = $valorForm['user'];
+            }
+            ?>
+            <div class="row">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="user" id="user" placeholder="Digite o usuário" value="<?php echo $user; ?>" >
+            </div>
 
-<form method="POST" action="" id="form-login">
-    <?php
-    $user = "";
-    if (isset($valorForm['user'])) {
-        $user = $valorForm['user'];
-    }
-    ?>
-    <label>Usuário: </label>
-    <input type="text" name="user" id="user" placeholder="Digite o usuário" value="<?php echo $user; ?>" required><br><br>
+            <?php
+            $password = "";
+            if (isset($valorForm['password'])) {
+                $password = $valorForm['password'];
+            }
+            ?>
+            <div class="row">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="Digite a senha" autocomplete="on" value="<?php echo $password; ?>" >
+            </div>
+            
 
-    <?php
-    $password = "";
-    if (isset($valorForm['password'])) {
-        $password = $valorForm['password'];
-    }
-    ?>
-    <label>Senha: </label>
-    <input type="password" name="password" id="password" placeholder="Digite a senha"  autocomplete="on"  value="<?php echo $password; ?>" required><span id="msgViewStrength"><br><br></span>
-  
+            <div class="row button">
+                <button type="submit" name="SendLogin" value="Acessar">Acessar</button>
+            </div>
+            <div class="signup-link">
+                <a href="<?php echo URLADM; ?>new-user/index">Cadastrar</a> - <a href="<?php echo URLADM; ?>recover-password/index">Esqueceu a senha?</a>
+            </div>
+        </form>
 
-    <button type="submit" name="SendLogin" value="Acessar">Acessar</button>
-</form>
-<p><a href="<?php echo URLADM; ?>new-user/index">Cadastrar</a> - <a href="<?php echo URLADM; ?>recover-password/index">Esqueceu a senha?</a></p>
 
-Usuário: cesar@celke.com.br<br>
-  senha: 123456a
+        
+    </div>
+</div>

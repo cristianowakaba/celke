@@ -27,7 +27,7 @@ class ListUsers
        $listUsers= new \App\adms\Models\AdmsListUsers();
        $listUsers->listUsers($this->page);
        if($listUsers->getResult()){
-        var_dump($listUsers->getResultPg());
+        //var_dump($listUsers->getResultPg());
         $this->data['listUsers'] = $listUsers->getResultBd();
         $this->data['pagination']= $listUsers->getResultPg();
      
@@ -36,7 +36,7 @@ class ListUsers
        
        }
      
-        var_dump($this->data);
+       // var_dump($this->data);
 
         $loadView = new \Core\ConfigView("adms/Views/users/listUsers", $this->data);
         $loadView->loadView();

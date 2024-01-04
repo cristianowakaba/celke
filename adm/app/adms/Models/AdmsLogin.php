@@ -31,7 +31,7 @@ class AdmsLogin
         $viewUser->fullRead("SELECT id, name, email, password, image,adms_sits_user_id	FROM adms_users WHERE user =:user Or email= :email LIMIT :limit ", "user={$this->data['user']} &email={$this->data['user']}&limit=1");
 
         $this->resultBd =$viewUser->getResult();
-       var_dump($this->resultBd);
+       //var_dump($this->resultBd);
         if($this->resultBd){
             // Var_dump( $this->resultBd );
             $this->valEmailPerm();
