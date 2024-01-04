@@ -1,36 +1,50 @@
 <?php
-if(!defined('C8L6K7E')){
+if (!defined('C8L6K7E')) {
     /*  header("Location:/"); */
- die("Erro: Página não encontrada!<br>");
- }
+    die("Erro: Página não encontrada!<br>");
+}
 if (isset($this->data['form'])) {
     $valorForm = $this->data['form'];
 }
 ?>
+<div class="container-login">
+    <div class="wrapper-login">
 
-<h1>Recuperar Senha</h1>
+        <div class="title">
+            <span>Recuperar Senha</span>
+        </div>
 
-<?php
-if(isset($_SESSION['msg'])){
-    echo $_SESSION['msg'];
-    unset($_SESSION['msg']);
-}
-?>
-<span id="msg"></span>
 
-<form method="POST" action="" id="form-recover-pass">    
-   
-    
-    <?php
-    $email = "";
-    if (isset($valorForm['email'])) {
-        $email = $valorForm['email'];
-    }
-    ?>
-    <label>E-mail: </label>
-    <input type="email" name="email" id="email" placeholder="Digite o seu  e-mail" value="<?php echo $email; ?>"required><br><br>
+        <?php
+        if (isset($_SESSION['msg'])) {
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+        }
+        ?>
+        <span id="msg"></span>
 
-    
-    <button type="submit" name="SendRecoverPass" value="Recuperar">Recuperar</button>
-</form>
-<p><a href="<?php echo URLADM; ?>">Clique aqui</a> para acessar</p>
+        <form method="POST" action="" id="form-recover-pass" class="form-login">
+
+
+            <?php
+            $email = "";
+            if (isset($valorForm['email'])) {
+                $email = $valorForm['email'];
+            }
+            ?>
+             <div class="row">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" name="email" id="email" placeholder="Digite o e-mail" value="<?php echo $email; ?>" required>
+            </div>
+
+            <div class="row button">
+                <button type="submit" name="SendNewConfEmail" value="Enviar">Enviar</button>
+            </div>
+
+            <div class="signup-link">
+                <a href="<?php echo URLADM; ?>">Clique aqui</a> para acessar
+            </div>
+        </form>
+
+    </div>
+</div>

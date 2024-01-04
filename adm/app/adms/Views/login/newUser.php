@@ -13,7 +13,7 @@ if (isset($this->data['form'])) {
             <span>Novo Usuário</span>
         </div>
 
-
+        
         <?php
         if (isset($_SESSION['msg'])) {
             echo $_SESSION['msg'];

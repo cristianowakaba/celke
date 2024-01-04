@@ -45,39 +45,39 @@ class AdmsUpdate extends AdmsConn
         $this->table = $table;
         $this->data = $data;
         $this->terms= $terms;
-        var_dump( $table);
+      /*   var_dump( $table);
         var_dump($data);
         var_dump($terms);
-        var_dump($parseString);
+        var_dump($parseString); */
 /**função nativa php parse_str converte para um array */
         parse_str($parseString,$this->value);
 
-        var_dump($this->value);
+        //var_dump($this->value);
         $this->exeReplaceValues();
     }
        /**pega os dado e usa o foreach para atribuir um array chave=> valor */
     private function exeReplaceValues():void
     {
         foreach($this->data as $key => $value){
-            var_dump($key);
-            var_dump($value);
+           /*  var_dump($key);
+            var_dump($value); */
             $values[]= $key . "=:" . $key;
 
         }
-        var_dump($values);
+        //var_dump($values);
         // transforma em string
         $values= implode(', ',$values);
-        var_dump($values);
+        //var_dump($values);
 
         $this->query = "UPDATE {$this->table} SET {$values} {$this->terms}";
-        var_dump($this->query);
+        //var_dump($this->query);
         $this->exeInstruction();
     }
     /**executa a instrução conecta banco de dados instancia metodo qu eprepar a e metodo que executa substituindo valores pelos links */
     private function exeInstruction():void
     {
-        var_dump($this->data);
-        var_dump($this->value);
+        //var_dump($this->data);
+       // var_dump($this->value);
         $this->connection();
         try{
             

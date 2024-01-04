@@ -47,7 +47,7 @@ class AdmsNewConfEmail extends AdmsConn
     public function newConfEmail(array $data = null): void
     {
         $this->data = $data;
-        var_dump($this->data);
+        //var_dump($this->data);
         $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();
         $valEmptyField->valField($this->data);
         if ($valEmptyField->getResult()) {
@@ -63,7 +63,7 @@ class AdmsNewConfEmail extends AdmsConn
         $newConfEmail->fullRead("SELECT id, name, email,conf_email FROM adms_users WHERE email=:email LIMIT :limit ", "email={$this->data['email']}&limit=1");
 
         $this->resultBd = $newConfEmail->getResult();
-        var_dump($this->resultBd);
+      //  var_dump($this->resultBd);
         if ($this->resultBd) {
             $this->valConfEmail();
         } else {
