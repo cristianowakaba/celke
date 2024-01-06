@@ -25,6 +25,7 @@ bars.addEventListener("click", () => {
 window.matchMedia("(max-width: 768px)").matches ? sidebar.classList.remove("active") : sidebar.classList.add("active");
 /* Fim Sidebar Toggle / bars */
 
+/** inicio botão dropdown do listar */
 function actionDropdown(id) {
     closeDropdownAction();
     document.getElementById("actionDropdown" + id).classList.toggle("show-dropdown-action");
