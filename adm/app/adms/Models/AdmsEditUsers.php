@@ -75,7 +75,7 @@ class AdmsEditUsers
     if ($this->resultBd) {
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color: #f00'>Erro - 0047: Usuário não encontrado!</p>";
+      $_SESSION['msg'] =  "<p class='alert-danger'>Erro - 0047: Usuário não encontrado!</p>";
       $this->result = false;
     }
   }
@@ -140,10 +140,10 @@ class AdmsEditUsers
     $upUser = new \App\adms\Models\helper\AdmsUpdate();
     $upUser->exeUpdate("adms_users", $this->data, "WHERE id=:id", "id={$this->data['id']}");
     if ($upUser->getResult()) {
-      $_SESSION['msg'] = "<p style='color: green;'>Usuário editado com sucesso!</p>";
+      $_SESSION['msg'] = "<p class='alert-success'>Usuário editado com sucesso!</p>";
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0048: Usuário não editado com sucesso!</p>";
+      $_SESSION['msg'] = "<p class='alert-success'>Erro - 0048: Usuário não editado com sucesso!</p>";
       $this->result = false;
     }
   }

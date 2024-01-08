@@ -67,7 +67,7 @@ class AdmsNewConfEmail extends AdmsConn
         if ($this->resultBd) {
             $this->valConfEmail();
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0061: email não cadastrado!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0061: email não cadastrado!</p>";
             $this->result = false;
         }
     }
@@ -89,7 +89,7 @@ class AdmsNewConfEmail extends AdmsConn
                 $this->resultBd[0]['conf_email'] = $this->dataSave['conf_email'];
                 $this->sendEmail();
             } else {
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0062: link não enviado, tente novamente!</p>";
+                $_SESSION['msg'] = "<p class='alert-success'>Erro - 0062: link não enviado, tente novamente!</p>";
                 $this->result = false;
             }
 
@@ -111,7 +111,7 @@ class AdmsNewConfEmail extends AdmsConn
             //     $this->result = false;
             //  }else{
 
-            //     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: link não enviado, tente novamente!</p>";
+            //     $_SESSION['msg'] = "<p class='alert-success'>Erro: link não enviado, tente novamente!</p>";
             //     $this->result = false;
             //  }
 
@@ -134,11 +134,11 @@ class AdmsNewConfEmail extends AdmsConn
         $sendEmail->sendEmail($this->emailData, 2);
         if ($sendEmail->getResult()) {
 
-            $_SESSION['msg'] = "<p style='color: green;'>Novo link enviado com sucesso. Acesse a sua caixa de e-mail para confimar o e-mail!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Novo link enviado com sucesso. Acesse a sua caixa de e-mail para confimar o e-mail!</p>";
             $this->result = true;
         } else {
             $this->fromEmail = $sendEmail->getFromEmail();
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0063: Link não enviado, tente novamente ou entre em contato com o e-mail {$this->fromEmail}!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0063: Link não enviado, tente novamente ou entre em contato com o e-mail {$this->fromEmail}!</p>";
             $this->result = false;
         }
     }

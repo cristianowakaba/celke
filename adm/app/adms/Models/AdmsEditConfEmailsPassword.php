@@ -63,7 +63,7 @@ class AdmsEditConfEmailsPassword
             //var_dump($this->resultBd);
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00'>Erro: Senha da configuração de email não encontrada!</p>";
+            $_SESSION['msg'] =  "<p class='alert-danger'>Erro: Senha da configuração de email não encontrada!</p>";
             $this->result = false;
         }
     }
@@ -100,10 +100,10 @@ class AdmsEditConfEmailsPassword
         $upConfEmailsPass->exeUpdate("adms_confs_emails", $this->data, "WHERE id=:id", "id={$this->data['id']}");
 
         if ($upConfEmailsPass->getResult()) {
-            $_SESSION['msg'] = "<p style='color: green;'>Senha da configuração de email editada com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Senha da configuração de email editada com sucesso!</p>";
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Senha da configuração de email não editada com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro: Senha da configuração de email não editada com sucesso!</p>";
             $this->result = false;
         }
     }

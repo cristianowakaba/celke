@@ -42,12 +42,12 @@ class AdmsConfEmail extends AdmsConn
             if ($this->resultBd) {
                 $this->updateSitUser();
             } else {
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0025: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
+                $_SESSION['msg'] = "<p class='alert-success'>Erro - 0025: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
                 $this->result = false;
                
             }
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0026: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0026: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
             $this->result = false;
         }
     }
@@ -64,10 +64,10 @@ class AdmsConfEmail extends AdmsConn
         $upConfEmail->exeUpdate("adms_users", $this->dataSave, "WHERE id=:id", "id={$this->resultBd[0]['id']}");
 
         if ($upConfEmail->getResult()) {
-            $_SESSION['msg'] = "<p style='color: green;'>E-mail ativado com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>E-mail ativado com sucesso!</p>";
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0027: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0027: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
                     $this->result=false;
         }
 
@@ -81,10 +81,10 @@ class AdmsConfEmail extends AdmsConn
         //  $actvivate_email->execute();
 
         //  if($actvivate_email->rowCount()){
-        //     $_SESSION['msg'] = "<p style='color: green;'>E-mail ativado com sucesso!</p>";
+        //     $_SESSION['msg'] = "<p class='alert-success'>E-mail ativado com sucesso!</p>";
         //         $this->result=true;
         //  }else{
-        //     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Link inválido</p>";
+        //     $_SESSION['msg'] = "<p class='alert-success'>Erro: Link inválido</p>";
         //         $this->result=false;
         //  }
     }

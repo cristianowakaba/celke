@@ -84,11 +84,11 @@ class AdmsAddUsers
         $createUser->exeCreate("adms_users", $this->data);
 
         if($createUser->getResult()){
-             $_SESSION['msg'] = "<p style='color: green;'>Usuário cadastrado com sucesso!</p>";
+             $_SESSION['msg'] = "<p class='alert-success'>Usuário cadastrado com sucesso!</p>";
              $this->result = true;
            
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0024: Usuário não cadastrado com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0024: Usuário não cadastrado com sucesso!</p>";
             $this->result = false;
         }      
      

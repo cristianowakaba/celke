@@ -70,11 +70,11 @@ class AdmsAddColors
         $createColor->exeCreate("adms_colors", $this->data);
 
         if( $createColor->getResult()){
-             $_SESSION['msg'] = "<p style='color: green;'>Cor cadastrada com sucesso!</p>";
+             $_SESSION['msg'] = "<p class='alert-success'>Cor cadastrada com sucesso!</p>";
              $this->result = true;
            
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0022: Cor não cadastrada com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0022: Cor não cadastrada com sucesso!</p>";
             $this->result = false;
         }      
      

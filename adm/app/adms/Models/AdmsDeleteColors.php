@@ -47,10 +47,10 @@ class AdmsDeleteColors
             $deleteUser->exeDelete("adms_Colors", "WHERE id =:id", "id={$this->id}");
     
             if ($deleteUser->getResult()) {
-                $_SESSION['msg'] = "<p style='color: green;'>Cor apagada com sucesso!</p>";
+                $_SESSION['msg'] = "<p class='alert-success'>Cor apagada com sucesso!</p>";
                 $this->result = true;
             } else {
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro 0028: Cor não apagada com sucesso!</p>";
+                $_SESSION['msg'] = "<p class='alert-success'>Erro 0028: Cor não apagada com sucesso!</p>";
                 $this->result = false;
             }
         }else{
@@ -79,7 +79,7 @@ class AdmsDeleteColors
         if ($this->resultBd) {
             return true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00'>Erro 0029: Cor não encontrada!</p>";
+            $_SESSION['msg'] =  "<p class='alert-danger'>Erro 0029: Cor não encontrada!</p>";
             return false;
         }
     }
@@ -93,7 +93,7 @@ class AdmsDeleteColors
         $viewColorUsed = new \App\adms\Models\helper\AdmsRead();
         $viewColorUsed->fullRead("SELECT id FROM adms_sits_users WHERE adms_color_id =:adms_color_id LIMIT :limit", "adms_color_id={$this->id}&limit=1");
         if( $viewColorUsed->getResult()){
-            $_SESSION['msg'] = "<p style='color: #f00'>Erro 0030:Cor não pode ser apagada, ha usuários com essa situação!</p>";
+            $_SESSION['msg'] =  "<p class='alert-danger'>Erro 0030:Cor não pode ser apagada, ha usuários com essa situação!</p>";
             return false;
         }else{
             return true;

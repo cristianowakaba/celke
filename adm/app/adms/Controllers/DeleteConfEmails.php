@@ -34,7 +34,7 @@ class DeleteConfEmails
             $deleteConfEmails = new \App\adms\Models\AdmsDeleteConfEmails();
             $deleteConfEmails->deleteConfEmails($this->id);            
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro -0096: Necessário selecionar uma configuração de email!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro -0096: Necessário selecionar uma configuração de email!</p>";
         }
 
         $urlRedirect = URLADM . "list-conf-emails/index";

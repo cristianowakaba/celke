@@ -55,8 +55,8 @@ class AdmsLogin
         //     ////var_dump($this->resultBd);
         //     $this->valPassword();
         // }else{
-        //     //$_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário não encontrado!</p>";
-        //     $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário ou a senha incorreta!</p>";
+        //     //$_SESSION['msg'] = "<p class='alert-success'>Erro: Usuário não encontrado!</p>";
+        //     $_SESSION['msg'] = "<p class='alert-success'>Erro: Usuário ou a senha incorreta!</p>";
         //     $this->result = false;
         //     //echo $_SESSION['msg'];
         // }
@@ -94,7 +94,7 @@ class AdmsLogin
     {
         // tem que acrescentar a posição [0] no array
         if(password_verify($this->data['password'], $this->resultBd[0]['password'])){
-            $_SESSION['msg'] = "<p style='color: green;'>Login realizado com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Login realizado com sucesso!</p>";
             $_SESSION['user_id'] = $this->resultBd[0]['id'];
             $_SESSION['user_name'] = $this->resultBd[0]['name'];
             $_SESSION['user_nickname'] = $this->resultBd[0]['nickname'];
@@ -103,7 +103,7 @@ class AdmsLogin
             $this->result = true;
             //echo $_SESSION['msg'];
         }else{
-            //$_SESSION['msg'] = "<p style='color: #f00;'>Erro: Senha incorreta!</p>";
+            //$_SESSION['msg'] = "<p class='alert-success'>Erro: Senha incorreta!</p>";
             $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0060: Usuário ou a senha incorreta!</p>";
             $this->result = false;
             //echo $_SESSION['msg'];

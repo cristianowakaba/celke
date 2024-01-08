@@ -23,11 +23,11 @@ class AdmsValPassword
 {
     $this->password = $password;
     if(stristr($this->password,"'")){
-        $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0083: Caracter(') utilizado na senha invalido!</p>";
+        $_SESSION['msg'] = "<p class='alert-success'>Erro - 0083: Caracter(') utilizado na senha invalido!</p>";
         $this->result= false;
     }else{
         if(stristr($this->password," ")){
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0084: proibido utilizar espaço em branco no campo senha!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0084: proibido utilizar espaço em branco no campo senha!</p>";
             $this->result= false;
 
         }else{
@@ -40,7 +40,7 @@ class AdmsValPassword
     private function valExtensPassord():void
     {
         if(strlen($this->password)<6){
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0085: A senha deve ter no minimo 6 caracteres!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0085: A senha deve ter no minimo 6 caracteres!</p>";
             $this->result= false;
         }else{
             $this->valValuePassord();
@@ -52,7 +52,7 @@ class AdmsValPassword
         if(preg_match('/^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9-@#$%;*]{6,}$/',$this->password)){
             $this->result= true;
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0086: A senha deve ter letras e  numeros!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0086: A senha deve ter letras e  numeros!</p>";
         }
     }
 }

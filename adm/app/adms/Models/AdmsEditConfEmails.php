@@ -106,10 +106,10 @@ class AdmsEditConfEmails
         $upConfEmails->exeUpdate("adms_confs_emails", $this->data, "WHERE id=:id", "id={$this->data['id']}");
 
         if ($upConfEmails->getResult()) {
-            $_SESSION['msg'] = "<p style='color: green;'>Configuração de email editada com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Configuração de email editada com sucesso!</p>";
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0095: Configuração de email não editada com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0095: Configuração de email não editada com sucesso!</p>";
             $this->result = false;
         }
     }

@@ -52,7 +52,7 @@ class AdmsViewProfile
         if ($this->resultBd) {
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00'>Erro - 0072: Perfil não encontrado!</p>";
+            $_SESSION['msg'] =  "<p class='alert-danger'>Erro - 0072: Perfil não encontrado!</p>";
             $this->result = false;
         }
     }

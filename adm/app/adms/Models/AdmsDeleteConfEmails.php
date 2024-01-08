@@ -47,10 +47,10 @@ class AdmsDeleteConfEmails
             $deleteConfEmails->exeDelete("adms_confs_emails", "WHERE id =:id", "id={$this->id}");
 
             if ($deleteConfEmails->getResult()) {
-                $_SESSION['msg'] = "<p style='color: green;'>Configuração de email apagada com sucesso!</p>";
+                $_SESSION['msg'] = "<p class='alert-success'>Configuração de email apagada com sucesso!</p>";
                 $this->result = true;
             } else {
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0097: Configuração de email não apagada com sucesso!</p>";
+                $_SESSION['msg'] = "<p class='alert-success'>Erro - 0097: Configuração de email não apagada com sucesso!</p>";
                 $this->result = false;
             }
         } else {
@@ -73,7 +73,7 @@ class AdmsDeleteConfEmails
         if ($this->resultBd) {
             return true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00'>Erro - 0098 Configuração de email não encontrada!</p>";
+            $_SESSION['msg'] =  "<p class='alert-danger'>Erro - 0098 Configuração de email não encontrada!</p>";
             return false;
         }
     }

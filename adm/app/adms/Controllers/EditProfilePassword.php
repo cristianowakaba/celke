@@ -71,7 +71,7 @@ class EditProfilePassword
                 $this->viewEditProfPass();
             }
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0013: Perfil não encontrado!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0013: Perfil não encontrado!</p>";
             $urlRedirect = URLADM . "login/index";
             header("Location: $urlRedirect");
         }

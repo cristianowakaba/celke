@@ -101,7 +101,7 @@ class AdmsUploadImgRes
     {
         mkdir($this->directory, 0755);
         if (!file_exists($this->directory)) {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0075: Upload da imagem não realizado com sucesso. Tente novamente!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0075: Upload da imagem não realizado com sucesso. Tente novamente!</p>";
             $this->result = false;
         } else {
             $this->uploadFile();
@@ -125,10 +125,10 @@ class AdmsUploadImgRes
                 $this->uploadFilePng();
                 break;
             default:
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0076: Necessário selecionar imagem JPEG ou PNG!</p>";
+                $_SESSION['msg'] = "<p class='alert-success'>Erro - 0076: Necessário selecionar imagem JPEG ou PNG!</p>";
                 $this->result = false;
 
-                /*  $_SESSION['msg'] = "<p style='color: #f00;'>acessou helper redimensionar imagem!</p>";
+                /*  $_SESSION['msg'] = "<p class='alert-success'>acessou helper redimensionar imagem!</p>";
                 $this->result= false; */
         }
     }
@@ -145,10 +145,10 @@ class AdmsUploadImgRes
 
         // Enviar a imagem para servidor
         if (imagejpeg($this->imgResize, $this->directory . $this->name, 100)) {
-            $_SESSION['msg'] = "<p style='color: green;'>Upload da imagem realizado com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Upload da imagem realizado com sucesso!</p>";
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0077: Upload da imagem não realizado com sucesso. Tente novamente!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0077: Upload da imagem não realizado com sucesso. Tente novamente!</p>";
             $this->result = false;
         }
     }
@@ -161,10 +161,10 @@ class AdmsUploadImgRes
 
         // Enviar a imagem para servidor
         if (imagepng($this->imgResize, $this->directory . $this->name, 1)) {
-            $_SESSION['msg'] = "<p style='color: green;'>Upload da imagem realizado com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Upload da imagem realizado com sucesso!</p>";
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0078: Upload da imagem não realizado com sucesso. Tente novamente!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0078: Upload da imagem não realizado com sucesso. Tente novamente!</p>";
             $this->result = false;
         }
     }

@@ -70,11 +70,11 @@ class AdmsAddSitsUsers
         $createSitUser->exeCreate("adms_sits_users", $this->data);
 
         if($createSitUser->getResult()){
-             $_SESSION['msg'] = "<p style='color: green;'>Situação cadastrada com sucesso!</p>";
+             $_SESSION['msg'] = "<p class='alert-success'>Situação cadastrada com sucesso!</p>";
              $this->result = true;
            
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0023: Situação não cadastrada com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0023: Situação não cadastrada com sucesso!</p>";
             $this->result = false;
         }      
      

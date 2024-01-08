@@ -48,7 +48,7 @@ class AdmsUpdatePassword
             
           
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0069: Link inválido, solicite novo link <a href='" . URLADM . "recover-password/index'>clique aqui</a>!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0069: Link inválido, solicite novo link <a href='" . URLADM . "recover-password/index'>clique aqui</a>!</p>";
             $this->result = false;
             return false;
             
@@ -104,10 +104,10 @@ class AdmsUpdatePassword
         $upPassword = new \App\adms\Models\helper\AdmsUpdate();
         $upPassword->exeUpdate("adms_users", $this->dataSave, "WHERE id=:id", "id={$this->resultBd[0]['id']}");
         if($upPassword->getResult()){
-            $_SESSION['msg'] = "<p style='color: green;'>Senha atualizada com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Senha atualizada com sucesso!</p>";
             $this->result = true;
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0070: Senha não atualizada, tente novamente!</p>";
+            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0070: Senha não atualizada, tente novamente!</p>";
             $this->result = false;
         }
 
