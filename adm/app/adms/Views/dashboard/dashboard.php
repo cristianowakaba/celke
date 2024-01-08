@@ -39,7 +39,7 @@ die("Erro: Página não encontrada!<br>");
                     <span>Alertas</span>
                 </div>
             </div>
-            <?php var_dump($this->data['countUsers']);?>
+            
            
         </div>
         <!-- Fim do conteudo do administrativo -->

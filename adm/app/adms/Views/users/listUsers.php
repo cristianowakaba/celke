@@ -1,41 +1,79 @@
 <?php
-if(!defined('C8L6K7E')){
+if (!defined('C8L6K7E')) {
     /*  header("Location:/"); */
- die("Erro: Página não encontrada!<br>");
- }
-echo "<h2>Listar Usuários</h2>";
-echo "<a href='".URLADM."add-users/index'>Cadastrar</a><br><br>";
-// //var_dump($this->data['listUsers']);
-if(isset($_SESSION['msg'])){
+    die("Erro: Página não encontrada!<br>");
+}
+?>
+
+<!-- Inicio do conteudo do administrativo -->
+<div class="wrapper">
+    <div class="row">
+        <div class="top-list">
+            <span class="title-content">Listar Usuarios</span>
+            <div class="top-list-right">
+               
+                <?php
+                 echo "<a href='".URLADM."add-users/index' class='btn-success'>Cadastrar</a>";
+                ?>
+               
+            
+            </div>
+        </div>
+        <?php
+        if(isset($_SESSION['msg'])){
     echo $_SESSION['msg'];
     unset($_SESSION['msg']);
 }
+    ?>
 
-foreach($this->data['listUsers'] as $user){
+        <table class="table-list">
+            <thead class="list-head">
+                <tr>
+                    <th class="list-head-content">ID</th>
+                    <th class="list-head-content">Nome</th>
+                    <th class="list-head-content table-sm-none">E-mail</th>
+                    <th class="list-head-content table-md-none">Situação</th>
+                    <th class="list-head-content">Ações</th>
+                </tr>
+            </thead>
+            <tbody class="list-body">
+                <?php
+                foreach ($this->data['listUsers'] as $user) {
+                    extract($user);
+                ?>
+                    <tr>
+                        <td class="list-body-content"><?php echo $id; ?></td>
+                        <td class="list-body-content"><?php echo $name_usr; ?></td>
+                        <td class="list-body-content table-sm-none"><?php echo $email; ?></td>
+                        <td class="list-body-content table-md-none"> <?php echo "<span style='color:$color'>$name_sit </span>";?>
+                        </td>
 
-// //var_dump($user);
-    extract($user);
-    echo "ID: $id <br>";
-    echo "Nome: $name_usr <br>";
-    echo "email: $email <br>";
-    echo "Situação:<span style='color:$color'>$name_sit </span> <br>";
-    //quando clicar no link, manda o id como parametro
-    echo "<a href='".URLADM."view-users/index/$id'>Visualizar</a><br>";
-    echo "<a href='".URLADM."edit-users/index/$id'>Editar</a><br>";
-    echo "<a href='".URLADM."delete-users/index/$id' onclick= 'return confirm(\"Tem certeza que deseja excluir este registro?\")'>Apagar</a><br>";
-/* ?>
+                        <td class="list-body-content">
 
-outro jeito de fazer a funcão onclic fora do php
+                            <div class="dropdown-action">
+                                <button onclick="actionDropdown(<?php echo $id?>)" class="dropdown-btn-action">Ações</button>
+                                <div id="actionDropdown<?php echo $id?>" class="dropdown-action-item">
+                                    
+                                    <?php
+                                    echo "<a href='".URLADM."view-users/index/$id'>Visualizar</a>";
+                                    echo "<a href='".URLADM."edit-users/index/$id'>Editar</a>";
+                                    echo "<a href='".URLADM."delete-users/index/$id' onclick= 'return confirm(\"Tem certeza que deseja excluir este registro?\")'>Apagar</a>";
+                                    ?>
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <?php
 
-<a href="<?php echo URLADM .'delete-users/index/'.$id ?>" onclick="return confirm('Tem certeza que deseja excluir este registro?')">Apagar</a>
+                }
+                ?>
+            </tbody>
+        </table>
+<?php echo $this->data['pagination']?>
+    </div>
 
-<?php */
-    echo "<hr>";
-   
-
-
-    // echo "ID:".$user['id']."<br>";
-    // echo "name:".$user['name']."<br>";
-    // echo "email:".$user['email']."<br><hr>";
-}
-echo $this->data['pagination'];
+</div>
+<!-- Fim do conteudo do administrativo -->

@@ -123,29 +123,32 @@ class AdmsPagination
      */
     private function layoutPagination(): void
     {
-        $this->result = "<ul>";
+        $this->result = "<div class='content-pagination'>";
+            $this->result .= "<div class='pagination'>";
+        
 
-        $this->result .= "<li><a href='{$this->link}{$this->var}'>Primeira</a></li>";
+        $this->result .= "<a href='{$this->link}{$this->var}'>Primeira</a>";
         //atribui a $beforePage o resultado da página que o usuario está - maxLink  exemplo usuário esta na página 6-2 vai das 4 ai compara a página que o usuário esta que no exemplo é a 6 subtri 1 (6-1) resultado 5 e verifica se 5 é maior ou igual ao  $beforePage que seria 4 se sim  incrementa $beforePage++ ou seja vaiu ter o link 4,5 antes da página atual que é 6
 
         //mas antes apresnto um if pra verificar se $beforePage é maior ou igual a 1 senão apresenta páginas negativas
         for ($beforePage = $this->page - $this->maxLinks; $beforePage <= $this->page - 1; $beforePage++) {
             if ($beforePage >= 1) {
                 //vai incrementar o gerando os links  até achagar na página anterior a atual ou seja no exmplo um link 4 e um link 5
-                $this->result .= "<li><a href='{$this->link}/$beforePage{$this->var}'>$beforePage</a></li>";
+                $this->result .= "<a href='{$this->link}/$beforePage{$this->var}'>$beforePage</a>";
             }
         }
         ////var_dump($this->result);
-        $this->result .= "<li>{$this->page}</li>";
+        $this->result .= "<a href='#' class='active'>{$this->page}</a>";
         // $afterPage recebe a página atual +1 ex página atual 6 +1= 7 ai compara se a página atual somado com o maxLinks ou seja no exemplo 6+2  =8 ai compara se 8 for maior ou igual ao afterpage, acrescenta afterPage++ ou seja vai  criar a página 7 e página 8 mas antes verifica e so executa se o total de página for maior ou igual ap afterPage para não criar link infinitos
         for ($afterPage = $this->page + 1; $afterPage <= $this->page + $this->maxLinks; $afterPage++) {
             if ($afterPage <= $this->totalPages) {
-                $this->result .= "<li><a href='{$this->link}/$afterPage{$this->var}'>$afterPage</a></li>";
+                $this->result .= "<a href='{$this->link}/$afterPage{$this->var}'>$afterPage</a>";
             }
         }
 
-        $this->result .= "<li><a href='{$this->link}/{$this->totalPages}{$this->var}'>Última</a></li>";
+        $this->result .= "<a href='{$this->link}/{$this->totalPages}{$this->var}'>Última</a>";
 
-        $this->result .= "</ul>";
+            $this->result .= "</div>";
+        $this->result .= "</div>";
     }
 }
