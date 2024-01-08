@@ -20,7 +20,7 @@ class AdmsListConfEmails
   /** @var string|int|null $page Recebe o número página */
   private string|int|null $page;
   /** @var int $page Recebe a quantidade de registros que deve retornar do banco de dados */
-  private int $limitResult = 1;
+  private int $limitResult = 40;
   /** @var string|null $page Recebe a páginação */
   private string|null $resultPg;
 
