@@ -26,13 +26,13 @@ class AdmsConfEmail extends AdmsConn
     function getResult()
     {
         return $this->result;
-        // var_dump($this->result);
+        // //var_dump($this->result);
     }
     /**recebe a $key  se receber instancia a helper generica AdmsRead() e faz a consulta se tiver resultado instancia o metodo updateSitUser() */
     public function confEmail(string $key): void
     {
         $this->key = $key;
-        var_dump($this->key);
+        //var_dump($this->key);
         if (!empty($this->key)) {
             $viewKeyConfEmail = new \App\adms\models\helper\AdmsRead();
             $viewKeyConfEmail->fullRead("SELECT id  FROM adms_users WHERE conf_email =:conf_email Limit :limit", "conf_email={$this->key}&limit=1");

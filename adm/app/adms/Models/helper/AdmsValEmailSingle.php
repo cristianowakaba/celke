@@ -35,11 +35,11 @@ class AdmsValEmailSingle
         }
         //envia uma query que verifica se tem um id que possua o email ou usuario que estou enviando no banco de dados, tem que ser diferente do id que estou enviando, se voltar resultado quer dizer que o email ou senha esta cadastrado . verifica se resultbd for diferente ou seja nao tiver resultado retorna true e continua senão retorna false e umamsg de erro.
        $this->resultBd =$valEmailSingle->getResult();
-       var_dump( $this->resultBd);
+       //var_dump( $this->resultBd);
         if(!$this->resultBd){
             $this->result=true;
         }else{
-            var_dump( $this->resultBd);
+            //var_dump( $this->resultBd);
             $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0080: este e-mail ja esta cadastrado!.</p>";
           $this->result = false;
         }

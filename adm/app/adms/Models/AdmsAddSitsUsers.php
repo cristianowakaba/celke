@@ -24,7 +24,7 @@ class AdmsAddSitsUsers
     function getResult()
     {
         return $this->result;
-        // var_dump($this->result);
+        // //var_dump($this->result);
     }
         /** 
      * Recebe os valores do formulário.
@@ -39,7 +39,7 @@ class AdmsAddSitsUsers
     public function create(array $data = null)
     {
         $this->data = $data;
-        // var_dump($this->data);
+        // //var_dump($this->data);
 
         $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();       
         $valEmptyField->valField($this->data);
@@ -64,7 +64,7 @@ class AdmsAddSitsUsers
        
         $this->data['created'] = date("Y-m-d H:i:s");
 
-        var_dump( $this->data);
+        //var_dump( $this->data);
 
         $createSitUser = new \App\adms\Models\helper\AdmsCreate();
         $createSitUser->exeCreate("adms_sits_users", $this->data);
@@ -89,10 +89,10 @@ class AdmsAddSitsUsers
         $list = new \App\adms\Models\helper\AdmsRead();
         $list->fullRead("SELECT id id_col, name name_col FROM adms_colors ORDER BY name ASC");
         $registry['col'] = $list->getResult();
-       var_dump($registry['col']);
+       //var_dump($registry['col']);
 
        $this->listRegistryAdd = ['col' => $registry['col']];
-       var_dump($this->listRegistryAdd); 
+       //var_dump($this->listRegistryAdd); 
         return $this->listRegistryAdd;
     }
         

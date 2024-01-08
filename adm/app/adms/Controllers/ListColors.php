@@ -22,7 +22,7 @@ class ListColors
     public function index(string|int|null $page = null): void
     {
         $this->page = (int) $page ? $page:1;
-        var_dump($this->page);
+        // //var_dump($this->page);
 
        $listColors= new \App\adms\Models\AdmsListColors();
        $listColors->listColors($this->page);
@@ -36,7 +36,7 @@ class ListColors
        
        }
      
-
+       $this->data['sidebarActive']="list-colors";
         $loadView = new \Core\ConfigView("adms/Views/colors/listColors", $this->data);
         $loadView->loadView();
 

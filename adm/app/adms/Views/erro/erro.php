@@ -4,5 +4,5 @@ if(!defined('C8L6K7E')){
  die("Erro: Página não encontrada!<br>");
  }
 echo "VIEW - Página erro!<br>";
-var_dump($this->data);
+//var_dump($this->data);
 echo $this->data;

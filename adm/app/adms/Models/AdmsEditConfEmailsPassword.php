@@ -60,7 +60,7 @@ class AdmsEditConfEmailsPassword
 
         $this->resultBd = $viewConfEmails->getResult();
         if ($this->resultBd) {
-            var_dump($this->resultBd);
+            //var_dump($this->resultBd);
             $this->result = true;
         } else {
             $_SESSION['msg'] = "<p style='color: #f00'>Erro: Senha da configuração de email não encontrada!</p>";

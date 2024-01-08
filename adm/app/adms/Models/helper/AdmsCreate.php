@@ -53,8 +53,8 @@ class AdmsCreate extends AdmsConn
     {
         $this->table = $table;
         $this->data = $data;
-        // var_dump($this->table);
-        // var_dump($this->data);
+        // //var_dump($this->table);
+        // //var_dump($this->data);
         $this->exeReplaceValues();        
     }
 
@@ -67,12 +67,12 @@ class AdmsCreate extends AdmsConn
     private function exeReplaceValues(): void
     {
         $coluns = implode(', ', array_keys($this->data));
-        // var_dump($coluns);
+        // //var_dump($coluns);
         $values = ':' . implode(', :', array_keys($this->data));
-        // var_dump($values);
-        // var_dump($this->data);
+        // //var_dump($values);
+        // //var_dump($this->data);
         $this->query = "INSERT INTO {$this->table} ($coluns) VALUES ($values)";
-        // var_dump($this->query);
+        // //var_dump($this->query);
         $this->exeInstruction();
     }
 
@@ -88,7 +88,7 @@ class AdmsCreate extends AdmsConn
         try{
             //substitue os valores que esta no array pordados
             $this->insert->execute($this->data);
-            // var_dump($this->data);
+            // //var_dump($this->data);
             $this->result = $this->conn->lastInsertId();
             
         }catch(PDOException $err){

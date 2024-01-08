@@ -34,7 +34,7 @@ class AddConfEmails
      $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         if (!empty($this->dataForm['SendAddConfEmails'])) {
-           /*  var_dump($this->dataForm); */
+           /*  //var_dump($this->dataForm); */
           unset($this->dataForm['SendAddConfEmails']);
            $createConfEmails = new \App\adms\Models\AdmsAddConfEmails();
             $createConfEmails ->create($this->dataForm);
@@ -58,7 +58,7 @@ class AddConfEmails
     private function viewAddConfEmails(): void
     {
   
-        
+        $this->data['sidebarActive']="list-conf-emails";
         $loadView = new \Core\ConfigView("adms/Views/confEmails/addConfEmails", $this->data);
         $loadView->loadView();
     }

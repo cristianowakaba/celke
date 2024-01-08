@@ -41,12 +41,12 @@ class AdmsViewConfEmails
   function getResultBd(): array|null
   {
     return $this->resultBd;
-    // var_dump($this->result);
+    // //var_dump($this->result);
   }
   public function viewConfEmails(int $id): void
   {
     $this->id = $id;
-    // var_dump($this->id);
+    // //var_dump($this->id);
 
     $viewConfEmails= new \App\adms\Models\helper\AdmsRead();
     $viewConfEmails->fullRead("SELECT id, title, name, email, host, username, smtpsecure, port, created, modified
@@ -58,7 +58,7 @@ class AdmsViewConfEmails
     $this->resultBd = $viewConfEmails->getResult();
     
     
-    // var_dump($this->resultBd );
+    // //var_dump($this->resultBd );
     if ($this->resultBd) {
 
       $this->result = true;

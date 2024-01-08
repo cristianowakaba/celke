@@ -41,12 +41,12 @@ class AdmsViewUsers
   function getResultBd(): array|null
   {
     return $this->resultBd;
-    // var_dump($this->result);
+    // //var_dump($this->result);
   }
   public function viewUser(int $id): void
   {
     $this->id = $id;
-    // var_dump($this->id);
+    // //var_dump($this->id);
 
     $viewUser = new \App\adms\Models\helper\AdmsRead();
     $viewUser->fullRead("SELECT usr.id, usr.name AS name_usr, usr.nickname, usr.email,
@@ -63,7 +63,7 @@ class AdmsViewUsers
 
     $this->resultBd = $viewUser->getResult();
     
-    // var_dump($this->resultBd );
+    // //var_dump($this->resultBd );
     if ($this->resultBd) {
 
       $this->result = true;

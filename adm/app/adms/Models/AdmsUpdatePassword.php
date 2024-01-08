@@ -31,13 +31,13 @@ class AdmsUpdatePassword
     function getResult()
     {
         return $this->result;
-        // var_dump($this->result);
+        // //var_dump($this->result);
     }
 
     public function valKey(string $key): bool
     {
         $this->key = $key;
-        // var_dump($this->key);
+        // //var_dump($this->key);
         $viewKeyUpPass = new \App\adms\Models\helper\AdmsRead();
         $viewKeyUpPass->fullRead("SELECT id FROM adms_users WHERE recover_password =:recover_password LIMIT :limit", "recover_password={$this->key}&limit=1");
         
@@ -64,7 +64,7 @@ class AdmsUpdatePassword
     public function editPassword(array $data=null):void
     {
         $this->data=$data;
-        var_dump( $this->data);
+        //var_dump( $this->data);
         $valEmptyField =new \App\adms\Models\helper\AdmsValEmptyField();
         $valEmptyField ->valField($this->data);
         if($valEmptyField->getResult()){

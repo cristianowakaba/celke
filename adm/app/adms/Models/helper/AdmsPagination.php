@@ -69,25 +69,25 @@ class AdmsPagination
         $this->link = $link;
 
         $this->var = $var;
-        //var_dump($this->link);
+        ////var_dump($this->link);
     }
     public function condition(int $page, int $limitResult): void
     {
         $this->page = (int) $page ? $page : 1;
         $this->limitResult = (int) $limitResult;
-        // var_dump($this->page);
-        //var_dump($this->limitResult);
+        // //var_dump($this->page);
+        ////var_dump($this->limitResult);
         //pega a pagina que o usuario esta e multiplica pelo numero limite de registros por página e subtrai pelo mesmo numero de registros this->limitResult  exemplo   o usuário esta na pagina 2 e vai retornar 5 resultados por pagina, 2x5 =10 diminui o limite por pagina - 5  vai retornar apartir do cinco  se eu to na segunda vai aparecer 6,7,8,9,10
         $this->offset = (int) ($this->page * $this->limitResult) - $limitResult;
 
-        //var_dump($this->offset);
+        ////var_dump($this->offset);
     }
     public function pagination(string $query, string|null $parseString = null): void
     {
         $this->query = (string) $query;
         $this->parseString = (string) $parseString;
-        // var_dump($this->query);
-        // var_dump($this->parseString);
+        // //var_dump($this->query);
+        // //var_dump($this->parseString);
 
         $count = new \App\adms\Models\helper\AdmsRead();
         $count->fullRead($this->query, $this->parseString);
@@ -104,11 +104,11 @@ class AdmsPagination
      */
     private function pageInstruction(): void
     {
-        // var_dump($this->resultBd[0]['num_result']);
+        // //var_dump($this->resultBd[0]['num_result']);
 
         //pega o numero de registros no banco de dados e divide pelo numero de registro que deve ter a página, por exemplo retorna 40 registros e quer ter 10 por pagina o totalPage serade 4 páginas
         $this->totalPages = (int) ceil($this->resultBd[0]['num_result'] / $this->limitResult);
-        //var_dump($this->totalPages);
+        ////var_dump($this->totalPages);
         //verifica se o total de páginas é maior ou igual a que o usuario esta, se for menor redireciona por exemplo tem 4 paginas e o usuario quer ir na página 5 redireciona.
         if ($this->totalPages >= $this->page) {
             $this->layoutPagination();
@@ -135,7 +135,7 @@ class AdmsPagination
                 $this->result .= "<li><a href='{$this->link}/$beforePage{$this->var}'>$beforePage</a></li>";
             }
         }
-        //var_dump($this->result);
+        ////var_dump($this->result);
         $this->result .= "<li>{$this->page}</li>";
         // $afterPage recebe a página atual +1 ex página atual 6 +1= 7 ai compara se a página atual somado com o maxLinks ou seja no exemplo 6+2  =8 ai compara se 8 for maior ou igual ao afterpage, acrescenta afterPage++ ou seja vai  criar a página 7 e página 8 mas antes verifica e so executa se o total de página for maior ou igual ap afterPage para não criar link infinitos
         for ($afterPage = $this->page + 1; $afterPage <= $this->page + $this->maxLinks; $afterPage++) {

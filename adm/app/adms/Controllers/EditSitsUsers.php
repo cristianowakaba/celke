@@ -37,7 +37,7 @@ class EditSitsUsers
         $this->dataForm= filter_input_array(INPUT_POST,FILTER_DEFAULT);
        
         if((!empty($id)) and(empty( $this->dataForm['SendEditSitUser']))){
-            var_dump($id);
+            //var_dump($id);
             $this->id = (int)$id;
             $viewSitUser= new \App\adms\Models\AdmsEditSitsUsers();
            $viewSitUser->viewSitUser($this->id);
@@ -64,6 +64,7 @@ class EditSitsUsers
         $listSelect = new \App\adms\Models\AdmsEditSitsUsers();
         $this->data['select'] = $listSelect->listSelect();
         
+        $this->data['sidebarActive']="list-sits-users";
         $loadView = new \Core\ConfigView("adms/Views/sitsUser/editSitUser", $this->data);
         $loadView->loadView();
     }

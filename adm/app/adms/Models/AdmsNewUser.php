@@ -31,13 +31,13 @@ class AdmsNewUser
     function getResult()
     {
         return $this->result;
-        // var_dump($this->result);
+        // //var_dump($this->result);
     }
 /**model metodo create recebe os dados da controller NewUser instancia helper AdmsValEmptyField ea classe valfield para validar os campos do formulario ,intancia helper generica AdmsCreate e a classe exeCreate que cadastra no banco de dados */
     public function create(array $data = null)
     {
         $this->data = $data;
-        // var_dump($this->data);
+        // //var_dump($this->data);
 
         $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();       
         $valEmptyField->valField($this->data);
@@ -157,7 +157,7 @@ class AdmsNewUser
     public function create(array $data = null)
     {
         $this->data = $data;
-        //var_dump($this->data);
+        ////var_dump($this->data);
 
         $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();
         $valEmptyField->valField($this->data);
@@ -167,7 +167,7 @@ class AdmsNewUser
 
             $this->data['password'] = password_hash($this->data['password'], PASSWORD_DEFAULT);
 
-            //var_dump($this->data);
+            ////var_dump($this->data);
 
             $query_new_user = "INSERT INTO adms_users (name, email, user, password, created) VALUES (:name, :email, :user, :password, NOW())";
             $add_new_user = $this->conn->prepare($query_new_user);

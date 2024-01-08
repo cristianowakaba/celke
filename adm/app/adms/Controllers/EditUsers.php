@@ -35,7 +35,7 @@ class EditUsers
         $this->dataForm= filter_input_array(INPUT_POST,FILTER_DEFAULT);
        
         if((!empty($id)) and(empty( $this->dataForm['SendEditUser']))){
-            var_dump($id);
+            //var_dump($id);
             $this->id = (int)$id;
             $viewUser= new \App\adms\Models\AdmsEditUsers();
            $viewUser->viewUser($this->id);

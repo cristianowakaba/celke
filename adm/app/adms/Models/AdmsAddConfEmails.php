@@ -24,7 +24,7 @@ class AdmsAddConfEmails
     function getResult()
     {
         return $this->result;
-        // var_dump($this->result);
+        // //var_dump($this->result);
     }
         /** 
      * Recebe os valores do formulário.
@@ -38,7 +38,7 @@ class AdmsAddConfEmails
     public function create(array $data = null)
     {
         $this->data = $data;
-        // var_dump($this->data);
+        // //var_dump($this->data);
 
         $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();       
         $valEmptyField->valField($this->data);
@@ -63,7 +63,7 @@ class AdmsAddConfEmails
        
         $this->data['created'] = date("Y-m-d H:i:s");
 
-        var_dump( $this->data);
+        //var_dump( $this->data);
 
         $createConfEmail = new \App\adms\Models\helper\AdmsCreate();
         $createConfEmail->exeCreate("adms_confs_emails", $this->data);

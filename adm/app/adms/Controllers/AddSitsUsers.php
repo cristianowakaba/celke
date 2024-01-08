@@ -35,7 +35,7 @@ class AddSitsUsers
      $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         if (!empty($this->dataForm['SendAddSitUser'])) {
-           /*  var_dump($this->dataForm); */
+           /*  //var_dump($this->dataForm); */
           unset($this->dataForm['SendAddSitUser']);
            $createSitUser= new \App\adms\Models\AdmsAddSitsUsers();
             $createSitUser->create($this->dataForm);
@@ -60,9 +60,9 @@ class AddSitsUsers
     {
         $listSelect = new \App\adms\Models\AdmsAddSitsUsers();
         $this->data['select'] = $listSelect->listSelect();
-        var_dump($this->data['select']);
+        //var_dump($this->data['select']);
         
-        
+        $this->data['sidebarActive']="list-sits-users";
         $loadView = new \Core\ConfigView("adms/Views/sitsUser/addSitUser", $this->data);
         $loadView->loadView();
     }

@@ -28,7 +28,7 @@ class ViewProfile
           
             if($viewProfile->getResult()){
                 $this->data['viewProfile']=$viewProfile->getResultBd();
-                // var_dump( $this->data['viewUser']);
+                // //var_dump( $this->data['viewUser']);
                 $this->loadViewProfile();
             }else{
                

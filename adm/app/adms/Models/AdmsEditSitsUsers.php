@@ -84,7 +84,7 @@ class AdmsEditSitsUsers
   {
 
     $this->data = $data;
-    // var_dump( $this->data);
+    // //var_dump( $this->data);
  
 
     $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();
@@ -100,11 +100,11 @@ class AdmsEditSitsUsers
 
   private function edit(): void
   {
-    // var_dump($this->data);
+    // //var_dump($this->data);
     $this->data['modified'] = date("y-m-d H:i:s");
     
    
-    // var_dump($this->data);
+    // //var_dump($this->data);
     $upSitUser = new \App\adms\Models\helper\AdmsUpdate();
     $upSitUser->exeUpdate("adms_sits_users", $this->data, "WHERE id=:id", "id={$this->data['id']}");
     if ($upSitUser->getResult()) {
@@ -125,9 +125,9 @@ class AdmsEditSitsUsers
         $list = new \App\adms\Models\helper\AdmsRead();
         $list->fullRead("SELECT id id_col, name name_col FROM adms_colors ORDER BY name ASC");
         $registry['col'] = $list->getResult();
-       /*  var_dump($registry['col']); */
+       /*  //var_dump($registry['col']); */
         $this->listRegistryAdd = ['col' => $registry['col']];
-         var_dump($this->listRegistryAdd); 
+         //var_dump($this->listRegistryAdd); 
         return $this->listRegistryAdd;
     }
 }

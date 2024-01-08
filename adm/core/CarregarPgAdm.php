@@ -41,9 +41,9 @@ class CarregarPgAdm
         $this->urlController = $urlController;
         $this->urlMetodo = $urlMetodo;
         $this->urlParameter = $urlParameter;
-        // var_dump($this->urlController);
-        // var_dump($this->urlMetodo);
-        // var_dump( $this->urlParameter);
+        // //var_dump($this->urlController);
+        // //var_dump($this->urlMetodo);
+        // //var_dump( $this->urlParameter);
         
 
         //unset($_SESSION['user_id']);
@@ -99,7 +99,7 @@ class CarregarPgAdm
 
         if (in_array($this->urlController, $this->listPgPublic)) {
             $this->classLoad = "\\App\\adms\\Controllers\\" . $this->urlController;
-            // var_dump($this->urlController);
+            // //var_dump($this->urlController);
         
         } else {
             $this->pgPrivate();
@@ -114,7 +114,7 @@ class CarregarPgAdm
     {
       
         $this->listPgPrivate = ["Dashboard", "ListUsers","ViewUsers","AddUsers","EditUsers","EditUsersPassword","EditUsersImage","DeleteUsers","ViewProfile","ViewProfile","EditProfile","EditProfilePassword","EditProfileImage","ListSitsUsers","AddSitsUsers","EditSitsUsers","DeleteSitsUsers","ListColors","AddColors","EditColors","ViewColors","DeleteColors","ListConfEmails","ViewConfEmails","AddConfEmails","EditConfEmailsPassword","DeleteConfEmails"];
-        // var_dump($this->urlController);
+        // //var_dump($this->urlController);
         if(in_array($this->urlController, $this->listPgPrivate)){
             $this->verifyLogin();
         }else{

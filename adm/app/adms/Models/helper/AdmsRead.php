@@ -68,8 +68,8 @@ class AdmsRead extends AdmsConn
     public function fullRead(string $query, string|null $parseString = null): void
     {
         $this->select = $query;
-        // var_dump( $this->select);
-        // var_dump($parseString );
+        // //var_dump( $this->select);
+        // //var_dump($parseString );
         
         if (!empty($parseString)) {
             parse_str($parseString, $this->values);

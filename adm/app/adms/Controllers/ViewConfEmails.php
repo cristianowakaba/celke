@@ -26,17 +26,17 @@ class viewConfEmails
     {
        
         if(!empty($id)){
-            // var_dump($id);
+            // //var_dump($id);
             $this->id = (int)$id;
 
           
             $viewConfEmails= new \App\adms\Models\AdmsViewConfEmails();
             $viewConfEmails->ViewConfEmails($this->id);
-            // var_dump($this->id );
+            // //var_dump($this->id );
             // echo "existe id {$this->id}<br>";
             if( $viewConfEmails->getResult()){
                 $this->data['viewConfEmails']= $viewConfEmails->getResultBd();
-                // var_dump( $this->data['viewSitUser']);
+                // //var_dump( $this->data['viewSitUser']);
                 $this->viewConfEmails();
             }else{
                

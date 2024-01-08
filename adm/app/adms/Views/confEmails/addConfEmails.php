@@ -15,7 +15,7 @@ if(isset($this->data['form'])){
 <?php
 echo "<a href='" . URLADM . "list-Conf-emails/index'>Listar Configurações de email</a><br><br>";
 
-//var_dump($this->data['select']);
+////var_dump($this->data['select']);
 
 if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];

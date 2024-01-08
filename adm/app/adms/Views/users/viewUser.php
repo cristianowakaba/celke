@@ -8,7 +8,7 @@ echo "<h2>Detalhes do Usuário!</h2><br>";
 
 echo "<a href='".URLADM."list-users/index'>Listar</a><br>";
 if(!empty($this->data['viewUser'])){
-    // var_dump($this->data['viewUser']);
+    // //var_dump($this->data['viewUser']);
     echo "<a href='".URLADM."edit-users/index/".$this->data['viewUser'][0]['id']."'>Editar</a><br>";
     echo "<a href='".URLADM."edit-users-password/index/".$this->data['viewUser'][0]['id']."'>Editar Senha</a><br>";
     echo "<a href='".URLADM."edit-users-image/index/".$this->data['viewUser'][0]['id']."'>Editar Imagem</a><br>";
@@ -21,7 +21,7 @@ if(isset($_SESSION['msg'])){
     unset($_SESSION['msg']);
 }
 if(!empty( $this->data['viewUser'])){
- //var_dump( $this->data['viewUser'][0]);
+ ////var_dump( $this->data['viewUser'][0]);
 extract( $this->data['viewUser'][0]);
 if ((!empty($image)) and (file_exists("app/adms/assets/image/users/$id/$image"))) {
     echo "<img src='" . URLADM . "app/adms/assets/image/users/$id/$image' width='100' height ='100'><br><br>";

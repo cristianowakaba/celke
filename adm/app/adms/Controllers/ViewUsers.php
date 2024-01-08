@@ -26,16 +26,16 @@ class ViewUsers
     {
        
         if(!empty($id)){
-            // var_dump($id);
+            // //var_dump($id);
             $this->id = (int)$id;
 
            $viewUser= new \App\adms\Models\AdmsViewUsers();
            $viewUser->viewUser($this->id);
-            // var_dump($this->id );
+            // //var_dump($this->id );
             // echo "existe id {$this->id}<br>";
             if($viewUser->getResult()){
                 $this->data['viewUser']=$viewUser->getResultBd();
-                // var_dump( $this->data['viewUser']);
+                // //var_dump( $this->data['viewUser']);
                 $this->viewUser();
             }else{
                
@@ -56,7 +56,8 @@ class ViewUsers
     }
     private function viewUser():void
     {
-        
+        $this->data['sidebarActive']="list-users";
+
         $loadView = new \Core\ConfigView("adms/Views/users/viewUser", $this->data);
         $loadView->loadView();
     }

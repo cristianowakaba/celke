@@ -24,13 +24,13 @@ class AdmsAddUsers
     function getResult()
     {
         return $this->result;
-        // var_dump($this->result);
+        // //var_dump($this->result);
     }
 
     public function create(array $data = null)
     {
         $this->data = $data;
-        // var_dump($this->data);
+        // //var_dump($this->data);
 
         $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();       
         $valEmptyField->valField($this->data);
@@ -103,9 +103,9 @@ class AdmsAddUsers
         $list = new \App\adms\Models\helper\AdmsRead();
         $list->fullRead("SELECT id id_sit, name name_sit FROM adms_sits_users ORDER BY name ASC");
         $registry['sit'] = $list->getResult();
-       /*  var_dump($registry['sit']); */
+       /*  //var_dump($registry['sit']); */
         $this->listRegistryAdd = ['sit' => $registry['sit']];
-        /* var_dump($this->listRegistryAdd); */
+        /* //var_dump($this->listRegistryAdd); */
         return $this->listRegistryAdd;
     }
         

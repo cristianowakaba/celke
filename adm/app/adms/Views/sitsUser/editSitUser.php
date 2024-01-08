@@ -52,10 +52,10 @@ if (isset($_SESSION['msg'])) {
     <select name="adms_color_id" id="adms_color_id" required>
         <option value="">Selecione</option>
         <?php
-        var_dump($this->data['select']['col']);
+        //var_dump($this->data['select']['col']);
         foreach($this->data['select']['col'] as $col){
             extract($col);
-            var_dump($col);
+            //var_dump($col);
             if((isset($valorForm['adms_color_id'])) and ($valorForm['adms_color_id'] == $id_col)){
                 echo "<option value='$id_col' selected>$name_col</option>";
             }else{

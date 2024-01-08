@@ -15,7 +15,7 @@ if(isset($this->data['form'])){
 <?php
 echo "<a href='" . URLADM . "list-Colors/index'>Listar Cores</a><br><br>";
 
-//var_dump($this->data['select']);
+////var_dump($this->data['select']);
 
 if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];

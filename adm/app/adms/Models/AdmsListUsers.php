@@ -58,13 +58,13 @@ class AdmsListUsers
   public function listUsers( int $page = null): void
   {
     $this->page = (int) $page ? $page:1;
-    // var_dump($this->page);
+    // //var_dump($this->page);
 
     $pagination = new \App\adms\Models\helper\AdmsPagination(URLADM . 'list-users/index');
     $pagination->condition($this->page, $this->limitResult);
     $pagination->pagination("SELECT COUNT(usr.id) AS num_result FROM adms_users usr");
     $this->resultPg = $pagination->getResult();
-    //var_dump($this->resultPg);
+    ////var_dump($this->resultPg);
 
     $listUsers = new \App\adms\Models\helper\AdmsRead();
     $listUsers->fullRead("SELECT usr.id, usr.name AS name_usr, usr.email, usr.adms_sits_user_id, 

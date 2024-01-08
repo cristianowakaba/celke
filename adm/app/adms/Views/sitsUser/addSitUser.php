@@ -15,7 +15,7 @@ if(isset($this->data['form'])){
 <?php
 echo "<a href='" . URLADM . "list-sits-users/index'>Listar</a><br><br>";
 
-var_dump($this->data['select']);
+////var_dump($this->data['select']);
 
 if (isset($_SESSION['msg'])) {
     echo $_SESSION['msg'];
@@ -39,7 +39,7 @@ if (isset($_SESSION['msg'])) {
         <?php
         foreach($this->data['select']['col'] as $col){
             extract($col);
-            var_dump($col);
+            //var_dump($col);
             if((isset($valorForm['adms_color_id'])) and ($valorForm['adms_color_id'] == $id_col)){
                 echo "<option value='$id_col' selected>$name_col</option>";
             }else{

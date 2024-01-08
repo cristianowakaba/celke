@@ -26,7 +26,7 @@ class ListConfEmails
     public function index(string|int|null $page = null): void
     {
         $this->page = (int) $page ? $page:1;
-        // var_dump($this->page);
+        // //var_dump($this->page);
 
        $listColors= new \App\adms\Models\AdmsListConfEmails();
        $listColors->ListConfEmails($this->page);
@@ -40,6 +40,7 @@ class ListConfEmails
        
        }
      
+       $this->data['sidebarActive']="list-conf-emails";
 
         $loadView = new \Core\ConfigView("adms/Views/confEmails/listConfEmails", $this->data);
         $loadView->loadView();

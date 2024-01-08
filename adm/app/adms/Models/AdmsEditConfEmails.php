@@ -46,7 +46,7 @@ class AdmsEditConfEmails
   function getResultBd(): array|null
   {
     return $this->resultBd;
-    // var_dump($this->result);
+    // //var_dump($this->result);
   }
 
    
@@ -59,7 +59,7 @@ class AdmsEditConfEmails
   public function viewConfEmails(int $id): void
   {
     $this->id = $id;
-    //var_dump($this->page );
+    ////var_dump($this->page );
 
 
     $viewConfEmails = new \App\adms\Models\helper\AdmsRead();

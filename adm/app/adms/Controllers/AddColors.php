@@ -35,7 +35,7 @@ class AddColors
      $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         if (!empty($this->dataForm['SendAddColor'])) {
-           /*  var_dump($this->dataForm); */
+           /*  //var_dump($this->dataForm); */
           unset($this->dataForm['SendAddColor']);
            $createSitUser= new \App\adms\Models\AdmsAddColors();
             $createSitUser->create($this->dataForm);
@@ -60,6 +60,7 @@ class AddColors
     {
   
         
+        $this->data['sidebarActive']="list-colors";
         $loadView = new \Core\ConfigView("adms/Views/colors/addColors", $this->data);
         $loadView->loadView();
     }

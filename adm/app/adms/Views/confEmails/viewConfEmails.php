@@ -18,7 +18,7 @@ if(!defined('C8L6K7E')){
     unset($_SESSION['msg']);
 }
 if (!empty($this->data['viewConfEmails'])){
-    // var_dump($this->data['viewSitUser'][0]);
+    // //var_dump($this->data['viewSitUser'][0]);
     extract($this->data['viewConfEmails'][0]);
 
     echo "ID: $id <br>";

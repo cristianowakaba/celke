@@ -5,7 +5,7 @@ if(!defined('C8L6K7E')){
  }
 echo "<h2>Listar Usuários</h2>";
 echo "<a href='".URLADM."add-users/index'>Cadastrar</a><br><br>";
-// var_dump($this->data['listUsers']);
+// //var_dump($this->data['listUsers']);
 if(isset($_SESSION['msg'])){
     echo $_SESSION['msg'];
     unset($_SESSION['msg']);
@@ -13,7 +13,7 @@ if(isset($_SESSION['msg'])){
 
 foreach($this->data['listUsers'] as $user){
 
-// var_dump($user);
+// //var_dump($user);
     extract($user);
     echo "ID: $id <br>";
     echo "Nome: $name_usr <br>";

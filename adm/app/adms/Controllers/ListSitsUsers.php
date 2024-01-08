@@ -32,7 +32,7 @@ class ListSitsUsers
         $this->data['listSitsUsers'] = [];
        }
      
-        
+       $this->data['sidebarActive']="list-sits-users";
 
        $loadView = new \Core\ConfigView("adms/Views/sitsUser/listSitUser", $this->data);
        $loadView->loadView();

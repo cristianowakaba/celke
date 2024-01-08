@@ -85,7 +85,7 @@ class AdmsEditUsersImage
   public function update(array $data = null): void
   {
     $this->data = $data;
-    var_dump($this->data);
+    //var_dump($this->data);
     $this->dataImagem = $this->data['new_image'];
     unset($this->data['new_image']);
 
@@ -155,7 +155,7 @@ class AdmsEditUsersImage
    */
   private function edit(): void
   {
-    // var_dump($this->data);
+    // //var_dump($this->data);
     // pega o name da imagem e atribui na posição image para salvar na coluna image no banco
     $this->data['image'] = $this->nameImg;
     $this->data['modified'] = date("y-m-d H:i:s");

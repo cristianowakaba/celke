@@ -84,12 +84,12 @@ class AdmsEditUsers
   {
 
     $this->data = $data;
-    /* var_dump($this->data); */
+    /* //var_dump($this->data); */
     $this->dataExitVal['nickname']=$this->data['nickname'];
    /*  $this->dataExitVal['name']=$this->data['name']; */
     unset($this->data['nickname']);
-    /* var_dump($this->data);
-    var_dump( $this->dataExitVal); */
+    /* //var_dump($this->data);
+    //var_dump( $this->dataExitVal); */
 
     $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();
     $valEmptyField->valField($this->data);
@@ -131,12 +131,12 @@ class AdmsEditUsers
   }
   private function edit(): void
   {
-    // var_dump($this->data);
+    // //var_dump($this->data);
     $this->data['modified'] = date("y-m-d H:i:s");
     $this->data['nickname'] = $this->dataExitVal['nickname'];
     // $this->data['name'] =$this->dataExitVal['name'];
    
-    // var_dump($this->data);
+    // //var_dump($this->data);
     $upUser = new \App\adms\Models\helper\AdmsUpdate();
     $upUser->exeUpdate("adms_users", $this->data, "WHERE id=:id", "id={$this->data['id']}");
     if ($upUser->getResult()) {
@@ -157,9 +157,9 @@ class AdmsEditUsers
         $list = new \App\adms\Models\helper\AdmsRead();
         $list->fullRead("SELECT id id_sit, name name_sit FROM adms_sits_users ORDER BY name ASC");
         $registry['sit'] = $list->getResult();
-       /*  var_dump($registry['sit']); */
+       /*  //var_dump($registry['sit']); */
         $this->listRegistryAdd = ['sit' => $registry['sit']];
-        /* var_dump($this->listRegistryAdd); */
+        /* //var_dump($this->listRegistryAdd); */
         return $this->listRegistryAdd;
     }
 }

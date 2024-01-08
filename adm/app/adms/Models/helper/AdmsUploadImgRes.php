@@ -66,11 +66,11 @@ class AdmsUploadImgRes
         $this->width = $width;
         $this->height = $height;
 
-        var_dump($this->imageData);
-        var_dump($this->directory);
-        var_dump($this->name);
-        var_dump($this->width);
-        var_dump($this->height);
+        //var_dump($this->imageData);
+        //var_dump($this->directory);
+        //var_dump($this->name);
+        //var_dump($this->width);
+        //var_dump($this->height);
 
         $this->valDirectory();
     }

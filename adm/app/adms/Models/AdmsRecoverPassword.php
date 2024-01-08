@@ -35,13 +35,13 @@ class AdmsRecoverPassword
     function getResult(): bool
     {
         return $this->result;
-        // var_dump($this->result);
+        // //var_dump($this->result);
     }
     
     public function recoverPassword(array $data = null): void
     {
         $this->data = $data;
-        //var_dump($this->data);
+        ////var_dump($this->data);
         $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();
         $valEmptyField->valField($this->data);
         if ($valEmptyField->getResult()) {
@@ -59,7 +59,7 @@ class AdmsRecoverPassword
         $newConfEmail->fullRead("SELECT id, name, email FROM adms_users WHERE email=:email LIMIT :limit ", "email={$this->data['email']}&limit=1");
 
         $this->resultBd = $newConfEmail->getResult();
-       // var_dump($this->resultBd);
+       // //var_dump($this->resultBd);
         if ($this->resultBd) {
             $this->valConfEmail();
         } else {
@@ -84,10 +84,10 @@ class AdmsRecoverPassword
             $upNewConfEmail = new \App\adms\Models\helper\AdmsUpdate();
             $upNewConfEmail->exeUpdate("adms_users", $this->dataSave, "WHERE id=:id", "id={$this->resultBd[0]['id']}");
             if ($upNewConfEmail->getResult()) {
-                // var_dump($this->resultBd[0]['recover_password']);
-                // var_dump($this->dataSave['recover_password']);
+                // //var_dump($this->resultBd[0]['recover_password']);
+                // //var_dump($this->dataSave['recover_password']);
                 $this->resultBd[0]['recover_password'] = $this->dataSave['recover_password'];
-                //var_dump($this->resultBd[0]['recover_password']);
+                ////var_dump($this->resultBd[0]['recover_password']);
                 $this->sendEmail();
             } else {
                 $_SESSION['msg'] = "<p style='color: #f00;'>Erro - 0067: link não enviado, tente novamente!</p>";

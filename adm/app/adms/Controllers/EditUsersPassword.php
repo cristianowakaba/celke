@@ -32,7 +32,7 @@ class EditUsersPassword
         $this->dataForm= filter_input_array(INPUT_POST,FILTER_DEFAULT);
        
         if((!empty($id)) and(empty( $this->dataForm['SendEditUserPass']))){
-            var_dump($id);
+            ////var_dump($id);
             $this->id = (int)$id;
             $viewUserPass= new \App\adms\Models\AdmsEditUsersPassword();
            $viewUserPass->viewUser($this->id);
@@ -52,6 +52,8 @@ class EditUsersPassword
      */
     private function viewEditUserPass(): void
     {
+        $this->data['sidebarActive']="list-users";
+
         $loadView = new \Core\ConfigView("adms/Views/users/editUserPass", $this->data);
         $loadView->loadView();
     }

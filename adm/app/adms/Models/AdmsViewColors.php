@@ -41,12 +41,12 @@ class AdmsViewColors
   function getResultBd(): array|null
   {
     return $this->resultBd;
-    // var_dump($this->result);
+    // //var_dump($this->result);
   }
   public function viewColors(int $id): void
   {
     $this->id = $id;
-    // var_dump($this->id);
+    // //var_dump($this->id);
 
     $viewColors = new \App\adms\Models\helper\AdmsRead();
     $viewColors->fullRead("SELECT id, name,color, created, modified
@@ -57,7 +57,7 @@ class AdmsViewColors
 
     $this->resultBd = $viewColors->getResult();
     
-    // var_dump($this->resultBd );
+    // //var_dump($this->resultBd );
     if ($this->resultBd) {
 
       $this->result = true;

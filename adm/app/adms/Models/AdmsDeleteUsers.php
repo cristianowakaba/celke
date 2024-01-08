@@ -78,7 +78,7 @@ class AdmsDeleteUsers
 
         $this->resultBd = $viewUser->getResult();
 
-        // var_dump($this->resultBd );
+        // //var_dump($this->resultBd );
         if ($this->resultBd) {
             return true;
         } else {

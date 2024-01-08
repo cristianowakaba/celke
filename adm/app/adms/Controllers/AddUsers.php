@@ -34,7 +34,7 @@ class AddUsers
      $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         if (!empty($this->dataForm['SendAddUser'])) {
-           /*  var_dump($this->dataForm); */
+           /*  //var_dump($this->dataForm); */
           unset($this->dataForm['SendAddUser']);
            $createUser = new \App\adms\Models\AdmsAddUsers();
             $createUser->create($this->dataForm);
@@ -60,7 +60,7 @@ class AddUsers
         $listSelect = new \App\adms\Models\AdmsAddUsers();
         $this->data['select'] = $listSelect->listSelect();
         
-        
+        $this->data['sidebarActive']="list-users";
         $loadView = new \Core\ConfigView("adms/Views/users/addUser", $this->data);
         $loadView->loadView();
     }

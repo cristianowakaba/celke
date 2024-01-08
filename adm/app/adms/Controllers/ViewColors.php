@@ -26,17 +26,17 @@ class ViewColors
     {
        
         if(!empty($id)){
-            // var_dump($id);
+            // //var_dump($id);
             $this->id = (int)$id;
 
           
             $viewColors = new \App\adms\Models\AdmsViewColors();
             $viewColors->viewColors($this->id);
-            // var_dump($this->id );
+            // //var_dump($this->id );
             // echo "existe id {$this->id}<br>";
             if( $viewColors->getResult()){
                 $this->data['viewColors']= $viewColors->getResultBd();
-                // var_dump( $this->data['viewSitUser']);
+                // //var_dump( $this->data['viewSitUser']);
                 $this->viewColors();
             }else{
                
@@ -60,6 +60,7 @@ class ViewColors
      */
     private function viewColors(): void
     {
+        $this->data['sidebarActive']="list-colors";
         $loadView = new \Core\ConfigView("adms/Views/colors/viewColors", $this->data);
         $loadView->loadView();
     }

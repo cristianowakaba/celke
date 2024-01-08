@@ -20,7 +20,7 @@ if (isset($_SESSION['msg'])) {
     unset($_SESSION['msg']);
 }
 if (!empty($this->data['viewProfile'])) {
-    //var_dump( $this->data['viewProfile'][0]);
+    ////var_dump( $this->data['viewProfile'][0]);
     extract($this->data['viewProfile'][0]);
     // se existe no banco de dados e existe no servidor
     if ((!empty($image)) and (file_exists("app/adms/assets/image/users/" . $_SESSION['user_id'] . "/$image"))) {

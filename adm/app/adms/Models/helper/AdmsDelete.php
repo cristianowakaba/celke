@@ -47,7 +47,7 @@ class AdmsDelete extends AdmsConn
      
 /**função nativa php parse_str converte para um array */
         parse_str($parseString,$this->value);
-        var_dump($this->value);
+        //var_dump($this->value);
         $this->query ="DELETE FROM {$this->table} {$this->terms}";
 
         $this->exeInstruction();

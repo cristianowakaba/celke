@@ -85,7 +85,7 @@ class AdmsEditUsersPassword
   {
 
     $this->data = $data;
-    /* var_dump($this->data); */
+    /* //var_dump($this->data); */
     
 
     $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();
@@ -120,11 +120,11 @@ class AdmsEditUsersPassword
   private function edit(): void
   {
     $this->data['password'] = password_hash($this->data['password'], PASSWORD_DEFAULT);
-    // var_dump($this->data);
+    // //var_dump($this->data);
     $this->data['modified'] = date("y-m-d H:i:s");
    
    
-    // var_dump($this->data);
+    // //var_dump($this->data);
     $upUser = new \App\adms\Models\helper\AdmsUpdate();
     $upUser->exeUpdate("adms_users", $this->data, "WHERE id=:id", "id={$this->data['id']}");
     if ($upUser->getResult()) {

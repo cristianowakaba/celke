@@ -41,12 +41,12 @@ class AdmsViewSitsUsers
   function getResultBd(): array|null
   {
     return $this->resultBd;
-    // var_dump($this->result);
+    // //var_dump($this->result);
   }
   public function viewSitUser(int $id): void
   {
     $this->id = $id;
-    // var_dump($this->id);
+    // //var_dump($this->id);
 
     $viewSitUser = new \App\adms\Models\helper\AdmsRead();
     $viewSitUser->fullRead("SELECT sit.id, sit.name, sit.created,sit.modified,col.color
@@ -58,7 +58,7 @@ class AdmsViewSitsUsers
 
     $this->resultBd = $viewSitUser->getResult();
     
-    // var_dump($this->resultBd );
+    // //var_dump($this->resultBd );
     if ($this->resultBd) {
 
       $this->result = true;

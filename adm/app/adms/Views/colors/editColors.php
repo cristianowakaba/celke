@@ -7,12 +7,12 @@ if(!defined('C8L6K7E')){
 
 if (isset($this->data['form'])) {
     $valorForm = $this->data['form'];
-    var_dump($this->data['form']);
+    //var_dump($this->data['form']);
 }
 
 if (isset($this->data['form'][0])) {
     $valorForm = $this->data['form'][0];
-    var_dump($this->data['form'][0]);
+    //var_dump($this->data['form'][0]);
 }
 ?>
 

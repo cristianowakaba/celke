@@ -45,7 +45,7 @@ class AdmsListConfEmails
   function getResultBd(): array|null
   {
     return $this->resultBd;
-    // var_dump($this->result);
+    // //var_dump($this->result);
   }
   /**
      * @return bool Retorna a paginação
@@ -63,12 +63,12 @@ class AdmsListConfEmails
   public function ListConfEmails(int $page = null): void
   {
     $this->page = (int) $page ? $page : 1;
-    //var_dump($this->page );
+    ////var_dump($this->page );
     $pagination = new \App\adms\Models\helper\AdmsPagination(URLADM . 'list-conf-emails/index');
     $pagination->condition($this->page, $this->limitResult);
     $pagination->pagination("SELECT COUNT(col.id) AS num_result FROM adms_confs_emails As col");
     $this->resultPg = $pagination->getResult();
-    // var_dump($this->resultPg);
+    // //var_dump($this->resultPg);
 
     $listConfEmails = new \App\adms\Models\helper\AdmsRead();
     $listConfEmails->fullRead("SELECT id,title, name,
@@ -79,7 +79,7 @@ class AdmsListConfEmails
     $this->resultBd = $listConfEmails->getResult();
 
     if ($this->resultBd) {
-// var_dump($this->resultBd);
+// //var_dump($this->resultBd);
       $this->result = true ;
     } else {
       $_SESSION['msg'] = "<p style='color:#f00'>Erro - 0089: Nenhum e-mail encontrado!</p>";

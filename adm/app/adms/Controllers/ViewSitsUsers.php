@@ -26,17 +26,17 @@ class ViewSitsUsers
     {
        
         if(!empty($id)){
-            // var_dump($id);
+            // //var_dump($id);
             $this->id = (int)$id;
 
           
             $viewSitUser = new \App\adms\Models\AdmsViewSitsUsers();
             $viewSitUser->viewSitUser($this->id);
-            // var_dump($this->id );
+            // //var_dump($this->id );
             // echo "existe id {$this->id}<br>";
             if( $viewSitUser->getResult()){
                 $this->data['viewSitUser']= $viewSitUser->getResultBd();
-                // var_dump( $this->data['viewSitUser']);
+                // //var_dump( $this->data['viewSitUser']);
                 $this->viewSitUser();
             }else{
                
@@ -56,6 +56,7 @@ class ViewSitsUsers
     }
      private function viewSitUser(): void
     {
+        $this->data['sidebarActive']="list-sits-users";
      
         $loadView = new \Core\ConfigView("adms/Views/sitsUser/viewSitUser", $this->data);
         $loadView->loadView();

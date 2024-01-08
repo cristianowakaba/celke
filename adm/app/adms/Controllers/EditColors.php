@@ -37,8 +37,8 @@ class EditColors
         $this->dataForm= filter_input_array(INPUT_POST,FILTER_DEFAULT);
        
         if((!empty($id)) and(empty( $this->dataForm['SendEditColor']))){
-            var_dump($id);
-            var_dump($this->dataForm);
+            //var_dump($id);
+            //var_dump($this->dataForm);
             $this->id = (int)$id;
             $viewColors= new \App\adms\Models\AdmsEditColors();
             $viewColors->viewColor($this->id);
@@ -62,7 +62,7 @@ class EditColors
     private function viewEditColor(): void
     {
         
-        
+        $this->data['sidebarActive']="list-colors";
         $loadView = new \Core\ConfigView("adms/Views/colors/editColors", $this->data);
         $loadView->loadView();
     }
@@ -70,7 +70,7 @@ class EditColors
     private function editColor():void
     {
         if (!empty($this->dataForm['SendEditColor'])) {
-            var_dump($this->dataForm['SendEditColor']);
+            //var_dump($this->dataForm['SendEditColor']);
             unset($this->dataForm['SendEditColor']);
             $viewColor = new \App\adms\Models\AdmsEditColors();
             $viewColor->update($this->dataForm);

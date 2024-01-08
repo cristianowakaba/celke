@@ -35,7 +35,7 @@ class EditUsersImage
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         if ((!empty($id)) and (empty($this->dataForm['SendEditUseImage']))) {
-            var_dump($id);
+           // //var_dump($id);
             $this->id = (int)$id;
             $viewUser = new \App\adms\Models\AdmsEditUsersImage();
             $viewUser->viewUser($this->id);
@@ -57,6 +57,8 @@ class EditUsersImage
      */
     private function viewEditUserImage(): void
     {
+        $this->data['sidebarActive']="list-users";
+
         $loadView = new \Core\ConfigView("adms/Views/users/editUserImage", $this->data);
         $loadView->loadView();
     }

@@ -23,7 +23,7 @@ class NewConfEmail
     public function index(): void
     {
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        //    var_dump($this->dataForm);
+        //    //var_dump($this->dataForm);
         //verifica se o usuário clicou no botão e enviou os dados, após destroy a posição 'SendNewConfEmail' ficando apenas com a posição que contém o email, após instancia a models e envia o array com o valor do email
         if (!empty($this->dataForm['SendNewConfEmail'])) {
             unset($this->dataForm['SendNewConfEmail']);

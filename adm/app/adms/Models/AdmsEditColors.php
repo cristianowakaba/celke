@@ -79,7 +79,7 @@ class AdmsEditColors
     $this->resultBd = $viewUser->getResult();
     if ($this->resultBd) {
       $this->result = true;
-      // var_dump($this->resultBd);
+      // //var_dump($this->resultBd);
     } else {
       $_SESSION['msg'] = "<p style='color: #f00'>Erro - 0036: Cor não encontrada!</p>";
       $this->result = false;
@@ -90,7 +90,7 @@ class AdmsEditColors
   {
 
     $this->data = $data;
-    var_dump( $this->data);
+    //var_dump( $this->data);
  
 
     $valEmptyField = new \App\adms\Models\helper\AdmsValEmptyField();
@@ -106,11 +106,11 @@ class AdmsEditColors
 
   private function edit(): void
   {
-    var_dump($this->data);
+    //var_dump($this->data);
     $this->data['modified'] = date("y-m-d H:i:s");
     
    
-    var_dump($this->data);
+    //var_dump($this->data);
     $upColor = new \App\adms\Models\helper\AdmsUpdate();
     $upColor->exeUpdate("adms_colors", $this->data, "WHERE id=:id", "id={$this->data['id']}");
     if ($upColor->getResult()) {

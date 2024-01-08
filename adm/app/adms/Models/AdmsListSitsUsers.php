@@ -45,7 +45,7 @@ class AdmsListSitsUsers
   function getResultBd(): array|null
   {
     return $this->resultBd;
-    // var_dump($this->result);
+    // //var_dump($this->result);
   }
   /**
      * @return bool Retorna a paginação
@@ -66,12 +66,12 @@ class AdmsListSitsUsers
   public function listSitsUsers(int $page = null): void
   {
     $this->page = (int) $page ? $page : 1;
-    //var_dump($this->page );
+    ////var_dump($this->page );
     $pagination = new \App\adms\Models\helper\AdmsPagination(URLADM . 'list-sits-users/index');
     $pagination->condition($this->page, $this->limitResult);
     $pagination->pagination("SELECT COUNT(usr.id) AS num_result FROM adms_sits_users usr");
     $this->resultPg = $pagination->getResult();
-    //var_dump($this->resultPg);
+    ////var_dump($this->resultPg);
 
     $listSitsUsers = new \App\adms\Models\helper\AdmsRead();
     $listSitsUsers->fullRead("SELECT sit.id, sit.name,
