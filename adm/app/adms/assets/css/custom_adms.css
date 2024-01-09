@@ -734,7 +734,15 @@ select.input-adm:focus {
     color: var(--second-bg-color);
     font-size: 15px;
     padding: 3px 10px;
+    
+}/*css imagem redonda */
+.rounded-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
 }
+
 
 
 /* Fim visualizar */

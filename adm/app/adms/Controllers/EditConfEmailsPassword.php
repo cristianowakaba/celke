@@ -44,7 +44,6 @@ class EditConfEmailsPassword
             if ($viewConfEmailsPass->getResult()) {
                 $this->data['form'] = $viewConfEmailsPass->getResultBd();
                 $this->viewEditConfEmailsPassword();
-                
             } else {
                 $urlRedirect = URLADM . "list-conf-emails/index";
                 header("Location: $urlRedirect");
@@ -86,7 +85,7 @@ class EditConfEmailsPassword
                 $this->viewEditConfEmailsPassword();
             }
         } else {
-            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0099: Configuração de email não encontrada!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0099: Configuração de email não encontrada!</p>";
             $urlRedirect = URLADM . "list-conf-emails/index";
             header("Location: $urlRedirect");
         }
