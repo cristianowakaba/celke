@@ -77,7 +77,7 @@ class EditConfEmails
                 $this->viewEditConfEmails();
             }
         } else {
-            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0094: Configuração de email não encontrada!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0094: Configuração de email não encontrada!</p>";
             $urlRedirect = URLADM . "list-conf-emails/index";
             header("Location: $urlRedirect");
         }

@@ -103,7 +103,7 @@ class AdmsEditConfEmailsPassword
             $_SESSION['msg'] = "<p class='alert-success'>Senha da configuração de email editada com sucesso!</p>";
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p class='alert-success'>Erro: Senha da configuração de email não editada com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro: Senha da configuração de email não editada com sucesso!</p>";
             $this->result = false;
         }
     }

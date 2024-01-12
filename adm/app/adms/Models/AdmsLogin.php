@@ -55,8 +55,8 @@ class AdmsLogin
         //     ////var_dump($this->resultBd);
         //     $this->valPassword();
         // }else{
-        //     //$_SESSION['msg'] = "<p class='alert-success'>Erro: Usuário não encontrado!</p>";
-        //     $_SESSION['msg'] = "<p class='alert-success'>Erro: Usuário ou a senha incorreta!</p>";
+        //     //$_SESSION['msg'] = "<p class='alert-danger'>Erro: Usuário não encontrado!</p>";
+        //     $_SESSION['msg'] = "<p class='alert-danger'>Erro: Usuário ou a senha incorreta!</p>";
         //     $this->result = false;
         //     //echo $_SESSION['msg'];
         // }
@@ -103,7 +103,7 @@ class AdmsLogin
             $this->result = true;
             //echo $_SESSION['msg'];
         }else{
-            //$_SESSION['msg'] = "<p class='alert-success'>Erro: Senha incorreta!</p>";
+            //$_SESSION['msg'] = "<p class='alert-danger'>Erro: Senha incorreta!</p>";
             $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0060: Usuário ou a senha incorreta!</p>";
             $this->result = false;
             //echo $_SESSION['msg'];

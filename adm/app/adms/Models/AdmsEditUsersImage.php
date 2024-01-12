@@ -98,7 +98,7 @@ class AdmsEditUsersImage
         //$this->result = false;
         $this->valInput();
       } else {
-        $_SESSION['msg'] = "<p class='alert-success'>Erro - 0050: Necessário selecionar uma imagem!</p>";
+        $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0050: Necessário selecionar uma imagem!</p>";
         $this->result = false;
       }
     } else {
@@ -165,7 +165,7 @@ class AdmsEditUsersImage
     if ($upUser->getResult()) {
       $this->deleteImage();
     } else {
-      $_SESSION['msg'] = "<p class='alert-success'>Erro - 0051: Usuário não editado com sucesso!</p>";
+      $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0051: Usuário não editado com sucesso!</p>";
       $this->result = false;
     }
   }

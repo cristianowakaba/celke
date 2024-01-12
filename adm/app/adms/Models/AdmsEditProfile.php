@@ -110,7 +110,7 @@ class AdmsEditProfile
             $_SESSION['msg'] = "<p class='alert-success'>Perfil editado com sucesso!</p>";
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0039: Perfil não editado com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0039: Perfil não editado com sucesso!</p>";
             $this->result = false;
         }
     }

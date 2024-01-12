@@ -70,7 +70,7 @@ class EditProfile
                 $this->viewEditProfile();
             }
         } else {
-            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0011: Perfil não encontrado!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0011: Perfil não encontrado!</p>";
             $urlRedirect = URLADM . "login/index";
             header("Location: $urlRedirect");
         }

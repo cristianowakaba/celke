@@ -50,7 +50,7 @@ class AdmsDeleteConfEmails
                 $_SESSION['msg'] = "<p class='alert-success'>Configuração de email apagada com sucesso!</p>";
                 $this->result = true;
             } else {
-                $_SESSION['msg'] = "<p class='alert-success'>Erro - 0097: Configuração de email não apagada com sucesso!</p>";
+                $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0097: Configuração de email não apagada com sucesso!</p>";
                 $this->result = false;
             }
         } else {

@@ -117,7 +117,7 @@ class AdmsEditColors
       $_SESSION['msg'] = "<p class='alert-success'>Cor editada com sucesso!</p>";
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p class='alert-success'>Erro - 0037: Cor não editada com sucesso!</p>";
+      $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0037: Cor não editada com sucesso!</p>";
       $this->result = false;
     }
   }

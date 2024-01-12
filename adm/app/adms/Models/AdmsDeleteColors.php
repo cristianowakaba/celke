@@ -50,7 +50,7 @@ class AdmsDeleteColors
                 $_SESSION['msg'] = "<p class='alert-success'>Cor apagada com sucesso!</p>";
                 $this->result = true;
             } else {
-                $_SESSION['msg'] = "<p class='alert-success'>Erro 0028: Cor não apagada com sucesso!</p>";
+                $_SESSION['msg'] = "<p class='alert-danger'>Erro 0028: Cor não apagada com sucesso!</p>";
                 $this->result = false;
             }
         }else{

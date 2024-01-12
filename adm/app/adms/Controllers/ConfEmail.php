@@ -29,7 +29,7 @@ class ConfEmail
      if(!empty($this->key)){
         $this->valKey();
      }else{
-        $_SESSION['msg'] = "<p class='alert-success'>Erro - 006: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
+        $_SESSION['msg'] = "<p class='alert-danger'>Erro - 006: Necessário confirmar o e-mail, solicite novo link <a href='".URLADM."new-conf-email/index'> Clique Aqui</a></p>";
         $urlRedirect = URLADM . "login/index";
         header("Location: $urlRedirect");
      }

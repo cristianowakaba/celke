@@ -88,7 +88,7 @@ class AdmsAddUsers
              $this->result = true;
            
         }else{
-            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0024: Usuário não cadastrado com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0024: Usuário não cadastrado com sucesso!</p>";
             $this->result = false;
         }      
      

@@ -1,103 +1,151 @@
 <?php
-if(!defined('C8L6K7E')){
-    /*  header("Location:/"); */
- die("Erro: Página não encontrada!<br>");
- }
 
-if(isset($this->data['form'])){
+if (!defined('C8L6K7E')) {
+    header("Location: /");
+    die("Erro: Página não encontrada<br>");
+}
 
-    $valorForm =$this->data['form'];
+if (isset($this->data['form'])) {
+    $valorForm = $this->data['form'];
 }
 ?>
+<!-- Inicio do conteudo do administrativo -->
+<div class="wrapper">
+    <div class="row">
+        <div class="top-list">
+            <span class="title-content">Cadastrar E-mail</span>
+            <div class="top-list-right">
+                <?php
+                echo "<a href='" . URLADM . "list-conf-emails/index' class='btn-info'>Listar</a> ";
+                ?>
+            </div>
+        </div>
 
-<h1>Cadastrar Configuração de E-mail</h1>
+        <div class="content-adm-alert">
+            <?php
+            if (isset($_SESSION['msg'])) {
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
+            }
+            ?>
+            <span id="msg"></span>
+        </div>
 
-<?php
-echo "<a href='" . URLADM . "list-Conf-emails/index'>Listar Configurações de email</a><br><br>";
+        <div class="content-adm">
+            <form method="POST" action="" id="form-add-conf-emails" class="form-adm">
+                <div class="row-input">
+                    <div class="column">
+                        <?php
+                        $title = "";
+                        if (isset($valorForm['title'])) {
+                            $title = $valorForm['title'];
+                        }
+                        ?>
+                        <label class="title-input">Título:<span class="text-danger">*</span></label>
+                        <input type="text" name="title" id="title" class="input-adm" placeholder="Título para identificar o e-mail" value="<?php echo $title; ?>" required>
+                    </div>
+                </div>
 
-////var_dump($this->data['select']);
+                <div class="row-input">
+                    <div class="column">
+                        <?php
+                        $name = "";
+                        if (isset($valorForm['name'])) {
+                            $name = $valorForm['name'];
+                        }
+                        ?>
+                        <label class="title-input">Nome:<span class="text-danger">*</span></label>
+                        <input type="text" name="name" id="name" class="input-adm" placeholder="Nome que será apresentado no remetente" value="<?php echo $name; ?>" required>
+                    </div>
+                </div>
 
-if (isset($_SESSION['msg'])) {
-    echo $_SESSION['msg'];
-    unset($_SESSION['msg']);
-}
-?>
-<span id="msg"></span>
-<form method="POST" action="" id="form-add-conf-emails">
-    <?php
-    $title = "";
-    if (isset($valorForm['title'])) {
-        $title = $valorForm['title'];
-    }
-    ?>
-    <label>Título:<span style="color: #f00;">*</span> </label>
-    <input type="text" name="title" id="title" placeholder="Título para identificar o e-mail" value="<?php echo $title; ?>"required ><br><br>
+                <div class="row-input">
+                    <div class="column">
+                        <?php
+                        $email = "";
+                        if (isset($valorForm['email'])) {
+                            $email = $valorForm['email'];
+                        }
+                        ?>
+                        <label class="title-input">E-mail:<span class="text-danger">*</span></label>
+                        <input type="text" name="email" id="email" class="input-adm" placeholder="E-mail que será apresentado no remetente" value="<?php echo $email; ?>" required>
+                    </div>
+                </div>
 
-    <?php
-    $name = "";
-    if (isset($valorForm['name'])) {
-        $name = $valorForm['name'];
-    }
-    ?>
-    <label>Nome:<span style="color: #f00;">*</span> </label>
-    <input type="text" name="name" id="name" placeholder="Nome que será apresentado no remetente" value="<?php echo $name; ?>"required><br><br>
+                <div class="row-input">
+                    <div class="column">
+                        <?php
+                        $host = "";
+                        if (isset($valorForm['host'])) {
+                            $host = $valorForm['host'];
+                        }
+                        ?>
+                        <label class="title-input">Nome:<span class="text-danger">*</span></label>
+                        <input type="text" name="host" id="host" class="input-adm" placeholder="Servidor utilizado para enviar o e-mail" value="<?php echo $host; ?>" required>
+                    </div>
+                </div>
 
-    <?php
-    $email = "";
-    if (isset($valorForm['email'])) {
-        $email = $valorForm['email'];
-    }
-    ?>
-    <label>E-mail:<span style="color: #f00;">*</span> </label>
-    <input type="email" name="email" id="email" placeholder="E-mail que será apresentado no remetente" value="<?php echo $email; ?>"required ><br><br>
+                <div class="row-input">
+                    <div class="column">
+                        <?php
+                        $username = "";
+                        if (isset($valorForm['username'])) {
+                            $username = $valorForm['username'];
+                        }
+                        ?>
+                        <label class="title-input">Usuário:<span class="text-danger">*</span></label>
+                        <input type="text" name="username" id="username" class="input-adm" placeholder="Usuário do e-mail, na maioria dos casos é o próprio e-mail" value="<?php echo $username; ?>" required>
+                    </div>
+                </div>
 
-    <?php
-    $host = "";
-    if (isset($valorForm['host'])) {
-        $host = $valorForm['host'];
-    }
-    ?>
-    <label>Host:<span style="color: #f00;">*</span> </label>
-    <input type="text" name="host" id="host" placeholder="Servidor utilizado para enviar o e-mail" value="<?php echo $host; ?>"required ><br><br>
+                <div class="row-input">
+                    <div class="column">
+                        <?php
+                        $password = "";
+                        if (isset($valorForm['password'])) {
+                            $password = $valorForm['password'];
+                        }
+                        ?>
+                        <label class="title-input">Senha:<span class="text-danger">*</span></label>
+                        <input type="password" name="password" id="password" class="input-adm" placeholder="Senha do e-mail" autocomplete="on" value="<?php echo $password; ?>" required>
+                        <span id="msgViewStrength"></span>
 
-    <?php
-    $username = "";
-    if (isset($valorForm['username'])) {
-        $username = $valorForm['username'];
-    }
-    ?>
-    <label>Usuário:<span style="color: #f00;">*</span> </label>
-    <input type="text" name="username" id="username" placeholder="Usuário do e-mail, na maioria dos casos é o próprio e-mail" value="<?php echo $username; ?>"required ><br><br> 
-
-    <?php
-    $password = "";
-    if (isset($valorForm['password'])) {
-        $password = $valorForm['password'];
-    }
-    ?>
-    <label>Senha:<span style="color: #f00;">*</span> </label>
-    <input type="password" name="password" id="password" placeholder="Senha do e-mail" value="<?php echo $password; ?>" required><br><br>
-
-    <?php
-    $smtpsecure = "";
-    if (isset($valorForm['smtpsecure'])) {
-        $smtpsecure = $valorForm['smtpsecure'];
-    }
-    ?>
-    <label>SMTP:<span style="color: #f00;">*</span> </label>
-    <input type="text" name="smtpsecure" id="smtpsecure" placeholder="SMTP" value="<?php echo $smtpsecure; ?>" required><br><br>
-
-    <?php
-    $port = "";
-    if (isset($valorForm['port'])) {
-        $port = $valorForm['port'];
-    }
-    ?>
-    <label>Porta:<span style="color: #f00;">*</span> </label>
-    <input type="text" name="port" id="port" placeholder="Porta" value="<?php echo $port; ?>"required ><br><br>
+                    </div>
+                </div>
 
 
-    <span style="color: #f00;">* Campo Obrigatório</span><br><br>
+                <div class="row-input">
+                    <div class="column">
+                        <?php
+                        $smtpsecure = "";
+                        if (isset($valorForm['smtpsecure'])) {
+                            $smtpsecure = $valorForm['smtpsecure'];
+                        }
+                        ?>
+                        <label class="title-input">SMTP:<span class="text-danger">*</span></label>
+                        <input type="text" name="smtpsecure" id="smtpsecure" class="input-adm" placeholder="SMTP" value="<?php echo $smtpsecure; ?>" required>
+                    </div>
+                </div>
 
-    <button type="submit" name="SendAddConfEmails" value="Cadastrar">Cadastrar</button>
-</form>
+                <div class="row-input">
+                    <div class="column">
+                        <?php
+                        $port = "";
+                        if (isset($valorForm['port'])) {
+                            $port = $valorForm['port'];
+                        }
+                        ?>
+                        <label class="title-input">Porta:<span class="text-danger">*</span></label>
+                        <input type="text" name="port" id="port" class="input-adm" placeholder="Porta para enviar o e-mail" value="<?php echo $port; ?>" required>
+                    </div>
+                </div>
+
+                <p class="text-danger mb-5 fs-4">* Campo Obrigatório</p>
+
+                <button type="submit" name="SendAddConfEmails" class="btn-success" value="Cadastrar">Cadastrar</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Fim do conteudo do administrativo -->

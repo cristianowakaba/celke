@@ -74,7 +74,7 @@ class AdmsAddSitsUsers
              $this->result = true;
            
         }else{
-            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0023: Situação não cadastrada com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0023: Situação não cadastrada com sucesso!</p>";
             $this->result = false;
         }      
      

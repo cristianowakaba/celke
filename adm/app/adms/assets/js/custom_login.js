@@ -48,7 +48,7 @@ function viewStrength(strength) {
     } else if ((strength >= 30) && (strength < 50)) {
         document.getElementById("msgViewStrength").innerHTML = "<p class='alert-warning'>Senha Média</p>";
     } else if ((strength >= 50) && (strength < 69)) {
-        document.getElementById("msgViewStrength").innerHTML = "<p class='alert-primary'>Senha Boa</p>";
+        document.getElementById("msgViewStrength").innerHTML = "<p class='alert-primary'>Senha boa</p>";
     } else if (strength >= 70) {
         document.getElementById("msgViewStrength").innerHTML = "<p class='alert-success'>Senha Forte</p>";
     } else {

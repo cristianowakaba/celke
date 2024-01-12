@@ -131,7 +131,7 @@ class AdmsEditUsersPassword
       $_SESSION['msg'] = "<p class='alert-success'> a senha do usuário editado com sucesso!</p>";
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p class='alert-success'>Erro - 0053: a senha do usuário não editada com sucesso!</p>";
+      $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0053: a senha do usuário não editada com sucesso!</p>";
       $this->result = false;
     }
   }

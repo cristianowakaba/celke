@@ -143,7 +143,7 @@ class AdmsEditUsers
       $_SESSION['msg'] = "<p class='alert-success'>Usuário editado com sucesso!</p>";
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p class='alert-success'>Erro - 0048: Usuário não editado com sucesso!</p>";
+      $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0048: Usuário não editado com sucesso!</p>";
       $this->result = false;
     }
   }

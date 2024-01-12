@@ -73,7 +73,7 @@ class AdmsAddConfEmails
              $this->result = true;
            
         }else{
-            $_SESSION['msg'] = "<p class='alert-success'>Erro - 0092: Configuração de e-mail não cadastrado com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0092: Configuração de e-mail não cadastrado com sucesso!</p>";
             $this->result = false;
         }      
      

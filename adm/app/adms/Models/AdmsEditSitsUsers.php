@@ -111,7 +111,7 @@ class AdmsEditSitsUsers
       $_SESSION['msg'] = "<p class='alert-success'>Situação editada com sucesso!</p>";
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p class='alert-success'>Erro - 0046: Situação não editada com sucesso!</p>";
+      $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0046: Situação não editada com sucesso!</p>";
       $this->result = false;
     }
   }
