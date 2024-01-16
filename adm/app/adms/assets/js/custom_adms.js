@@ -1,14 +1,14 @@
-// Permitir retorno no navegador no formulário após o erro
+// Permitir retorno no navegador no formulario apos o erro
 if (window.history.replaceState) {
-    // Substituir a entrada atual no histórico por uma entrada vazia para evitar o retorno após um erro
     window.history.replaceState(null, null, window.location.href);
 }
+
 /* Inicio Dropdown Navbar */
-/* let notification = document.querySelector(".notification"); */
+//let notification = document.querySelector(".notification");
 let avatar = document.querySelector(".avatar");
 
 dropMenu(avatar);
-/* dropMenu(notification); */
+//dropMenu(notification);
 
 function dropMenu(selector) {
     //console.log(selector);
@@ -30,13 +30,14 @@ bars.addEventListener("click", () => {
 window.matchMedia("(max-width: 768px)").matches ? sidebar.classList.remove("active") : sidebar.classList.add("active");
 /* Fim Sidebar Toggle / bars */
 
-/** inicio botão dropdown do listar */
+/* Inicio botao dropdown do listar */
+
 function actionDropdown(id) {
     closeDropdownAction();
     document.getElementById("actionDropdown" + id).classList.toggle("show-dropdown-action");
 }
 
-window.onclick = function (event) {
+window.onclick = function(event) {
     if (!event.target.matches(".dropdown-btn-action")) {
         /*document.getElementById("actionDropdown").classList.remove("show-dropdown-action");*/
         closeDropdownAction();
@@ -53,71 +54,45 @@ function closeDropdownAction() {
         }
     }
 }
+/* Fim botao dropdown do listar */
 
-
-/* Inicio dropdown sidebar */
-
-var dropdownSidebar = document.getElementsByClassName("dropdown-btn");
-var i;
-
-for (i = 0; i < dropdownSidebar.length; i++) {
-    dropdownSidebar[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-            dropdownContent.style.display = "none";
-        } else {
-            dropdownContent.style.display = "block";
-        }
-    });
-}
-/* Fim dropdown sidebar */
-
-// Calcular a força da senha
+// Calcular a forca da senha
 function passwordStrength() {
-    // Obter o valor do campo de senha
     var password = document.getElementById("password").value;
     var strength = 0;
 
-    // Verificar o comprimento da senha e atribuir pontos de acordo
     if ((password.length >= 6) && (password.length <= 7)) {
         strength += 10;
     } else if (password.length > 7) {
         strength += 25;
     }
 
-    // Verificar se a senha contém letras minúsculas e atribuir pontos
     if ((password.length >= 6) && (password.match(/[a-z]+/))) {
         strength += 10;
     }
 
-    // Verificar se a senha contém letras maiúsculas e atribuir pontos
     if ((password.length >= 7) && (password.match(/[A-Z]+/))) {
         strength += 20;
     }
 
-    // Verificar se a senha contém caracteres especiais e atribuir pontos
     if ((password.length >= 8) && (password.match(/[@#$%;*]+/))) {
         strength += 25;
     }
 
-    // Verificar se a senha contém números repetidos e deduzir pontos
     if (password.match(/([1-9]+)\1{1,}/)) {
         strength -= 25;
     }
-
-    // Chamar a função para exibir a força da senha
     viewStrength(strength);
 }
 
-/// Exibir a força da senha em um elemento HTML
 function viewStrength(strength) {
+    // Imprimir a força da senha 
     if (strength < 30) {
         document.getElementById("msgViewStrength").innerHTML = "<p class='alert-danger'>Senha Fraca</p>";
     } else if ((strength >= 30) && (strength < 50)) {
         document.getElementById("msgViewStrength").innerHTML = "<p class='alert-warning'>Senha Média</p>";
     } else if ((strength >= 50) && (strength < 69)) {
-        document.getElementById("msgViewStrength").innerHTML = "<p class='alert-primary'>Senha boa</p>";
+        document.getElementById("msgViewStrength").innerHTML = "<p class='alert-primary'>Senha Boa</p>";
     } else if (strength >= 70) {
         document.getElementById("msgViewStrength").innerHTML = "<p class='alert-success'>Senha Forte</p>";
     } else {
@@ -126,274 +101,256 @@ function viewStrength(strength) {
 }
 
 
-// Formulário de Adição de Usuário
 const formAddUser = document.getElementById("form-add-user");
 if (formAddUser) {
-    formAddUser.addEventListener("submit", async (e) => {
-        // Receber o valor do campo de nome
+    formAddUser.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
         var name = document.querySelector("#name").value;
-        // Verificar se o campo de nome está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (name === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo nome!</p>";
             return;
         }
 
-        // Receber o valor do campo de e-mail
+        //Receber o valor do campo
         var email = document.querySelector("#email").value;
-        // Verificar se o campo de e-mail está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (email === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo e-mail!</p>";
             return;
         }
 
-        // Receber o valor do campo de usuário
+        //Receber o valor do campo
         var user = document.querySelector("#user").value;
-        // Verificar se o campo de usuário está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (user === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo usuário!</p>";
             return;
         }
 
-        // Receber o valor do campo de situação
+        //Receber o valor do campo
         var adms_sits_user_id = document.querySelector("#adms_sits_user_id").value;
-        // Verificar se o campo de situação está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (adms_sits_user_id === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo situação!</p>";
             return;
         }
 
-        // Receber o valor do campo de senha
+        //Receber o valor do campo
         var password = document.querySelector("#password").value;
-        // Verificar se o campo de senha está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (password === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo senha!</p>";
             return;
         }
-
-        // Verificar se o campo senha possui 6 caracteres e exibir mensagem de erro
+        // Verificar se o campo senha possui 6 caracteres
         if (password.length < 6) {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: A senha deve ter no mínimo 6 caracteres!</p>";
             return;
         }
-
-        // Verificar se o campo senha não possui números repetidos e exibir mensagem de erro
+        // Verificar se o campo senha não possui números repetidos
         if (password.match(/([1-9]+)\1{1,}/)) {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<class='alert-danger'>Erro: A senha não deve ter número repetido!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: A senha não deve ter número repetido!</p>";
             return;
         }
-
-        // Verificar se o campo senha possui letras e exibir mensagem de erro
+        // Verificar se o campo senha possui letras
         if (!password.match(/[A-Za-z]/)) {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "class='alert-danger'>Erro: A senha deve ter pelo menos uma letra!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: A senha deve ter pelo menos uma letra!</p>";
             return;
         } else {
-            // Limpar mensagem de erro se todas as validações passarem
             document.getElementById("msg").innerHTML = "<p></p>";
             return;
         }
     });
 }
 
-// Formulário de Edição de Usuário
 const formEditUser = document.getElementById("form-edit-user");
 if (formEditUser) {
-    formEditUser.addEventListener("submit", async (e) => {
-        // Receber o valor do campo de nome
+    formEditUser.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
         var name = document.querySelector("#name").value;
-        // Verificar se o campo de nome está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (name === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo nome!</p>";
             return;
         }
 
-        // Receber o valor do campo de e-mail
+        //Receber o valor do campo
         var email = document.querySelector("#email").value;
-        // Verificar se o campo de e-mail está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (email === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo e-mail!</p>";
             return;
         }
 
-        // Receber o valor do campo de usuário
+        //Receber o valor do campo
         var user = document.querySelector("#user").value;
-        // Verificar se o campo de usuário está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (user === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo usuário!</p>";
             return;
         }
 
-        // Receber o valor do campo de situação
+        //Receber o valor do campo
         var adms_sits_user_id = document.querySelector("#adms_sits_user_id").value;
-        // Verificar se o campo de situação está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (adms_sits_user_id === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo situação!</p>";
             return;
         } else {
-            // Limpar mensagem de erro se todas as validações passarem
             document.getElementById("msg").innerHTML = "<p></p>";
             return;
         }
     });
 }
 
-
-// Formulário de Edição de Senha do Usuário
 const formEditUserPass = document.getElementById("form-edit-user-pass");
 if (formEditUserPass) {
-    formEditUserPass.addEventListener("submit", async (e) => {
+    formEditUserPass.addEventListener("submit", async(e) => {
 
-        // Receber o valor do campo de senha
+        //Receber o valor do campo
         var password = document.querySelector("#password").value;
-        // Verificar se o campo de senha está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (password === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo senha!</p>";
             return;
         }
-        // Verificar se o campo senha possui 6 caracteres e exibir mensagem de erro
+        // Verificar se o campo senha possui 6 caracteres
         if (password.length < 6) {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: A senha deve ter no mínimo 6 caracteres!</p>";
             return;
         }
-        // Verificar se o campo senha não possui números repetidos e exibir mensagem de erro
+        // Verificar se o campo senha não possui números repetidos
         if (password.match(/([1-9]+)\1{1,}/)) {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: A senha não deve ter número repetido!</p>";
             return;
         }
-        // Verificar se o campo senha possui letras e exibir mensagem de erro
+        // Verificar se o campo senha possui letras
         if (!password.match(/[A-Za-z]/)) {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: A senha deve ter pelo menos uma letra!</p>";
             return;
         } else {
-            // Limpar mensagem de erro se todas as validações passarem
             document.getElementById("msg").innerHTML = "<p></p>";
             return;
         }
     });
 }
 
-// Formulário de Edição de Perfil do Usuário
 const formEditProfile = document.getElementById("form-edit-profile");
 if (formEditProfile) {
-    formEditProfile.addEventListener("submit", async (e) => {
-        // Receber o valor do campo de nome
+    formEditProfile.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
         var name = document.querySelector("#name").value;
-        // Verificar se o campo de nome está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (name === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo nome!</p>";
             return;
         }
 
-        // Receber o valor do campo de e-mail
+        //Receber o valor do campo
         var email = document.querySelector("#email").value;
-        // Verificar se o campo de e-mail está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (email === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo e-mail!</p>";
             return;
         }
 
-        // Receber o valor do campo de usuário
+        //Receber o valor do campo
         var user = document.querySelector("#user").value;
-        // Verificar se o campo de usuário está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (user === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo usuário!</p>";
             return;
         } else {
-            // Limpar mensagem de erro se todas as validações passarem
             document.getElementById("msg").innerHTML = "<p></p>";
             return;
         }
     });
 }
 
-// Formulário de Edição de Senha do Perfil
 const formEditProfPass = document.getElementById("form-edit-prof-pass");
 if (formEditProfPass) {
-    formEditProfPass.addEventListener("submit", async (e) => {
+    formEditProfPass.addEventListener("submit", async(e) => {
 
-        // Receber o valor do campo de senha
+        //Receber o valor do campo
         var password = document.querySelector("#password").value;
-        // Verificar se o campo de senha está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (password === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo senha!</p>";
             return;
         }
-        // Verificar se o campo senha possui 6 caracteres e exibir mensagem de erro
+        // Verificar se o campo senha possui 6 caracteres
         if (password.length < 6) {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: A senha deve ter no mínimo 6 caracteres!</p>";
             return;
         }
-        // Verificar se o campo senha não possui números repetidos e exibir mensagem de erro
+        // Verificar se o campo senha não possui números repetidos
         if (password.match(/([1-9]+)\1{1,}/)) {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: A senha não deve ter número repetido!</p>";
             return;
         }
-        // Verificar se o campo senha possui letras e exibir mensagem de erro
+        // Verificar se o campo senha possui letras
         if (!password.match(/[A-Za-z]/)) {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: A senha deve ter pelo menos uma letra!</p>";
             return;
         } else {
-            // Limpar mensagem de erro se todas as validações passarem
             document.getElementById("msg").innerHTML = "<p></p>";
             return;
         }
     });
 }
 
-// Formulário de Edição de Imagem do Usuário
 const formEditUserImg = document.getElementById("form-edit-user-img");
 if (formEditUserImg) {
-    formEditUserImg.addEventListener("submit", async (e) => {
-        // Receber o valor do campo de nova imagem
+    formEditUserImg.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
         var new_image = document.querySelector("#new_image").value;
-        // Verificar se o campo de nova imagem está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (new_image === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário selecionar uma imagem!</p>";
             return;
         } else {
-            // Limpar mensagem de erro se todas as validações passarem
             document.getElementById("msg").innerHTML = "<p></p>";
             return;
         }
     });
 }
 
-// Formulário de Edição de Imagem do Perfil
 const formEditProfImg = document.getElementById("form-edit-prof-img");
 if (formEditProfImg) {
-    formEditProfImg.addEventListener("submit", async (e) => {
-        // Receber o valor do campo de nova imagem
+    formEditProfImg.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
         var new_image = document.querySelector("#new_image").value;
-        // Verificar se o campo de nova imagem está vazio e exibir mensagem de erro
+        // Verificar se o campo esta vazio
         if (new_image === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário selecionar uma imagem!</p>";
             return;
         } else {
-            // Limpar mensagem de erro se todas as validações passarem
             document.getElementById("msg").innerHTML = "<p></p>";
             return;
         }
@@ -401,39 +358,36 @@ if (formEditProfImg) {
 }
 
 function inputFileValImg() {
-    // Receber o valor do campo
+    //Receber o valor do campo
     var new_image = document.querySelector("#new_image");
 
-    // Obter o caminho do arquivo a partir do valor do campo
     var filePath = new_image.value;
 
-    // Definir uma expressão regular para verificar as extensões permitidas (.jpg, .jpeg, .png)
     var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
 
-    // Verificar se a extensão do arquivo corresponde às extensões permitidas
     if (!allowedExtensions.exec(filePath)) {
-        // Se a extensão não for permitida, limpar o campo e exibir uma mensagem de erro
         new_image.value = '';
         document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário selecionar uma imagem JPG ou PNG!</p>";
         return;
     } else {
-        previewImage(new_image)
-        // Se a extensão for permitida, limpar a mensagem de erro (se houver) e retornar
+        previewImage(new_image);
         document.getElementById("msg").innerHTML = "<p></p>";
         return;
     }
 }
+
 function previewImage(new_image) {
     if ((new_image.files) && (new_image.files[0])) {
-        //FileReader(); ler conteúdo dos arquivos
+        // FileReader() - ler o conteúdo dos arquivos
         var reader = new FileReader();
-        //onload- dispara um evento quando qualquer elemento for carregado
-        reader.onload = function (e) {
-            document.getElementById('preview-img').innerHTML = "<img src='" + e.target.result + "' alt='imagem' style='width: 100px;'>";
+        // onload - disparar um evento quando qualquer elemento tenha sido carregado
+        reader.onload = function(e) {
+            document.getElementById('preview-img').innerHTML = "<img src='" + e.target.result + "' alt='Imagem' style='width: 100px;'>";
         }
     }
-    //readAsDataURL- retorna os dados do formato blob como uma URL de dados Blob representa um marquivo
-    reader.readAsDataURL(new_image.files[0])
+
+    // readAsDataURL - Retorna os dados do formato blob como uma URL de dados - Blob representa um arquivo
+    reader.readAsDataURL(new_image.files[0]);
 }
 
 const formEditSitUser = document.getElementById("form-add-sit-user");
@@ -455,12 +409,10 @@ if (formEditSitUser) {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Cor!</p>";
             return;
-        } else {
-            document.getElementById("msg").innerHTML = "<p></p>";
-            return;
-        }
+        } 
     });
 }
+
 const formAddColors = document.getElementById("form-add-color");
 if (formAddColors) {
     formAddColors.addEventListener("submit", async(e) => {
@@ -483,7 +435,8 @@ if (formAddColors) {
         }
     });
 }
-    const formAddConfEmails = document.getElementById("form-add-conf-emails");
+
+const formAddConfEmails = document.getElementById("form-add-conf-emails");
 if (formAddConfEmails) {
     formAddConfEmails.addEventListener("submit", async(e) => {
         //Receber o valor do campo
@@ -491,9 +444,10 @@ if (formAddConfEmails) {
         // Verificar se o campo esta vazio
         if (title === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo título!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo titulo!</p>";
             return;
         }
+
         var name = document.querySelector("#name").value;
         // Verificar se o campo esta vazio
         if (name === "") {
@@ -502,52 +456,56 @@ if (formAddConfEmails) {
             return;
         }
 
-        //Receber o valor do campo
         var email = document.querySelector("#email").value;
         // Verificar se o campo esta vazio
-        if (email=== "") {
+        if (email === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo email!</p>";
             return;
         }
-        //Receber o valor do campo
-        var host= document.querySelector("#host").value;
+
+        var host = document.querySelector("#host").value;
         // Verificar se o campo esta vazio
-        if (host=== "") {
+        if (host === "") {
             e.preventDefault();
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo host!</p>";
             return;
         }
-        var username= document.querySelector("#username").value;
+
+        var username = document.querySelector("#username").value;
         // Verificar se o campo esta vazio
-        if (username=== "") {
+        if (username === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo username!</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo usuário!</p>";
             return;
         }
-        var password= document.querySelector("#password").value;
+
+        var password = document.querySelector("#password").value;
         // Verificar se o campo esta vazio
-        if (password=== "") {
+        if (password === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo password</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo senha!</p>";
             return;
         }
-        var smtpsecure= document.querySelector("#smtpsecure").value;
+
+        var smtpsecure = document.querySelector("#smtpsecure").value;
         // Verificar se o campo esta vazio
-        if (smtpsecure=== "") {
+        if (smtpsecure === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo smtpsecure</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo smtp!</p>";
             return;
         }
-        var port= document.querySelector("#port").value;
+
+        var port = document.querySelector("#port").value;
         // Verificar se o campo esta vazio
-        if (port=== "") {
+        if (port === "") {
             e.preventDefault();
-            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo porta</p>";
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo porta!</p>";
             return;
         }
     });
 }
+
 const formEditConfEmails = document.getElementById("form-edit-conf-emails");
 if (formEditConfEmails) {
     formEditConfEmails.addEventListener("submit", async(e) => {
@@ -567,7 +525,7 @@ if (formEditConfEmails) {
             document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo nome!</p>";
             return;
         }
-        
+
         var email = document.querySelector("#email").value;
         // Verificar se o campo esta vazio
         if (email === "") {
@@ -623,3 +581,21 @@ if (formEditConfEmailsPass) {
         }
     });
 }
+
+/* Inicio dropdown sidebar */
+
+var dropdownSidebar = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdownSidebar.length; i++) {
+    dropdownSidebar[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+        } else {
+            dropdownContent.style.display = "block";
+        }
+    });
+}
+/* Fim dropdown sidebar */

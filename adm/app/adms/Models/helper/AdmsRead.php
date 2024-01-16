@@ -1,15 +1,17 @@
 <?php
 
 namespace App\adms\Models\helper;
-if(!defined('C8L6K7E')){
-    /*  header("Location:/"); */
- die("Erro: Página não encontrada!<br>");
- }
+
+if (!defined('C8L6K7E')) {
+    header("Location: /");
+    die("Erro: Página não encontrada<br>");
+}
+
 use PDO;
 use PDOException;
 
 /**
- * Classe gernérica para selecionar registro no banco de dados
+ * Classe genérica para selecionar registro no banco de dados
  *
  * @author Celke
  */
@@ -67,13 +69,20 @@ class AdmsRead extends AdmsConn
      */
     public function fullRead(string $query, string|null $parseString = null): void
     {
+
         $this->select = $query;
-        // //var_dump( $this->select);
-        // //var_dump($parseString );
-        
         if (!empty($parseString)) {
-            parse_str($parseString, $this->values);
-         
+            //parse_str($parseString, $this->values);
+
+            $pairs = explode('&', $parseString);
+            var_dump($pairs);
+            foreach ($pairs as $pair) {
+                var_dump($pair);
+                
+                list($key, $value) = explode('=', $pair);
+                $this->values[$key] = $value;
+                
+            }
         }
         $this->exeInstruction();
     }
@@ -93,7 +102,6 @@ class AdmsRead extends AdmsConn
             $this->result = $this->query->fetchAll();
         } catch (PDOException $err) {
             $this->result = null;
-            echo"$err";
         }
     }
 

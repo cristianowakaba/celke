@@ -1,10 +1,10 @@
 <?php
-if (!defined('C8L6K7E')) {
+if(!defined('C8L6K7E')){
     header("Location: /");
     die("Erro: Página não encontrada<br>");
 }
 ?>
-<!-- Início do conteúdo administrativo -->
+<!-- Inicio do conteudo do administrativo -->
 <div class="wrapper">
     <div class="row">
         <div class="top-list">
@@ -41,9 +41,9 @@ if (!defined('C8L6K7E')) {
                     <span class="view-adm-info">
                         <?php
                         if ((!empty($image)) and (file_exists("app/adms/assets/image/users/$id/$image"))) {
-                            echo "<div class='rounded-image'><img src='" . URLADM . "app/adms/assets/image/users/$id/$image' width='100' height='100'></div><br><br>";
+                            echo "<img src='" . URLADM . "app/adms/assets/image/users/$id/$image' width='100' height='100'><br><br>";
                         } else {
-                            echo "<div class='rounded-image'><img src='" . URLADM . "app/adms/assets/image/users/icon_user.png' width='100' height='100'></div><br><br>";
+                            echo "<img src='" . URLADM . "app/adms/assets/image/users/icon_user.png' width='100' height='100'><br><br>";
                         }
                         ?>
                     </span>
@@ -101,4 +101,4 @@ if (!defined('C8L6K7E')) {
         </div>
     </div>
 </div>
-<!-- Fim do conteúdo administrativo -->
+<!-- Fim do conteudo do administrativo -->
