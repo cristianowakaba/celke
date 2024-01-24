@@ -7,7 +7,7 @@ AdmsEditColors
 AdmsListColors
 
 
-Views
+Views.
 -addColors
 -editColors
 -listColors

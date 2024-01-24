@@ -3,6 +3,10 @@ if (!defined('C8L6K7E')) {
     /*  header("Location:/"); */
     die("Erro: Página não encontrada!<br>");
 }
+if (isset($this->data['form'])) {
+    $valorForm = $this->data['form'];
+}
+?>
 ?>
 <!-- Inicio do conteudo do administrativo -->
 <div class="wrapper">
@@ -15,7 +19,28 @@ if (!defined('C8L6K7E')) {
                 ?>
             </div>
         </div>
-        <div class="content-adm">
+        <div class="top-list">
+            <form method="POST" action="">
+                <div class="row-input-search">
+                    <?php
+                    $search_name = "";
+                    if (isset($valorForm['search_name'])) {
+                        $search_name = $valorForm['search_name'];
+                    }
+                    ?>
+                    <div class="column">
+                        <label class="title-input-search">Nome: </label>
+                        <input type="text" name="search_name" id="search_name" class="input-search" placeholder="Pesquisar pelo nome da situação" value="<?php echo $search_name; ?>">
+                    </div>
+
+                    <div class="column margin-top-search-one">
+                        <button type="submit" name="SendSearchSitUser" class="btn-info" value="Pesquisar">Pesquisar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div class="content-adm-alert">
             <?php
             if (isset($_SESSION['msg'])) {
                 echo $_SESSION['msg'];

@@ -75,9 +75,9 @@ class AdmsRead extends AdmsConn
             //parse_str($parseString, $this->values);
 
             $pairs = explode('&', $parseString);
-            var_dump($pairs);
+           // var_dump($pairs);
             foreach ($pairs as $pair) {
-                var_dump($pair);
+              //  var_dump($pair);
                 
                 list($key, $value) = explode('=', $pair);
                 $this->values[$key] = $value;
