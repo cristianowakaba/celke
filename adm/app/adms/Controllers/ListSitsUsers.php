@@ -41,10 +41,10 @@ array
   'search_name' => string 'tivo' (length=4)
   'SendSearchSitUser' => string 'Pesquisar' (length=9) */
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        var_dump($this->dataForm);
+        //var_dump($this->dataForm);
         //pega o que o usuario digitare
         $this->searchName = filter_input(INPUT_GET, 'search_name', FILTER_DEFAULT);
-        var_dump($this->searchName);
+        //var_dump($this->searchName);
 
        $listSitsUsers= new \App\adms\Models\AdmsListSitsUsers();
        $listSitsUsers->listSitsUsers($this->page );

@@ -101,3 +101,7 @@
 0098 - MODELS - AdmsDeleteConfEmails
 0099 - CONTROLLER - EditConfEmailsPassword
 0100 -CORE - CarregarPgAdm
+0101 - AdmsListColors - listColors
+0102 - AdmsListColors -  listSearchColors
+0103 - AdmsListColors -searchColorsName
+0104 - AdmsListColors - searchColorsCol

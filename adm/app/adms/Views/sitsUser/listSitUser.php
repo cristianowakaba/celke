@@ -7,7 +7,7 @@ if (isset($this->data['form'])) {
     $valorForm = $this->data['form'];
 }
 ?>
-?>
+
 <!-- Inicio do conteudo do administrativo -->
 <div class="wrapper">
     <div class="row">
