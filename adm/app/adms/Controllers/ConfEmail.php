@@ -6,6 +6,9 @@ if(!defined('C8L6K7E')){
     /*  header("Location:/"); */
  die("Erro: Página não encontrada!<br>");
  }
+
+
+ 
 /**
  * Controller da página Confirmar Email
  * @author Cesar <cesar@celke.com.br>
