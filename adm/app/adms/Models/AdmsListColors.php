@@ -110,8 +110,8 @@ class AdmsListColors
 
         $this->searchName = trim($search_name);
         $this->searchColor = trim($search_color);
-        var_dump($this->searchColor);
-        var_dump($this->searchName);
+        //var_dump($this->searchColor);
+       // var_dump($this->searchName);
         // Remove o caractere "#" da string da cor
         $this->searchColor = str_replace('#', '', $this->searchColor);
         $this->searchNameValue = "%" . $this->searchName . "%";
@@ -122,7 +122,7 @@ class AdmsListColors
         } elseif ((!empty($this->searchName)) and (empty($this->searchColor))) {
             $this->searchColorsName();
         } elseif ((empty($this->searchName)) and (!empty($this->searchColor))) {
-            var_dump("oi");
+           
             $this->searchColorsCol();
         } else {
             $this->searchColorsNameCol();
@@ -196,7 +196,7 @@ class AdmsListColors
      */
     public function searchColorsCol(): void
     {
-        var_dump($this->searchColorValue);
+        //var_dump($this->searchColorValue);
         $pagination = new \App\adms\Models\helper\AdmsPagination(URLADM . 'list-colors/index', "?search_color={$this->searchColor}&search_name={$this->searchName}");
         $pagination->condition($this->page, $this->limitResult);
         $pagination->pagination("SELECT COUNT(col.id) AS num_result 

@@ -102,7 +102,7 @@ class AdmsListConfEmails
     public function listSearchConfEmails(int $page = null, string|null $search_name):void
     {
       $this->page = (int) $page ? $page : 1;
-      $this->searchName = (string) $search_name;
+      $this->searchName = trim($search_name);
 
       $this->searchNameValue = "%" . $this->searchName . "%";
 

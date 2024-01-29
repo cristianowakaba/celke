@@ -106,3 +106,6 @@
 0103 - AdmsListColors -searchColorsName
 0104 - AdmsListColors - searchColorsCol
 0105 - AdmsListConfEmails - listSearchConfEmails
+0106- AdmsListAccessLevels - listAccessLevels
+0107- AdmsViewAccessLevels -ViewAccessLevels
+0107- ViewAccessLevels- index
