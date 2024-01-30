@@ -108,4 +108,7 @@
 0105 - AdmsListConfEmails - listSearchConfEmails
 0106- AdmsListAccessLevels - listAccessLevels
 0107- AdmsViewAccessLevels -ViewAccessLevels
-0107- ViewAccessLevels- index
+0108- ViewAccessLevels- index
+0109- AdmsAddAccessLevels- viewLastAccessLevels
+0110- AdmsAddAccessLevels-  Add
+0111- AdmsEditAccessLevels-  viewAccessLevels

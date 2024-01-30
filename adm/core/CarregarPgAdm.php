@@ -114,12 +114,12 @@ class CarregarPgAdm
     {
 
         $this->listPgPrivate = ["Dashboard", "ListUsers", "ViewUsers", "AddUsers", "EditUsers", "EditUsersPassword", "EditUsersImage", "DeleteUsers", "ViewProfile", "ViewProfile", "EditProfile", "EditProfilePassword", "EditProfileImage", "ListSitsUsers", "AddSitsUsers", "EditSitsUsers", "DeleteSitsUsers", "ListColors", "AddColors", "EditColors", "ViewColors", "DeleteColors", "ListConfEmails", "ViewConfEmails", "AddConfEmails", "EditConfEmailsPassword", "DeleteConfEmails", "ListAccessLevels", "ViewAccessLevels", "AddAccessLevels", "EditAccessLevels", "DeleteAccessLevels"];
-        // //var_dump($this->urlController);
+        //var_dump($this->urlController);
         if (in_array($this->urlController, $this->listPgPrivate)) {
             $this->verifyLogin();
         } else {
             $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0100: Página não encontrada!</p>";
-            $urlRedirect = URLADM . "login/index";
+              $urlRedirect = URLADM . "login/index";
             header("Location: $urlRedirect");
         }
     }
