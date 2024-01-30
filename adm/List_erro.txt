@@ -112,3 +112,5 @@
 0109- AdmsAddAccessLevels- viewLastAccessLevels
 0110- AdmsAddAccessLevels-  Add
 0111- AdmsEditAccessLevels-  viewAccessLevels
+0112- AdmsDeleteAccessLevels-  
+0113- AdmsDeleteAccessLevels-  

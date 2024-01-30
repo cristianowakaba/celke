@@ -63,7 +63,7 @@ class AdmsListAccessLevels
     public function listAccessLevels(int $page = null):void
     {
         $this->page = (int) $page ? $page : 1;
-        var_dump($this->page);
+        //var_dump($this->page);
 
         $pagination = new \App\adms\Models\helper\AdmsPagination(URLADM . 'list-access-levels/index');
         $pagination->condition($this->page, $this->limitResult);

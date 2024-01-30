@@ -31,7 +31,7 @@ class ListAccessLevels
     public function index(string|int|null $page = null): void
     {
         $this->page = (int) $page ? $page : 1;
-var_dump($this->page);
+//var_dump($this->page);
         $listAccessLevels = new \App\adms\Models\AdmsListAccessLevels();
         $listAccessLevels->listAccessLevels($this->page);
         if ($listAccessLevels->getResult()) {
