@@ -43,7 +43,7 @@ if (isset($this->data['form'])) {
                         ?>
 
                         <label class="title-input ">Nome:<span class=" text-danger">*</span></label>
-                        <input type="text" name="name" id="name" class="input-adm" placeholder="Digite o nome completo" value="<?php echo $name; ?>">
+                        <input type="text" name="name" id="name" class="input-adm" placeholder="Digite o nome completo" value="<?php echo $name; ?>" required>
 
                     </div>
 
@@ -56,7 +56,7 @@ if (isset($this->data['form'])) {
                         }
                         ?>
                         <label class="title-input">E-mail:<span class="text-danger">*</span></label>
-                        <input type="email" name="email" id="email" class="input-adm" placeholder="Digite o seu melhor e-mail" value="<?php echo $email; ?>" >
+                        <input type="email" name="email" id="email" class="input-adm" placeholder="Digite o seu melhor e-mail" value="<?php echo $email; ?>" required >
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@ if (isset($this->data['form'])) {
                     ?>
                     <div class="column">
                         <label class="title-input">Usuário:<span class="text-danger">*</span></label>
-                        <input type="text" name="user" id="user" class="input-adm" placeholder="Digite o Usuário para acessar o adm" value="<?php echo $user; ?>" >
+                        <input type="text" name="user" id="user" class="input-adm" placeholder="Digite o Usuário para acessar o adm" value="<?php echo $user; ?>" required>
                     </div>
 
 
@@ -85,7 +85,7 @@ if (isset($this->data['form'])) {
                         ?>
                         <label>Senha:<span class="text-danger">*</span></label>
                         <!--onkeyup="passwordStrength()" calcula a força da senha-->
-                        <input type="password" name="password" id="password" class="input-adm" placeholder="Digite a senha" onkeyup="passwordStrength()" autocomplete="on" value="<?php echo $password; ?>" >
+                        <input type="password" name="password" id="password" class="input-adm" placeholder="Digite a senha" onkeyup="passwordStrength()" autocomplete="on" value="<?php echo $password; ?>" required>
 
                         <span id="msgViewStrength"></span>
                     </div>
@@ -110,6 +110,24 @@ if (isset($this->data['form'])) {
                         </select>
                     </div>
                 </div>
+                <div class="row-input">
+                    <div class="column">
+                        <label>Nível de Acesso:<span class="text-danger">*</span></label>
+                        <select name="adms_access_level_id"id="adms_access_level_id" class="input-adm" required>
+                            <option value="">Selecione</option>
+                            <?php
+                            foreach ($this->data['select']['lev'] as $lev) {
+                                extract($lev);
+                                if ((isset($valorForm['adms_access_level_id'])) and ($valorForm['adms_access_level_id'] == $id_lev)) {
+                                    echo "<option value='$id_lev' selected>$name_lev</option>";
+                                } else {
+                                    echo "<option value='$id_lev'>$name_lev</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
 
                             <P class="text-danger mb-5 fs-4">* Campo Obrigatório</P>
 
@@ -118,6 +136,7 @@ if (isset($this->data['form'])) {
 
             </form>
         </div>
+       
     </div>
 </div>
 <!-- Fim do conteudo do administrativo -->

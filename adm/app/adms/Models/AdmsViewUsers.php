@@ -52,23 +52,25 @@ class AdmsViewUsers
     $viewUser->fullRead("SELECT usr.id, usr.name AS name_usr, usr.nickname, usr.email,
     usr.user, usr.image, usr.created, usr.modified,
                         sit.name AS name_sit,
-                        col.color
+                        col.color,
+                        lev.id AS id_lev, lev.name AS name_lev
                         FROM adms_users AS usr
                         INNER JOIN adms_sits_users AS sit 
                         ON sit.id=usr.adms_sits_user_id 
                         INNER JOIN adms_colors AS col ON col.id=sit.adms_color_id 
+                        INNER JOIN adms_access_levels AS lev ON lev.id=usr.adms_access_level_id
                         WHERE usr.id=:id
                         LIMIT :limit",
                         "id={$this->id}&limit=1");
 
     $this->resultBd = $viewUser->getResult();
-    
-    // //var_dump($this->resultBd );
+   
+    //var_dump($this->resultBd );
     if ($this->resultBd) {
 
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0074: Usuário nãosss encontrado!</p>";
+      $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0074: Usuário não encontrado!</p>";
       $this->result = false;
     }
   }

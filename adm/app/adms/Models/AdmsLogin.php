@@ -28,7 +28,13 @@ class AdmsLogin
         // retorna todas as colunas
         // $viewUser->exeRead("adms_users", "WHERE user=:user LIMIT :limit", "user={$this->data['user']}&limit=1");
         //retorna somente as colunas indicadas
-        $viewUser->fullRead("SELECT id, name, email, password, image,adms_sits_user_id	FROM adms_users WHERE user =:user Or email= :email LIMIT :limit ", "user={$this->data['user']} &email={$this->data['user']}&limit=1");
+        $viewUser->fullRead("SELECT usr.id, usr.name, usr.nickname, usr.email, usr.password, usr.image, usr.adms_sits_user_id, usr.adms_access_level_id,
+         lev.order_levels
+        FROM adms_users AS usr
+        INNER JOIN adms_access_levels AS lev ON lev.id=usr.adms_access_level_id
+        WHERE usr.user =:user 
+        Or usr.email= :email 
+        LIMIT :limit ", "user={$this->data['user']} &email={$this->data['user']}&limit=1");
 
         $this->resultBd =$viewUser->getResult();
        ////var_dump($this->resultBd);
@@ -100,6 +106,8 @@ class AdmsLogin
             $_SESSION['user_nickname'] = $this->resultBd[0]['nickname'];
             $_SESSION['user_email'] = $this->resultBd[0]['email'];
             $_SESSION['user_image'] = $this->resultBd[0]['image'];
+            $_SESSION['adms_access_level_id'] = $this->resultBd[0]['adms_access_level_id'];
+            $_SESSION['order_levels'] = $this->resultBd[0]['order_levels'];
             $this->result = true;
             //echo $_SESSION['msg'];
         }else{

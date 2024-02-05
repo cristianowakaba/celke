@@ -25,7 +25,7 @@ class AdmsListUsers
     private int $page;
 
     /** @var int $page Recebe a quantidade de registros que deve retornar do banco de dados */
-    private int $limitResult = 2;
+    private int $limitResult = 40;
 
     /** @var string|null $page Recebe a páginação */
     private string|null $resultPg;
