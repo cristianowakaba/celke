@@ -38,9 +38,9 @@ class ViewUsers
                 // //var_dump( $this->data['viewUser']);
                 $this->viewUser();
             }else{
-               
+                //var_dump($viewUser->getResult() );
                 $urlRedirect = URLADM . "list-users/index";
-                header("Location: $urlRedirect");
+                 header("Location: $urlRedirect");
 
             }
         }else{
