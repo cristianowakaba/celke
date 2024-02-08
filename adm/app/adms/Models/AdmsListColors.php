@@ -113,7 +113,7 @@ class AdmsListColors
         //var_dump($this->searchColor);
        // var_dump($this->searchName);
         // Remove o caractere "#" da string da cor
-        $this->searchColor = str_replace('#', '', $this->searchColor);
+       $this->searchColor = str_replace('#', '', $this->searchColor);
         $this->searchNameValue = "%" . $this->searchName . "%";
         $this->searchColorValue = "%" . $this->searchColor . "%";
 
