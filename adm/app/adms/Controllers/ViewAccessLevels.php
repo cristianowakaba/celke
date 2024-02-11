@@ -39,13 +39,13 @@ class ViewAccessLevels
                 $this->viewAccessLevels();
             }else{
                
-                $urlRedirect = URLADM . "list-users/index";
+                $urlRedirect = URLADM . "list-access-levels/index";
                 header("Location: $urlRedirect");
 
             }
         }else{
             $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0108: Nivel de acesso não encontrado!</p>";
-            $urlRedirect = URLADM . "list-users/index";
+            $urlRedirect = URLADM . "list-access-levels/index";
             header("Location: $urlRedirect");
 
         }

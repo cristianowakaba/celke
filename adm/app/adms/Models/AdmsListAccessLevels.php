@@ -67,20 +67,24 @@ class AdmsListAccessLevels
 
         $pagination = new \App\adms\Models\helper\AdmsPagination(URLADM . 'list-access-levels/index');
         $pagination->condition($this->page, $this->limitResult);
-        $pagination->pagination("SELECT COUNT(id) AS num_result FROM adms_access_levels");
+        $pagination->pagination("SELECT COUNT(id) AS num_result 
+        FROM adms_access_levels
+        WHERE order_levels >:order_levels","order_levels=" . $_SESSION['order_levels']);
         $this->resultPg = $pagination->getResult();
 
+        
         $listAccessLevels = new \App\adms\Models\helper\AdmsRead();
         $listAccessLevels->fullRead("SELECT id, name, order_levels 
                             FROM adms_access_levels
+                            WHERE order_levels >:order_levels
                             ORDER BY order_levels ASC
-                            LIMIT :limit OFFSET :offset", "limit={$this->limitResult}&offset={$pagination->getOffset()}");
+                            LIMIT :limit OFFSET :offset", "order_levels=" . $_SESSION['order_levels'] . "&limit={$this->limitResult}&offset={$pagination->getOffset()}");
 
         $this->resultBd = $listAccessLevels->getResult();        
         if($this->resultBd){
             $this->result = true;
         }else{
-            $_SESSION['msg'] = "<p class='alert-danger'>Erro: Nenhum nível de acesso encontrado!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0115: Nenhum nível de acesso encontrado!</p>";
             $this->result = false;
         }
     }

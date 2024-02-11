@@ -1,9 +1,10 @@
 <?php
 
 namespace App\adms\Models;
-if(!defined('C8L6K7E')){
-  /*  header("Location:/"); */
-die("Erro: Página não encontrada!<br>");
+
+if (!defined('C8L6K7E')) {
+    /*  header("Location:/"); */
+    die("Erro: Página não encontrada!<br>");
 }
 
 /**
@@ -50,29 +51,29 @@ class AdmsEditAccessLevels
     public function viewAccessLevels(int $id): void
     {
         $this->id = $id;
-//var_dump($id);
+        //var_dump($id);
 
-  
+
         $viewAccessLevels = new \App\adms\Models\helper\AdmsRead();
         $viewAccessLevels->fullRead(
             "SELECT id, name, order_levels
                             FROM adms_access_levels
-                            WHERE id=:id
+                            WHERE id=:id AND order_levels >:order_levels
                             LIMIT :limit",
-            "id={$this->id}&limit=1"
+            "id={$this->id}&order_levels=" . $_SESSION['order_levels'] . "&limit=1"
         );
+        $this->resultBd =  $viewAccessLevels->getResult();
 
-        $this->resultBd = $viewAccessLevels->getResult();
-       // var_dump($this->resultBd);
+        // var_dump($this->resultBd);
         if ($this->resultBd) {
             $this->result = true;
         } else {
-          $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0111: Nível de acesso não encontrado!</p>";
-          $this->result = false;
-      }
-  }
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0111: Nível de acesso não encontrado!</p>";
+            $this->result = false;
+        }
+    }
 
-   /**
+    /**
      * Metodo recebe como parametro a informacao que sera editada
      * Instancia o helper AdmsValEmptyField para validar os campos do formulario
      * Chama a funcao edit para enviar as informacoes para o banco de dados
@@ -91,7 +92,7 @@ class AdmsEditAccessLevels
             $this->result = false;
         }
     }
-/**
+    /**
      * Metodo envia as informacoes editadas para o banco de dados
      * @return void
      */

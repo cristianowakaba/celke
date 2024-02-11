@@ -41,6 +41,9 @@ class AdmsDelete extends AdmsConn
    /**recebe o nome da tabela, dados, termos, parsestring */
     public function exeDelete(string $table,  string|null $terms = null, string|null $parseString = null): void
     {
+        var_dump($table);
+        var_dump($terms);
+        var_dump($parseString);
         $this->table = $table;
         
         $this->terms= $terms;
@@ -49,7 +52,7 @@ class AdmsDelete extends AdmsConn
         parse_str($parseString,$this->value);
         //var_dump($this->value);
         $this->query ="DELETE FROM {$this->table} {$this->terms}";
-
+var_dump($this->query);
         $this->exeInstruction();
 
       
@@ -66,6 +69,8 @@ class AdmsDelete extends AdmsConn
             $this->result=true;
         }catch(PDOException $err){
           $this->result=false;
+          echo "Erro ao executar a query: " . $err->getMessage();
+
         }
     }
 

@@ -17,6 +17,7 @@ class AdmsDeleteUsers
     private bool $result = false;
     /**Recebe os registros do banco de dados */
     private array|null $resultBd;
+    
 
     /** @var int|string|null $id Recebe o id do registro */
     private int|string|null $id;
@@ -52,6 +53,7 @@ class AdmsDeleteUsers
                 $_SESSION['msg'] = "<p class='alert-success'>Usuário apagado com sucesso!</p>";
                 $this->result = true;
             } else {
+               
                 $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0034: Usuário não apagado com sucesso!</p>";
                 $this->result = false;
             }

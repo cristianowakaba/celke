@@ -44,13 +44,13 @@ class AdmsDeleteAccessLevels
 
         if ($this->viewAccessLevel()) {
             $deleteAccessLevel = new \App\adms\Models\helper\AdmsDelete();
-            $deleteAccessLevel->exeDelete("adms_access_levels", "WHERE id =:id", "id={$this->id}");
+            $deleteAccessLevel->exeDelete("adms_access_levels", "WHERE id=:id", "id={$this->id}");
 
             if ($deleteAccessLevel->getResult()) {
                 $_SESSION['msg'] = "<p class='alert-success'>Nível de acesso apagado com sucesso!</p>";
                 $this->result = true;
             } else {
-                $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0113: Nível de acesso não apagado com sucesso!</p>";
+                $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0116: Nível de acesso não apagado com sucesso!</p>";
                 $this->result = false;
             }
         } else {
@@ -69,16 +69,16 @@ class AdmsDeleteAccessLevels
         $viewAccessLevel->fullRead(
             "SELECT id
                             FROM adms_access_levels                           
-                            WHERE id=:id
+                            WHERE id=:id AND order_levels >:order_levels
                             LIMIT :limit",
-            "id={$this->id}&limit=1"
+            "id={$this->id}&order_levels=" . $_SESSION['order_levels'] . "&limit=1"
         );
 
         $this->resultBd = $viewAccessLevel->getResult();
         if ($this->resultBd) {
             return true;
         } else {
-            $_SESSION['msg'] = "<p class='alert-danger'>Erro 0112: Nível de acesso não encontrado!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro: Nível de acesso não encontrado!</p>";
             return false;
         }
     }

@@ -114,3 +114,11 @@
 0111- AdmsEditAccessLevels-  viewAccessLevels
 0112- AdmsDeleteAccessLevels-  
 0113- AdmsDeleteAccessLevels-  
+0114 - OrderAccessLevels - index
+0115 - AdmsListAccessLevels
+0116- AdmsDeleteAccessLevels - deleteAccessLevel
+0117 - AdmsListAccessLevels - viewAccessLevel
+0118 - AdmsOrderAccessLevels -  orderAccessLevels
+0119 - AdmsOrderAccessLevels - viewPrevAccessLevel
+0120 - AdmsOrderAccessLevels -  editMoveDown
+0121 - AdmsOrderAccessLevels -    editMoveUp

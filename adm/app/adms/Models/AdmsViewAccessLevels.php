@@ -46,19 +46,21 @@ class AdmsViewAccessLevels
   public function viewAccessLevels(int $id): void
   {
     $this->id = $id;
-    // //var_dump($this->id);
+    // var_dump($this->id);
 
     $viewAccessLevels= new \App\adms\Models\helper\AdmsRead();
-    $viewAccessLevels->fullRead("SELECT id, name, order_levels, created, modified  FROM adms_access_levels WHERE
-                        id=:id LIMIT :limit", "id={$this->id}&limit=1");
-
+    $viewAccessLevels->fullRead("SELECT id, name, order_levels, created, modified  
+                        FROM adms_access_levels 
+                        WHERE id=:id AND order_levels >:order_levels
+                        LIMIT :limit", "id={$this->id}&order_levels=" . $_SESSION['order_levels'] . "&limit=1");
     $this->resultBd =  $viewAccessLevels->getResult();
     
-    // //var_dump($this->resultBd );
+    // var_dump($this->resultBd );
     if ($this->resultBd) {
 
       $this->result = true;
     } else {
+      print_r($this->resultBd);
       $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0107: Nível de acesso não encontrado!</p>";
       $this->result = false;
     }
