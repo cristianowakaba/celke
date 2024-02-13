@@ -61,7 +61,7 @@ class AdmsDashboard
 
       $this->result = true;
     } else {
-      /* $_SESSION['msg'] = "<p style='color:#f00'>Erro - 0074: Usuário nãosss encontrado!</p>"; */
+      /* $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0074: Usuário nãosss encontrado!</p>"; */
       $this->result = false;
     }
   }

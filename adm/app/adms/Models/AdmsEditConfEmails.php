@@ -73,7 +73,7 @@ class AdmsEditConfEmails
 
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color:#f00'>Erro - 0093: Configuração de email não encontrada!</p>";
+      $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0093: Configuração de email não encontrada!</p>";
       $this->result = false;
     }
   }

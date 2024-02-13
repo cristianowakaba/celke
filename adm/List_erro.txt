@@ -122,3 +122,4 @@
 0119 - AdmsOrderAccessLevels - viewPrevAccessLevel
 0120 - AdmsOrderAccessLevels -  editMoveDown
 0121 - AdmsOrderAccessLevels -    editMoveUp
+0122 - AdmsListSitsPages - listSitsPages

@@ -87,7 +87,7 @@ class AdmsListConfEmails
 // //var_dump($this->resultBd);
       $this->result = true ;
     } else {
-      $_SESSION['msg'] = "<p style='color:#f00'>Erro - 0089: Nenhum e-mail encontrado!</p>";
+      $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0089: Nenhum e-mail encontrado!</p>";
       $this->result = false;
     }
   }

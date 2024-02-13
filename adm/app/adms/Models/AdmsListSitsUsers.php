@@ -91,7 +91,7 @@ class AdmsListSitsUsers
 
       $this->result = true;
     } else {
-      $_SESSION['msg'] = "<p style='color:#f00'>Erro - 0055: nenhum usuário encontrado!</p>";
+      $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0055: nenhum usuário encontrado!</p>";
       $this->result = false;
     }
   }

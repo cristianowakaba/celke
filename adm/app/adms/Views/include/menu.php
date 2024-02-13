@@ -42,6 +42,15 @@ if(!defined('C8L6K7E')){
 
             <a href="<?php echo URLADM; ?>list-sits-users/index" class="sidebar-nav <?php echo $list_sits_users; ?>"><i class="icon fa-solid fa-user-check"></i><span>Situação do Usuário</span></a>
 
+            <?php $list_sits_pages="";
+        
+        if($sidebar_active=="list-sits-pages"){
+            $list_sits_pages = "active";
+            }?>
+            
+
+            <a href="<?php echo URLADM; ?>list-sits-pages/index" class="sidebar-nav <?php echo $list_sits_pages; ?>"><i class="icon fa-solid fa-file-circle-question"></i><span>Situação da Página</span></a>
+
          
         <?php $list_access_levels = "";
         if ($sidebar_active == "list-access-levels") {
