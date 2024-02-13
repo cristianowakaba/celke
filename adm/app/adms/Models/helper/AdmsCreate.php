@@ -53,8 +53,8 @@ class AdmsCreate extends AdmsConn
     {
         $this->table = $table;
         $this->data = $data;
-        // //var_dump($this->table);
-        // //var_dump($this->data);
+        // var_dump($this->table);
+        // var_dump($this->data);
         $this->exeReplaceValues();        
     }
 
@@ -88,9 +88,9 @@ class AdmsCreate extends AdmsConn
         try{
             //substitue os valores que esta no array pordados
             $this->insert->execute($this->data);
-            // //var_dump($this->data);
+            // var_dump($this->data);
             $this->result = $this->conn->lastInsertId();
-            
+            var_dump( $this->result);
         }catch(PDOException $err){
             $this->result = null;
         }

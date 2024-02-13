@@ -127,3 +127,4 @@
 0124 -EditSitsPages -editSitPage
 0125 - AdmsEditSitsPages - viewSitPage
 0126 - AdmsEditSitsPages - edit
+0127 - AddSitsPages - add
