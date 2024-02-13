@@ -56,7 +56,7 @@ class ViewAccessLevels
     }
     private function viewAccessLevels():void
     {
-        $this->data['sidebarActive']="view-list-access-levels";
+        $this->data['sidebarActive']="list-access-levels";
 
         $loadView = new \Core\ConfigView("adms/Views/accessLevels/viewAccessLevel", $this->data);
         $loadView->loadView();

@@ -607,3 +607,305 @@ for (i = 0; i < dropdownSidebar.length; i++) {
     });
 }
 /* Fim dropdown sidebar */
+const formAddAccessLeves = document.getElementById("form-add-access-levels");
+if (formAddAccessLeves) {
+    formAddAccessLeves.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
+        if (name === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo nome!</p>";
+            return;
+        }
+    });
+}
+const formAddSitPages = document.getElementById("form-add-sit-pages");
+if (formAddSitPages) {
+    formAddSitPages.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
+        if (name === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo nome!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var adms_color_id = document.querySelector("#adms_color_id").value;
+        // Verificar se o campo esta vazio
+        if (adms_color_id === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Cor!</p>";
+            return;
+        } 
+    });
+}
+const formEditSitPages = document.getElementById("form-edit-sit-pages");
+if (formEditSitPages) {
+    formEditSitPages.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
+        if (name === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo nome!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var adms_color_id = document.querySelector("#adms_color_id").value;
+        // Verificar se o campo esta vazio
+        if (adms_color_id === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Cor!</p>";
+            return;
+        } 
+    });
+}
+const formAddGroupsPages = document.getElementById("form-add-groups-pages");
+if (formAddGroupsPages) {
+    formAddGroupsPages.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
+        if (name === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo nome!</p>";
+            return;
+        }
+    });
+}
+
+const formEditGroupsPages = document.getElementById("form-edit-groups-pages");
+if (formEditGroupsPages) {
+    formEditGroupsPages.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
+        if (name === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo nome!</p>";
+            return;
+        }
+    });
+}
+
+const formAddTypesPages = document.getElementById("form-add-types-pages");
+if (formAddTypesPages) {
+    formAddTypesPages.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var type = document.querySelector("#type").value;
+        // Verificar se o campo esta vazio
+        if (type === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo tipo!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
+        if (name === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo nome!</p>";
+            return;
+        }
+    });
+}
+
+const formEditTypesPages = document.getElementById("form-edit-types-pages");
+if (formEditTypesPages) {
+    formEditTypesPages.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var type = document.querySelector("#type").value;
+        // Verificar se o campo esta vazio
+        if (type === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo tipo!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var name = document.querySelector("#name").value;
+        // Verificar se o campo esta vazio
+        if (name === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo nome!</p>";
+            return;
+        }
+    });
+}
+
+const formAddPages = document.getElementById("form-add-pages");
+if (formAddPages) {
+    formAddPages.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var controller = document.querySelector("#controller").value;
+        // Verificar se o campo esta vazio
+        if (controller === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Classe!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var metodo = document.querySelector("#metodo").value;
+        // Verificar se o campo esta vazio
+        if (metodo === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Método!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var menu_controller = document.querySelector("#menu_controller").value;
+        // Verificar se o campo esta vazio
+        if (menu_controller === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Classe no menu!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var menu_metodo = document.querySelector("#menu_metodo").value;
+        // Verificar se o campo esta vazio
+        if (menu_metodo === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Método no menu!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var name_page = document.querySelector("#name_page").value;
+        // Verificar se o campo esta vazio
+        if (name_page === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Nome da Página!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var publish = document.querySelector("#publish").value;
+        // Verificar se o campo esta vazio
+        if (publish === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Página Pública!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var adms_sits_pgs_id = document.querySelector("#adms_sits_pgs_id").value;
+        // Verificar se o campo esta vazio
+        if (adms_sits_pgs_id === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Situação da Página!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var adms_groups_pgs_id = document.querySelector("#adms_groups_pgs_id").value;
+        // Verificar se o campo esta vazio
+        if (adms_groups_pgs_id === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Grupo da Página!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var adms_types_pgs_id = document.querySelector("#adms_types_pgs_id").value;
+        // Verificar se o campo esta vazio
+        if (adms_types_pgs_id === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Tipo da Página!</p>";
+            return;
+        }
+    });
+}
+
+const formEditPages = document.getElementById("form-edit-pages");
+if (formEditPages) {
+    formEditPages.addEventListener("submit", async(e) => {
+        //Receber o valor do campo
+        var controller = document.querySelector("#controller").value;
+        // Verificar se o campo esta vazio
+        if (controller === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Classe!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var metodo = document.querySelector("#metodo").value;
+        // Verificar se o campo esta vazio
+        if (metodo === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Método!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var menu_controller = document.querySelector("#menu_controller").value;
+        // Verificar se o campo esta vazio
+        if (menu_controller === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Classe no menu!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var menu_metodo = document.querySelector("#menu_metodo").value;
+        // Verificar se o campo esta vazio
+        if (menu_metodo === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Método no menu!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var name_page = document.querySelector("#name_page").value;
+        // Verificar se o campo esta vazio
+        if (name_page === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Nome da Página!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var publish = document.querySelector("#publish").value;
+        // Verificar se o campo esta vazio
+        if (publish === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Página Pública!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var adms_sits_pgs_id = document.querySelector("#adms_sits_pgs_id").value;
+        // Verificar se o campo esta vazio
+        if (adms_sits_pgs_id === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Situação da Página!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var adms_groups_pgs_id = document.querySelector("#adms_groups_pgs_id").value;
+        // Verificar se o campo esta vazio
+        if (adms_groups_pgs_id === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Grupo da Página!</p>";
+            return;
+        }
+
+        //Receber o valor do campo
+        var adms_types_pgs_id = document.querySelector("#adms_types_pgs_id").value;
+        // Verificar se o campo esta vazio
+        if (adms_types_pgs_id === "") {
+            e.preventDefault();
+            document.getElementById("msg").innerHTML = "<p class='alert-danger'>Erro: Necessário preencher o campo Tipo da Página!</p>";
+            return;
+        }
+    });
+}

@@ -6,10 +6,10 @@ if(!defined('C8L6K7E')){
  die("Erro: Página não encontrada!<br>");
  }
 /**
- * Controller da página visualizar cores
+ * Controller da página visualizar situação da página
  * @author Cesar <cesar@celke.com.br>
  */
-class ViewColors
+class ViewSitsPages
 {
     /** @var array|string|null $data Recebe os dados que devem ser enviados para VIEW */
     private array|string|null $data;
@@ -30,23 +30,23 @@ class ViewColors
             $this->id = (int)$id;
 
           
-            $viewColors = new \App\adms\Models\AdmsViewColors();
-            $viewColors->viewColors($this->id);
+            $viewSitPage = new \App\adms\Models\AdmsViewSitsPages();
+            $viewSitPage->viewSitPage($this->id);
             // //var_dump($this->id );
             // echo "existe id {$this->id}<br>";
-            if( $viewColors->getResult()){
-                $this->data['viewColors']= $viewColors->getResultBd();
-                // //var_dump( $this->data['viewSitUser']);
-                $this->viewColors();
+            if(  $viewSitPage->getResult()){
+                $this->data['viewSitPages']=  $viewSitPage->getResultBd();
+               // var_dump( $this->data['viewSitPages']);
+                $this->viewSitPage();
             }else{
                
-                $urlRedirect = URLADM . "list-colors/index";
+                $urlRedirect = URLADM . "list-sits-pages/index";
                 header("Location: $urlRedirect");
 
             }
         }else{
-            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0019: Cor não encontrada!</p>";
-            $urlRedirect = URLADM . "list-colors/index";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0123: situação da página não encontrada!</p>";
+            $urlRedirect = URLADM . "list-sits-pages/index";
             header("Location: $urlRedirect");
 
         }
@@ -54,16 +54,15 @@ class ViewColors
       
 
     }
-    /**
-     * Instanciar a classe responsável em carregar a View e enviar os dados para View.
-     * 
-     */
-    private function viewColors(): void
+     private function viewSitPage(): void
     {
-        $this->data['sidebarActive']="list-colors";
-        $loadView = new \Core\ConfigView("adms/Views/colors/viewColors", $this->data);
+        $this->data['sidebarActive']="list-sits-pages";
+     
+        $loadView = new \Core\ConfigView("adms/Views/sitsPages/viewSitPages", $this->data);
         $loadView->loadView();
     }
+
+ 
 
 
 }

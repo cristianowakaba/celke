@@ -79,7 +79,7 @@ class UpdatePassword
 
           
         }else{
-            $_SESSION['msg']= "<p style='color:#f00;'>Erro - 0018: Link invalido, solicite novo link <a href='" .URLADM ."recover-password/index'>Clique aqui</a>!</p>";
+            $_SESSION['msg']= "<p class='alert-danger'>Erro - 0018: Link invalido, solicite novo link <a href='" .URLADM ."recover-password/index'>Clique aqui</a>!</p>";
             $urlRedirect = URLADM . "login/index";
             header("Location: $urlRedirect");
 

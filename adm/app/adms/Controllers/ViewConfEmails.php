@@ -45,7 +45,7 @@ class viewConfEmails
 
             }
         }else{
-            $_SESSION['msg'] = "<p style='color:#f00;'>Erro - 0091: email não encontrado!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0091: email não encontrado!</p>";
             $urlRedirect = URLADM . "list-conf-emails/index";
             header("Location: $urlRedirect");
 
@@ -60,6 +60,7 @@ class viewConfEmails
      */
     private function viewConfEmails(): void
     {
+        $this->data['sidebarActive']="list-conf-emails";
         $loadView = new \Core\ConfigView("adms/Views/confEmails/viewConfEmails", $this->data);
         $loadView->loadView();
     }

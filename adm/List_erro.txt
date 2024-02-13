@@ -123,3 +123,4 @@
 0120 - AdmsOrderAccessLevels -  editMoveDown
 0121 - AdmsOrderAccessLevels -    editMoveUp
 0122 - AdmsListSitsPages - listSitsPages
+0123- ViewSitsPages -index
