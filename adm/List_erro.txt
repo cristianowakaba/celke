@@ -128,3 +128,6 @@
 0125 - AdmsEditSitsPages - viewSitPage
 0126 - AdmsEditSitsPages - edit
 0127 - AddSitsPages - add
+0128 - AdmsDeleteSitsPages - viewSitPages
+0129 - AdmsDeleteSitsPages - viewSitPages
+0130 - AdmsDeleteSitsPages - deleteSitUser
