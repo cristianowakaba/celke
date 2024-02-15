@@ -131,3 +131,4 @@
 0128 - AdmsDeleteSitsPages - viewSitPages
 0129 - AdmsDeleteSitsPages - viewSitPages
 0130 - AdmsDeleteSitsPages - deleteSitUser
+0131 - AdmsListTypesPages - listTypesPages
