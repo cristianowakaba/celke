@@ -66,7 +66,7 @@ if (isset($this->data['form'])) {
                         }
                         ?>
                         <label class="title-input">Observação:<span class="text-danger">*</span></label>
-                        <input type="text" name="obs" id="obs" class="input-adm" placeholder="Observação" value="<?php echo $obs; ?>" required>
+                        <input type="text" name="obs" id="obs" class="input-adm" placeholder="Observação" value="<?php echo $obs; ?>">
                     </div>
                 </div>
 

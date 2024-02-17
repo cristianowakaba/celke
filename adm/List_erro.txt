@@ -136,3 +136,6 @@
 0133 -ViewTypesPages - index
 0134 -AdmsAddTypesPages- add
 0135 -AdmsAddTypesPages- viewLastTypesPages
+0136 -AdmsEditTypesPages- viewTypePages
+0137 -AdmsEditTypesPages- edit
+0138 -EditTypesPages- editTypesPages
