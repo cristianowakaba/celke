@@ -113,12 +113,12 @@ class CarregarPgAdm
     private function pgPrivate(): void
     {
 
-        $this->listPgPrivate = ["Dashboard", "ListUsers", "ViewUsers", "AddUsers", "EditUsers", "EditUsersPassword", "EditUsersImage", "DeleteUsers", "ViewProfile", "ViewProfile", "EditProfile", "EditProfilePassword", "EditProfileImage", "ListSitsUsers", "AddSitsUsers", "EditSitsUsers", "DeleteSitsUsers", "ListColors", "AddColors", "EditColors", "ViewColors", "DeleteColors", "ListConfEmails", "ViewConfEmails", "AddConfEmails", "EditConfEmailsPassword", "DeleteConfEmails", "ListAccessLevels", "ViewAccessLevels", "AddAccessLevels", "EditAccessLevels", "DeleteAccessLevels","OrderAccessLevels","ListSitsPages","ViewSitsPages","EditSitsPages","AddSitsPages","DeleteSitsPages","ListTypesPages"];
+        $this->listPgPrivate = ["Dashboard", "ListUsers", "ViewUsers", "AddUsers", "EditUsers", "EditUsersPassword", "EditUsersImage", "DeleteUsers", "ViewProfile", "ViewProfile", "EditProfile", "EditProfilePassword", "EditProfileImage", "ListSitsUsers", "AddSitsUsers", "EditSitsUsers", "DeleteSitsUsers", "ListColors", "AddColors", "EditColors", "ViewColors", "DeleteColors", "ListConfEmails", "ViewConfEmails", "AddConfEmails", "EditConfEmailsPassword", "DeleteConfEmails", "ListAccessLevels", "ViewAccessLevels", "AddAccessLevels", "EditAccessLevels", "DeleteAccessLevels","OrderAccessLevels","ListSitsPages","ViewSitsPages","EditSitsPages","AddSitsPages","DeleteSitsPages","ListTypesPages","ViewTypesPages","AddTypesPages"];
         //var_dump($this->urlController);
         if (in_array($this->urlController, $this->listPgPrivate)) {
             $this->verifyLogin();
         } else {
-            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0100: Página não encontrada! verificar se esyá cadastrado como private</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0100: Página não encontrada! verificar se está cadastrado como private</p>";
               $urlRedirect = URLADM . "login/index";
             header("Location: $urlRedirect");
         }

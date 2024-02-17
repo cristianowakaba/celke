@@ -132,3 +132,7 @@
 0129 - AdmsDeleteSitsPages - viewSitPages
 0130 - AdmsDeleteSitsPages - deleteSitUser
 0131 - AdmsListTypesPages - listTypesPages
+0132 - AdmsViewTypesPages - ViewTypesPages
+0133 -ViewTypesPages - index
+0134 -AdmsAddTypesPages- add
+0135 -AdmsAddTypesPages- viewLastTypesPages

@@ -32,7 +32,7 @@ if (isset($this->data['form'])) {
         </div>
 
         <div class="content-adm">
-            <form method="POST" action="" id="form-add-sit-user" class="form-adm">
+            <form method="POST" action="" id="form-add-sit-pages" class="form-adm">
                 <div class="row-input">
                     <div class="column">
                         <?php

@@ -8,10 +8,10 @@ if(!defined('C8L6K7E')){
  }
 
 /**
- * Controller cadastrar situação da página.
+ * Controller cadastrar tipo de página.
  * @author Cesar <cesar@celke.com.br>
  */
-class AddSitsPages
+class AddTypesPages
 {
 
     /** @var array|string|null $data Recebe os dados que devem ser enviados para VIEW */
@@ -34,36 +34,34 @@ class AddSitsPages
         
      $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-        if (!empty($this->dataForm['SendAddSitPages'])) {
+        if (!empty($this->dataForm['SendAddTypesPages'])) {
            /*  //var_dump($this->dataForm); */
-          unset($this->dataForm['SendAddSitPages']);
-           $createSitPages= new \App\adms\Models\AdmsAddSitsPages();
-           $createSitPages->create($this->dataForm);
-            if ( $createSitPages->getResult()) {
-                $urlRedirect = URLADM . "list-sits-pages/index";
+          unset($this->dataForm['SendAddTypesPages']);
+           $createTypePages= new \App\adms\Models\AdmsAddTypesPages();
+           $createTypePages->create($this->dataForm);
+            if ( $createTypePages->getResult()) {
+                $urlRedirect = URLADM . "list-types-pages/index";
                 header("Location: $urlRedirect");
             } else {
                 $this->data['form'] = $this->dataForm;
-                $this->viewAddSitPage();
+                $this->viewAddTypesPages();
             }
         } else {
-            $this->viewAddSitPage();
+            $this->viewAddTypesPages();
         }
        
     }
  /**
-     * Instanciar a MODELS e o método "listSelect" responsável em buscar os dados para preencher o campo SELECT 
+     * 
      * Instanciar a classe responsável em carregar a View e enviar os dados para View.
      * 
      */
-    private function viewAddSitPage(): void
+    private function viewAddTypesPages(): void
     {
-        $listSelect = new \App\adms\Models\AdmsAddSitsPages();
-        $this->data['select'] = $listSelect->listSelect();
-        //var_dump($this->data['select']);
+       
         
-        $this->data['sidebarActive']="list-sits-Pages";
-        $loadView = new \Core\ConfigView("adms/Views/sitsPages/addSitPages", $this->data);
+        $this->data['sidebarActive']="list-types-Pages";
+        $loadView = new \Core\ConfigView("adms/Views/typesPages/addTypesPages", $this->data);
         $loadView->loadView();
     }
 }
