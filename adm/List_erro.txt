@@ -139,3 +139,7 @@
 0136 -AdmsEditTypesPages- viewTypePages
 0137 -AdmsEditTypesPages- edit
 0138 -EditTypesPages- editTypesPages
+0139 -AdmsDeleteTypesPages- viewTypesPages
+0140 -AdmsDeleteTypesPages- checkStatusUsed
+0141-AdmsDeleteTypesPages-deleteTypesPagesd
+0142 -DeleteTypesPages-index
