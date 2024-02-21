@@ -150,3 +150,7 @@
 0147 -AdmsAddGroupsPages- 
 0148-AdmsEditGroupsPages-
 0149-AdmsEditGroupsPages-
+0150-AdmsDeleteGroupsPages-
+0151-AdmsDeleteGroupsPages-
+0152-AdmsDeleteGroupsPages-
+0153-DeleteGroupsPages-
