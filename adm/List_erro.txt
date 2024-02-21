@@ -143,3 +143,4 @@
 0140 -AdmsDeleteTypesPages- checkStatusUsed
 0141-AdmsDeleteTypesPages-deleteTypesPagesd
 0142 -DeleteTypesPages-index
+0143 -AdmsListGroupsPages - listGroupsPages

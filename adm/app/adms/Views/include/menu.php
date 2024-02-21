@@ -50,6 +50,12 @@ if(!defined('C8L6K7E')){
             
 
             <a href="<?php echo URLADM; ?>list-sits-pages/index" class="sidebar-nav <?php echo $list_sits_pages; ?>"><i class="icon fa-solid fa-file-circle-question"></i><span>Situação da Página</span></a>
+            
+        <?php $list_groups_pages = "";
+        if ($sidebar_active == "list-groups-pages") {
+            $list_groups_pages = "active";
+        } ?>
+        <a href="<?php echo URLADM; ?>list-groups-pages/index" class="sidebar-nav <?php echo $list_groups_pages; ?>"><i class="icon fa-solid fa-file-lines"></i><span>Grupos de Página</span></a>
 
             <?php $list_types_pages="";
         
