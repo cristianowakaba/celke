@@ -8,10 +8,10 @@ if(!defined('C8L6K7E')){
  }
 
 /**
- * Controller cadastrar cores.
+ * Controller cadastrar grupos de páginas.
  * @author Cesar <cesar@celke.com.br>
  */
-class AddColors
+class AddGroupsPages
 {
 
     /** @var array|string|null $data Recebe os dados que devem ser enviados para VIEW */
@@ -20,11 +20,11 @@ class AddColors
     /** @var array $dataForm Recebe os dados do formulario */
     private array|null $dataForm;
 
- /**
-     * Método cadastrar cor
+  /**     
+     * Método cadastrar grupo de página
      * Receber os dados do formulário.
-     * Quando o usuário clicar no botão "cadastrar" do formulário da página nova cor. Acessa o IF e instância a classe "AdmsAddColores" responsável em cadastrar a situação no banco de dados.
-     * Situação cadastrada com sucesso, redireciona para a página listar registros.
+     * Quando o usuário clicar no botão "cadastrar" do formulário da página novo grupo de página. Acessa o IF e instância a classe "AdmsAddGroupsPages" responsável em cadastrar o grupo de página no banco de dados.
+     * Grupo cadastrado com sucesso, redireciona para a página listar grupos de página.
      * Senão, instância a classe responsável em carregar a View e enviar os dados para View.
      * 
      * @return void
@@ -34,34 +34,33 @@ class AddColors
         
      $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-        if (!empty($this->dataForm['SendAddColor'])) {
+        if (!empty($this->dataForm['SendAddGroupsPages'])) {
            /*  //var_dump($this->dataForm); */
-          unset($this->dataForm['SendAddColor']);
-           $createSitUser= new \App\adms\Models\AdmsAddColors();
-            $createSitUser->create($this->dataForm);
-            if ($createSitUser->getResult()) {
-                $urlRedirect = URLADM . "list-colors/index";
+          unset($this->dataForm['SendAddGroupsPages']);
+           $SendAddGroupsPages= new \App\adms\Models\AdmsAddGroupsPages();
+            $SendAddGroupsPages->create($this->dataForm);
+            if ($SendAddGroupsPages->getResult()) {
+                $urlRedirect = URLADM . "list-Groups-pages/index";
                 header("Location: $urlRedirect");
             } else {
                 $this->data['form'] = $this->dataForm;
-                $this->viewAddColor();
+                $this->viewAddGroupsPages();
             }
         } else {
-            $this->viewAddColor();
+            $this->viewAddGroupsPages();
         }
        
     }
  /**
-     * Instanciar a MODELS e o método "listSelect" responsável em buscar os dados para preencher o campo SELECT 
+     * 
      * Instanciar a classe responsável em carregar a View e enviar os dados para View.
      * 
      */
-    private function viewAddColor(): void
-    {
-  
-        
-        $this->data['sidebarActive']="list-colors";
-        $loadView = new \Core\ConfigView("adms/Views/colors/addColors", $this->data);
+    private function viewAddGroupsPages(): void
+    { 
+        $this->data['sidebarActive'] = "list-groups-pages";
+        $loadView = new \Core\ConfigView("adms/Views/groupsPages/addGroupsPages", $this->data);
         $loadView->loadView();
     }
 }
+

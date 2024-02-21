@@ -60,7 +60,7 @@ if (isset($this->data['form'])) {
                                     echo "<a href='" . URLADM . "edit-groups-pages/index/$id'><i class='fa-solid fa-pen-to-square'></i> Editar</a>";
                                     echo "<a href='" . URLADM . "delete-groups-pages/index/$id' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")'><i class='fa-solid fa-trash-can'></i> Apagar</a>";
                                     ?>
-                                    ?>
+                                    
                                 </div>
                             </div>
                         </td>

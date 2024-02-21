@@ -146,3 +146,5 @@
 0143 -AdmsListGroupsPages - listGroupsPages
 0144 -AdmsViewGroupsPages - 
 0145 -AdmsViewGroupsPages - 
+0146 -AdmsAddGroupsPages- viewLastGroupsPages
+0147 -AdmsAddGroupsPages- 
