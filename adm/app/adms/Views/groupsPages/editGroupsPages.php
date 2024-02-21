@@ -18,12 +18,12 @@ if (isset($this->data['form'][0])) {
 <div class="wrapper">
     <div class="row">
         <div class="top-list">
-            <span class="title-content">Editar Situação da página</span>
+            <span class="title-content">Editar Grupo de página</span>
             <div class="top-list-right">
                 <?php
-                echo "<a href='" . URLADM . "list-sits-pages/index' class='btn-info'>Listar</a> ";
+                echo "<a href='" . URLADM . "list-groups-pages/index' class='btn-info'>Listar</a> ";
                 if (isset($valorForm['id'])) {
-                    echo "<a href='" . URLADM . "view-sits-pages/index/" . $valorForm['id'] . "' class='btn-primary'>Visualizar</a><br><br>";
+                    echo "<a href='" . URLADM . "view-groups-pages/index/" . $valorForm['id'] . "' class='btn-primary'>Visualizar</a><br><br>";
                 }
                 ?>
             </div>
@@ -40,7 +40,7 @@ if (isset($this->data['form'][0])) {
         </div>
 
         <div class="content-adm">
-            <form method="POST" action="" id="form-edit-sit-pages" class="form-adm">
+            <form method="POST" action="" id="form-edit-groups-pages" class="form-adm">
                 <?php
                 $id = "";
                 if (isset($valorForm['id'])) {
@@ -58,32 +58,14 @@ if (isset($this->data['form'][0])) {
                         }
                         ?>
                         <label class="title-input">Nome:<span class="text-danger">*</span></label>
-                        <input type="text" name="name" id="name" class="input-adm" placeholder="Digite o nome da situação" value="<?php echo $name; ?>" required>
+                        <input type="text" name="name" id="name" class="input-adm" placeholder="Digite o nome do grupo de página" value="<?php echo $name; ?>" required>
                     </div>
                 </div>
 
-                <div class="row-input">
-                    <div class="column">
-                        <label class="title-input">Cor:<span class="text-danger">*</span></label>
-                        <select name="adms_color_id" id="adms_color_id" class="input-adm" required>
-                            <option value="">Selecione</option>
-                            <?php
-                            foreach ($this->data['select']['col'] as $col) {
-                                extract($col);
-                                if ((isset($valorForm['adms_color_id'])) and ($valorForm['adms_color_id'] == $id_col)) {
-                                    echo "<option value='$id_col' selected>$name_col</option>";
-                                } else {
-                                    echo "<option value='$id_col'>$name_col</option>";
-                                }
-                            }
-                            ?>
-                        </select>
-                    </div>
-                </div>
 
                 <p class="text-danger mb-5 fs-4">* Campo Obrigatório</p>
 
-                <button type="submit" name="SendEditSitPages" class="btn-warning" value="Salvar">Salvar</button>
+                <button type="submit" name="SendEditGroupsPages" class="btn-warning" value="Salvar">Salvar</button>
 
             </form>
         </div>
