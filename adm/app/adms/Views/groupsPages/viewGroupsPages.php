@@ -8,13 +8,13 @@ if(!defined('C8L6K7E')){
 <div class="wrapper">
     <div class="row">
         <div class="top-list">
-            <span class="title-content">Detalhes da Situação de Página</span>
+            <span class="title-content">Detalhes do Grupo de Página</span>
             <div class="top-list-right">
                 <?php
-                echo "<a href='" . URLADM . "list-sits-pages/index' class='btn-info'>Listar</a> ";
-                if (!empty($this->data['viewSitPages'])) {
-                    echo "<a href='" . URLADM . "edit-sits-pages/index/" . $this->data['viewSitPages'][0]['id'] . "' class='btn-warning'>Editar</a> ";
-                    echo "<a href='" . URLADM . "delete-sits-pages/index/" . $this->data['viewSitPages'][0]['id'] . "' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")' class='btn-danger'>Apagar</a> ";
+                echo "<a href='" . URLADM . "list-groups-pages/index' class='btn-info'>Listar</a> ";
+                if (!empty($this->data['viewGroupsPages'])) {
+                    echo "<a href='" . URLADM . "edit-groups-pages/index/" . $this->data['viewGroupsPages'][0]['id'] . "' class='btn-warning'>Editar</a> ";
+                    echo "<a href='" . URLADM . "delete-groups-pages/index/" . $this->data['viewGroupsPages'][0]['id'] . "' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")' class='btn-danger'>Apagar</a> ";
                 }
                 ?>
             </div>
@@ -31,8 +31,8 @@ if(!defined('C8L6K7E')){
 
         <div class="content-adm">
             <?php
-            if (!empty($this->data['viewSitPages'])) {
-                extract($this->data['viewSitPages'][0]);
+            if (!empty($this->data['viewGroupsPages'])) {
+                extract($this->data['viewGroupsPages'][0]);
             ?>
 
                 <div class="view-det-adm">
@@ -42,7 +42,11 @@ if(!defined('C8L6K7E')){
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Nome: </span>
-                    <span class="view-adm-info"><?php echo "<span style='color: $color;'>$name</span>"; ?></span>
+                    <span class="view-adm-info"><?php echo $name;?></span>"; ?></span>
+                </div>
+                <div class="view-det-adm">
+                    <span class="view-adm-title">Ordem: </span>
+                    <span class="view-adm-info"><?php echo $order_group_pg; ?></span>
                 </div>
 
                 <div class="view-det-adm">
