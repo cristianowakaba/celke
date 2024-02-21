@@ -55,10 +55,11 @@ if (isset($this->data['form'])) {
                                 <button onclick="actionDropdown(<?php echo $id ?>)" class="dropdown-btn-action">Ações</button>
                                 <div id="actionDropdown<?php echo $id ?>" class="dropdown-action-item">
 
-                                    <?php
-                                    echo "<a href='" . URLADM . "view-types-pages/index/$id'>Visualizar</a>";
-                                    echo "<a href='" . URLADM . "edit-types-pages/index/$id'>Editar</a>";
-                                    echo "<a href='" . URLADM . "delete-types-pages/index/$id' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")'>Apagar</a>";
+                                <?php
+                                    echo "<a href='" . URLADM . "order-types-pages/index/$id?pag=" . $this->data['pag'] . "'><i class='fa-solid fa-angles-up'></i> Ordem</a>";
+                                    echo "<a href='" . URLADM . "view-types-pages/index/$id'><i class='fa-solid fa-eye'></i> Visualizar</a>";
+                                    echo "<a href='" . URLADM . "edit-types-pages/index/$id'><i class='fa-solid fa-pen-to-square'></i> Editar</a>";
+                                    echo "<a href='" . URLADM . "delete-types-pages/index/$id' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")'><i class='fa-solid fa-trash-can'></i> Apagar</a>";
                                     ?>
                                 </div>
                             </div>

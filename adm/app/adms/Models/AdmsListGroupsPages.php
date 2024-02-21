@@ -9,9 +9,8 @@ if (!defined('C8L6K7E')) {
 /**
  * listar tipos de página
  */
-class AdmsListTypesPages
+class AdmsListGroupsPages
 {
-
 
   /**recebe true se executar com sucesso e false se houver erro */
   private bool $result;
@@ -68,31 +67,31 @@ class AdmsListTypesPages
    *
    * @return void
    */
-  public function listTypesPages(int $page = null): void
-  {
-    $this->page = (int) $page ? $page : 1;
-   // var_dump($this->page);
-    $pagination = new \App\adms\Models\helper\AdmsPagination(URLADM . 'list-types-pages/index');
-    $pagination->condition($this->page, $this->limitResult);
-    $pagination->pagination("SELECT COUNT(id) AS num_result FROM adms_types_pgs ");
-    $this->resultPg = $pagination->getResult();
+  public function listGroupsPages(int $page = null):void
+    {
+        $this->page = (int) $page ? $page : 1;
+
+        $pagination = new \App\adms\Models\helper\AdmsPagination(URLADM . 'list-groups-pages/index');
+        $pagination->condition($this->page, $this->limitResult);
+        $pagination->pagination("SELECT COUNT(id) AS num_result FROM adms_groups_pgs");
+        $this->resultPg = $pagination->getResult();
     //var_dump($this->resultPg);
 
-    $listTypesPages = new \App\adms\Models\helper\AdmsRead();
-    $listTypesPages->fullRead("SELECT id, type, name, order_type_pg 
-                        FROM adms_types_pgs
-                        ORDER BY order_type_pg ASC
+    
+    $listGroupsPages = new \App\adms\Models\helper\AdmsRead();
+    $listGroupsPages->fullRead("SELECT id, name, order_group_pg 
+                        FROM adms_groups_pgs
+                        ORDER BY order_group_pg ASC
                         LIMIT :limit OFFSET :offset", "limit={$this->limitResult}&offset={$pagination->getOffset()}");
 
-    $this->resultBd = $listTypesPages->getResult();
+$this->resultBd = $listGroupsPages->getResult();
+if($this->resultBd){
+    $this->result = true;
+}else{
+    $_SESSION['msg'] = "<p style='color: #f00'>Erro: Nenhum grupo de página encontrado!</p>";
+    $this->result = false;
+}
+}
 
-    if ($this->resultBd) {
-
-      $this->result = true;
-    } else {
-      $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0131: nenhum usuário encontrado!</p>";
-      $this->result = false;
-    }
-  }
 
 }

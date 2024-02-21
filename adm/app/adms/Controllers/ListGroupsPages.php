@@ -10,7 +10,7 @@ if(!defined('C8L6K7E')){
  * Controller da página listar tipos de página
  * @author Cesar <cesar@celke.com.br>
  */
-class ListTypesPages
+class ListGroupsPages
 {
     
     /** @var array|string|null $data Recebe os dados que devem ser enviados para VIEW */
@@ -33,23 +33,18 @@ class ListTypesPages
     {
         $this->page = (int) $page ? $page : 1;
 
-       $listTypesPages= new \App\adms\Models\AdmsListTypesPages();
-       $listTypesPages->listTypesPages($this->page );
-      if ($listTypesPages->getResult()) {
-        //var_dump($listSitsPages->getResultBd());
-        $this->data['listTypesPages'] = $listTypesPages->getResultBd();
-        $this->data['pagination'] = $listTypesPages->getResultPg();
-    } else {
-        $this->data['listTypesPages'] = [];
-        $this->data['pagination'] = "";
-    }
+        $listGroupsPages = new \App\adms\Models\AdmsListGroupsPages();
+        $listGroupsPages->listGroupsPages($this->page);
+        if ($listGroupsPages->getResult()) {
+            $this->data['listGroupsPages'] = $listGroupsPages->getResultBd();
+            $this->data['pagination'] = $listGroupsPages->getResultPg();
+        } else {
+            $this->data['listGroupsPages'] = [];
+        }
 
-        
-    $this->data['pag'] = $this->page;
-       $this->data['sidebarActive']="list-types-pages";
-
-       $loadView = new \Core\ConfigView("adms/Views/typesPages/listTypesPages", $this->data);
-       $loadView->loadView();
-
+        $this->data['pag'] = $this->page;
+        $this->data['sidebarActive'] = "list-groups-pages"; 
+        $loadView = new \Core\ConfigView("adms/Views/groupsPages/listGroupsPages", $this->data);
+        $loadView->loadView();
     }
 }
