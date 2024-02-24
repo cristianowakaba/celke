@@ -6,10 +6,10 @@ if(!defined('C8L6K7E')){
  die("Erro: Página não encontrada!<br>");
  }
 /**
- * Controller da página alterar ordem nível de acesso
+ * Controller da página alterar ordem grupo de páginas
  * @author Cesar <cesar@c  elke.com.br>
  */
-class OrderAccessLevels
+class OrderGroupsPages
 {
     /** @var array|string|null $data Recebe os dados que devem ser enviados para VIEW */
     private array|string|null $data;
@@ -33,19 +33,19 @@ class OrderAccessLevels
             // //var_dump($id);
             $this->id = (int)$id;
             
-            $viewAccessLevel = new \App\adms\Models\AdmsOrderAccessLevels();
-            $viewAccessLevel->orderAccessLevels($this->id);
-            if ($viewAccessLevel->getResult()) {
-                $urlRedirect = URLADM . "list-access-levels/index/{$this->pag}";
+            $viewOrderGroup= new \App\adms\Models\AdmsOrderGroupsPages();
+            $viewOrderGroup->orderGroupsPages($this->id);
+            if ($viewOrderGroup->getResult()) {
+                $urlRedirect = URLADM . "list-groups-pages/index/{$this->pag}";
                 header("Location: $urlRedirect");
             } else {
-                $urlRedirect = URLADM . "list-access-levels/index/{$this->pag}";
+                $urlRedirect = URLADM . "list-groups-pages/index/{$this->pag}";
                 header("Location: $urlRedirect");
             }
        
         }else{
             $_SESSION['msg'] = "<p class='alert-danger'> Erro - 0114: Nivel de acesso não encontrado!</p>";
-            $urlRedirect = URLADM . "list-access-levels/index";
+            $urlRedirect = URLADM . "list-groups-pages/index";
             header("Location: $urlRedirect");
 
         }

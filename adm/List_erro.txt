@@ -154,3 +154,5 @@
 0151-AdmsDeleteGroupsPages-
 0152-AdmsDeleteGroupsPages-
 0153-DeleteGroupsPages-
+0154-AdmsOrderGroupsPages-
+0155-AdmsOrderGroupsPages-
