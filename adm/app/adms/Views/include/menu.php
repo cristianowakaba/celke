@@ -66,6 +66,13 @@ if(!defined('C8L6K7E')){
 
             <a href="<?php echo URLADM; ?>list-types-pages/index" class="sidebar-nav <?php echo $list_types_pages; ?>"><i class="icon fa-solid fa-file"></i><span>Tipos de Página</span></a>
 
+            <?php $list_pages = "";
+        if ($sidebar_active == "list-pages") {
+            $list_pages = "active";
+        } ?>
+        <a href="<?php echo URLADM; ?>list-pages/index" class="sidebar-nav <?php echo $list_pages; ?>"><i class="icon fa-solid fa-file"></i><span>Páginas</span></a>
+
+
          
         <?php $list_access_levels = "";
         if ($sidebar_active == "list-access-levels") {

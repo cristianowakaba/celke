@@ -133,7 +133,7 @@ class AdmsOrderGroupsPages
         if ($moveDown->getResult()) {
             $this->editMoveUp();
         } else {
-            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0145 :Ordem do tipo de página não editado com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0156 :Ordem do tipo de página não editado com sucesso!</p>";
             $this->result = false;
         }
     }
@@ -157,7 +157,7 @@ class AdmsOrderGroupsPages
             $_SESSION['msg'] = "<p class='alert-success'>Ordem do tipo de página editado com sucesso!</p>";
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p class='alert-danger'>Erro: Ordem do tipo de página não editado com sucesso!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 157: Ordem do tipo de página não editado com sucesso!</p>";
             $this->result = false;
         }
     }
