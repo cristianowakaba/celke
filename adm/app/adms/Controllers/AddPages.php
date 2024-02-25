@@ -35,31 +35,33 @@ class AddPages
         if (!empty($this->dataForm['SendAddPages'])) {
            /*  //var_dump($this->dataForm); */
           unset($this->dataForm['SendAddPages']);
-           $createSitUser= new \App\adms\Models\AdmsAddColors();
-            $createSitUser->create($this->dataForm);
-            if ($createSitUser->getResult()) {
-                $urlRedirect = URLADM . "list-colors/index";
+           $createPages= new \App\adms\Models\AdmsAddPages();
+            $createPages->create($this->dataForm);
+            if ($createPages->getResult()) {
+                $urlRedirect = URLADM . "list-pages/index";
                 header("Location: $urlRedirect");
             } else {
                 $this->data['form'] = $this->dataForm;
-                $this->viewAddColor();
+                $this->viewAddPages();
             }
         } else {
-            $this->viewAddColor();
+            $this->viewAddPages();
         }
        
     }
- /**
+    /**
      * Instanciar a MODELS e o método "listSelect" responsável em buscar os dados para preencher o campo SELECT 
      * Instanciar a classe responsável em carregar a View e enviar os dados para View.
      * 
      */
-    private function viewAddColor(): void
+    private function viewAddPages(): void
     {
-  
+        $listSelect = new \App\adms\Models\AdmsAddPages();
+        $this->data['select'] = $listSelect->listSelect();
+
+        $this->data['sidebarActive'] = "list-pages"; 
         
-        $this->data['sidebarActive']="list-colors";
-        $loadView = new \Core\ConfigView("adms/Views/colors/addColors", $this->data);
+        $loadView = new \Core\ConfigView("adms/Views/pages/addPages", $this->data);
         $loadView->loadView();
     }
 }

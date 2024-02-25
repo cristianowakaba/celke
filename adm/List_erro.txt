@@ -162,3 +162,11 @@
 0159-AdmsViewUsers- ViewUsers
 0160-AdmsViewPages ViewPages
 0161-ViewPages
+0160-AdmsViewPages ViewPages
+0162-AdmsEditPages
+0163-AdmsEditPages
+0164-EditPages
+0165-AdmsAddPages
+0166-AdmsDeletePages
+0167-AdmsDeletePages
+0168-DeletePages

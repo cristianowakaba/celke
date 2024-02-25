@@ -1,21 +1,30 @@
 <?php
 
 if (!defined('C8L6K7E')) {
-    /*  header("Location:/"); */
-    die("Erro: Página não encontrada!<br>");
+    header("Location: /");
+    die("Erro: Página não encontrada<br>");
 }
+
 if (isset($this->data['form'])) {
     $valorForm = $this->data['form'];
 }
+
+if (isset($this->data['form'][0])) {
+    $valorForm = $this->data['form'][0];
+}
+
 ?>
 <!-- Inicio do conteudo do administrativo -->
 <div class="wrapper">
     <div class="row">
         <div class="top-list">
-            <span class="title-content">Cadastrar Páginas</span>
+            <span class="title-content">Editar página</span>
             <div class="top-list-right">
                 <?php
                 echo "<a href='" . URLADM . "list-pages/index' class='btn-info'>Listar</a> ";
+                if (isset($valorForm['id'])) {
+                    echo "<a href='" . URLADM . "view-pages/index/" . $valorForm['id'] . "' class='btn-primary'>Visualizar</a><br><br>";
+                }
                 ?>
             </div>
         </div>
@@ -30,9 +39,15 @@ if (isset($this->data['form'])) {
             <span id="msg"></span>
         </div>
 
-
         <div class="content-adm">
-            <form method="POST" action="" id="form-add-pages" class="form-adm">
+            <form method="POST" action="" id="form-edit-pages" class="form-adm">
+                <?php
+                $id = "";
+                if (isset($valorForm['id'])) {
+                    $id = $valorForm['id'];
+                }
+                ?>
+                <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
                 <div class="row-input">
                     <div class="column">
                         <?php
@@ -45,6 +60,7 @@ if (isset($this->data['form'])) {
                         <input type="text" name="name_page" id="name_page" class="input-adm" placeholder="Nome da Página a ser apresentado no menu" value="<?php echo $name_page; ?>" required>
                     </div>
                 </div>
+
                 <div class="row-input">
                     <div class="column">
                         <?php
@@ -69,7 +85,6 @@ if (isset($this->data['form'])) {
 
                     </div>
                 </div>
-                
                 <div class="row-input">
                     <div class="column">
                         <?php
@@ -80,7 +95,6 @@ if (isset($this->data['form'])) {
                         ?>
                         <label class="title-input">Classe no menu:<span class="text-danger">*</span></label>
                         <input type="text" name="menu_controller" id="menu_controller" class="input-adm" placeholder="Nome da classe no menu" value="<?php echo $metodo; ?>" required>
-
                     </div>
                     <div class="column">
                         <?php
@@ -97,6 +111,18 @@ if (isset($this->data['form'])) {
                 <div class="row-input">
                     <div class="column">
                         <?php
+                        $obs = "";
+                        if (isset($valorForm['obs'])) {
+                            $obs = $valorForm['obs'];
+                        }
+                        ?>
+                        <label class="title-input">Observação:</label>
+                        <input type="text" name="obs" id="obs" class="input-adm" placeholder="Observação" value="<?php echo $obs; ?>">
+                    </div>
+                </div>
+                <div class="row-input">
+                    <div class="column">
+                        <?php
                         $icon = "";
                         if (isset($valorForm['icon'])) {
                             $icon = $valorForm['icon'];
@@ -107,19 +133,7 @@ if (isset($this->data['form'])) {
 
                     </div>
                 </div>
-                
-                <div class="row-input">
-                    <div class="column">
-                        <?php
-                        $obs = "";
-                        if (isset($valorForm['obs'])) {
-                            $obs = $valorForm['obs'];
-                        }
-                        ?>
-                        <label class="title-input">Observação:</label>
-                        <input type="text" name="obs" id="obs" class="input-adm" placeholder="Observação" value="<?php echo $obs; ?>">
-                    </div>
-                </div>
+
                 <div class="row-input">
                     <div class="column">
                         <label class="title-input">Página Pública:<span class="text-danger">*</span></label>
@@ -142,7 +156,6 @@ if (isset($this->data['form'])) {
                         </select>
                     </div>
                 </div>
-
                 <div class="row-input">
                     <div class="column">
                         <label class="title-input">Situação da Página:<span class="text-danger">*</span></label>
@@ -161,7 +174,6 @@ if (isset($this->data['form'])) {
                         </select>
                     </div>
                 </div>
-
                 <div class="row-input">
                     <div class="column">
                         <label class="title-input">Grupo da Página:<span class="text-danger">*</span></label>
@@ -180,7 +192,6 @@ if (isset($this->data['form'])) {
                         </select>
                     </div>
                 </div>
-
                 <div class="row-input">
                     <div class="column">
                         <label class="title-input">Tipo da Página:<span class="text-danger">*</span></label>
@@ -190,7 +201,7 @@ if (isset($this->data['form'])) {
                             foreach ($this->data['select']['type_page'] as $type_page) {
                                 extract($type_page);
                                 if ((isset($valorForm['adms_types_pgs_id'])) and ($valorForm['adms_types_pgs_id'] == $id_type)) {
-                                    echo "<option value='$id_type' selected>$name_type</option>";
+                                    echo "<option value='$id_type' selected>$type - $name_type</option>";
                                 } else {
                                     echo "<option value='$id_type'>$type - $name_type</option>";
                                 }
@@ -202,7 +213,7 @@ if (isset($this->data['form'])) {
 
                 <p class="text-danger mb-5 fs-4">* Campo Obrigatório</p>
 
-                <button type="submit" name="SendAddPages" class="btn-success" value="Cadastrar">Cadastrar</button>
+                <button type="submit" name="SendEditPages" class="btn-warning" value="Salvar">Salvar</button>
 
             </form>
         </div>
