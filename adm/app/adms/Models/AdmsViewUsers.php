@@ -67,7 +67,7 @@ class AdmsViewUsers
         if ($this->resultBd) {
             $this->result = true;
         } else {
-            $_SESSION['msg'] = "<p class='alert-danger'>Erro: Usuário não encontrado!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0159: Usuário não encontrado!</p>";
             $this->result = false;
         }
     }

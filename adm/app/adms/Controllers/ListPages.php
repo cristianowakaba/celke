@@ -51,7 +51,7 @@ class ListPages
         
       
 
-        $this->data['pag'] = $this->page;
+       $this->data['pag'] = $this->page;
         $this->data['sidebarActive'] = "list-pages"; 
         $loadView = new \Core\ConfigView("adms/Views/pages/listPages", $this->data);
         $loadView->loadView();

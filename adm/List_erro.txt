@@ -159,3 +159,6 @@
 0156-AdmsOrderGroupsPages-
 0157-AdmsOrderGroupsPages-
 0158-AdmsListPages-
+0159-AdmsViewUsers- ViewUsers
+0160-AdmsViewPages ViewPages
+0161-ViewPages
