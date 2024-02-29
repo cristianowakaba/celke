@@ -107,14 +107,20 @@ class AdmsPagination
         // //var_dump($this->resultBd[0]['num_result']);
 
         //pega o numero de registros no banco de dados e divide pelo numero de registro que deve ter a página, por exemplo retorna 40 registros e quer ter 10 por pagina o totalPage serade 4 páginas
-        $this->totalPages = (int) ceil($this->resultBd[0]['num_result'] / $this->limitResult);
-        ////var_dump($this->totalPages);
-        //verifica se o total de páginas é maior ou igual a que o usuario esta, se for menor redireciona por exemplo tem 4 paginas e o usuario quer ir na página 5 redireciona.
-        if ($this->totalPages >= $this->page) {
-            $this->layoutPagination();
-        } else {
-            header("Location: {$this->link}");
+        if(!$this->resultBd[0]['num_result']==0){
+
+            $this->totalPages = (int) ceil($this->resultBd[0]['num_result'] / $this->limitResult);
+            ////var_dump($this->totalPages);
+            //verifica se o total de páginas é maior ou igual a que o usuario esta, se for menor redireciona por exemplo tem 4 paginas e o usuario quer ir na página 5 redireciona.
+            if ($this->totalPages >= $this->page) {
+                $this->layoutPagination();
+            } else {
+                header("Location: {$this->link}");
+            }
+        }else{
+            $this->result = false;
         }
+ 
     }
     /**
      * exibe os links da páginação.

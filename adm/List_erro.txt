@@ -170,3 +170,4 @@
 0166-AdmsDeletePages
 0167-AdmsDeletePages
 0168-DeletePages
+0169 - AdmslistPermission - listPermission
