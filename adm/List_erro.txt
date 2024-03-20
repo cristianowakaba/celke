@@ -171,3 +171,7 @@
 0167-AdmsDeletePages
 0168-DeletePages
 0169 - AdmslistPermission - listPermission
+0170- AdmsSyncPagesLevels- syncPagesLevels
+0171- AdmsSyncPagesLevels- listPages
+0172-  AdmslistPermission - viewAccessLevel
+0173-  AdmsSyncPagesLevels - addLevelPermission

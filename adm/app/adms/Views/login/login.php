@@ -60,7 +60,7 @@ if (isset($this->data['form'])) {
                 <button type="submit" name="SendLogin" value="Acessar">Acessar</button>
             </div>
             <div class="signup-link">
-                <a href="<?php echo URLADM; ?>new-user/index">Cadastrar</a> - <a href="<?php echo URLADM; ?>recover-password/index">Esqueceu a senha?</a>
+                <a href="<?php echo URLADM; ?>new-user/index">Cadastrar</a> - <a href="<?php echo URLADM; ?>recover-password/index">Esqueceu a senha?</a> 123456a
             </div>
         </form>
 

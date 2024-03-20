@@ -134,7 +134,7 @@ class AdmsListPermission
         if ($this->resultBdLevel) {
             return true;
         } else {
-            $_SESSION['msg'] = "<p class='alert-danger'>Erro: Nível de acesso não encontrado!</p>";
+            $_SESSION['msg'] = "<p class='alert-danger'>Erro - 0172: Nível de acesso não encontrado!</p>";
             return false;
         }
     }
