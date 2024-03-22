@@ -42,6 +42,7 @@ class ListPermission
             $this->data['listPermission'] = $listPermission->getResultBd();
             $this->data['viewAccessLevel'] = $listPermission->getResultBdLevel();
             $this->data['pagination'] = $listPermission->getResultPg();
+            $this->data['pag']= $this->page ;
             $this->viewPermission();
         } else {
             //$this->data['listUsers'] = [];
