@@ -178,3 +178,5 @@
 0174-  EditPermission
 0175-  AdmsEditPermission
 0176-  AdmsEditPermission -edit
+0177-  CarregarPgAdmLevel 
+0178-  CarregarPgAdmLevel 
