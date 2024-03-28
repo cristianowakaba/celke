@@ -180,3 +180,5 @@
 0176-  AdmsEditPermission -edit
 0177-  CarregarPgAdmLevel 
 0178-  CarregarPgAdmLevel 
+0179-  CarregarPgAdmLevel 
+0180-  CarregarPgAdmLevel - searchLelelPage
