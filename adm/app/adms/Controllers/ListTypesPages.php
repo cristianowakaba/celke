@@ -44,7 +44,17 @@ class ListTypesPages
         $this->data['pagination'] = "";
     }
 
-        
+    $button =[
+        'add_types_pages' => ['menu_controller' =>'add-types-pages', 'menu_metodo' => 'index'],
+        'order_types_pages' => ['menu_controller' => 'order-types-pages', 'menu_metodo' => 'index'],
+        'view_types_pages' => ['menu_controller' => 'view-types-pages', 'menu_metodo' => 'index'],
+        'edit_types_pages' => ['menu_controller' => 'edit-types-pages', 'menu_metodo' => 'index'],
+        'delete_types_pages' => ['menu_controller' => 'delete-types-pages', 'menu_metodo' => 'index']];
+        $listBotton = new \App\adms\Models\helper\AdmsButton();
+        $this->data['button'] = $listBotton->buttonPermission($button);
+       
+     // var_dump( $this->data['button'] );
+      
     $this->data['pag'] = $this->page;
        $this->data['sidebarActive']="list-types-pages";
 

@@ -41,6 +41,19 @@ class ListAccessLevels
             $this->data['listAccessLevels'] = [];
             $this->data['pagination'] = "";
         }
+
+        $button =[
+            'add_access_levels' => ['menu_controller' =>'add-access-levels', 'menu_metodo' => 'index'],
+            'sync_pages_levels' => ['menu_controller' => 'sync-pages-levels', 'menu_metodo' => 'index'],
+            'order_access_levels' => ['menu_controller' => 'order-access-levels', 'menu_metodo' => 'index'],
+            'list_permission' => ['menu_controller' => 'list-permission', 'menu_metodo' => 'index'],
+            'view_access_levels' => ['menu_controller' => 'view-access-levels', 'menu_metodo' => 'index'],
+            'edit_access_levels' => ['menu_controller' => 'edit-access-levels', 'menu_metodo' => 'index'],
+            'delete_access_levels' => ['menu_controller' => 'delete-access-levels', 'menu_metodo' => 'index']];
+            $listBotton = new \App\adms\Models\helper\AdmsButton();
+            $this->data['button'] = $listBotton->buttonPermission($button);
+            //var_dump(  $this->data['button']);
+
         $this->data['pag']= $this->page ;
         $this->data['sidebarActive'] = "list-access-levels";
         $loadView = new \Core\ConfigView("adms/Views/accessLevels/listAccessLevels", $this->data);

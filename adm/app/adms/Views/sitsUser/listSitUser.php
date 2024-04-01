@@ -15,7 +15,11 @@ if (isset($this->data['form'])) {
             <span class="title-content">Listar Situações</span>
             <div class="top-list-right">
                 <?php
-                echo "<a href='" . URLADM . "add-sits-users/index' class='btn-success'>Cadastrar</a>";
+                   if( $this->data['button']['add_sits_users']){
+                    echo "<a href='" . URLADM . "add-sits-users/index' class='btn-success'>Cadastrar</a>";
+                }
+               
+                
                 ?>
             </div>
         </div>
@@ -73,9 +77,15 @@ if (isset($this->data['form'])) {
                                 <div id="actionDropdown<?php echo $id ?>" class="dropdown-action-item">
 
                                     <?php
+                                     if( $this->data['button']['view_sits_users']){
                                     echo "<a href='" . URLADM . "view-sits-users/index/$id'>Visualizar</a>";
+                                     }
+                                     if( $this->data['button']['edit_sits_users']){
                                     echo "<a href='" . URLADM . "edit-sits-users/index/$id'>Editar</a>";
+                                     }
+                                     if( $this->data['button']['delete_sits_users']){
                                     echo "<a href='" . URLADM . "delete-sits-users/index/$id' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")'>Apagar</a>";
+                                     }
                                     ?>
                                     </div>
                                 </div>

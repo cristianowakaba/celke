@@ -11,11 +11,16 @@ if(!defined('C8L6K7E')){
             <span class="title-content">Detalhes da página</span>
             <div class="top-list-right">
                 <?php
+                 if( $this->data['button']['list_pages']){
                 echo "<a href='" . URLADM . "list-pages/index' class='btn-info'>Listar</a> ";
+                 }
                 if (!empty($this->data['viewPages'])) {
+                    if( $this->data['button']['edit_pages']){
                     echo "<a href='" . URLADM . "edit-pages/index/" . $this->data['viewPages'][0]['id'] . "' class='btn-warning'>Editar</a> ";
-                   
+                    }
+                    if( $this->data['button']['delete_pages']){
                     echo "<a href='" . URLADM . "delete-pages/index/" . $this->data['viewPages'][0]['id'] . "' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")' class='btn-danger'>Apagar</a> ";
+                    }
                 }
                 ?>
             </div>

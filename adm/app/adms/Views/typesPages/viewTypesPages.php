@@ -11,10 +11,16 @@ if (!defined('C8L6K7E')) {
             <span class="title-content">Detalhes do tipo de página</span>
             <div class="top-list-right">
                 <?php
+                 if( $this->data['button']['list_types_pages']){
                echo "<a href='" . URLADM . "list-types-pages/index'class='btn-info'>Listar</a> ";
+                 }
                 if (!empty($this->data['viewTypePage'])) {
+                    if( $this->data['button']['edit_types_pages']){
                     echo "<a href='" . URLADM . "edit-types-pages/index/" . $this->data['viewTypePage'][0]['id'] ."' class='btn-warning'>Editar</a> ";
+                    }
+                    if( $this->data['button']['delete_types_pages']){
                     echo "<a href='" . URLADM . "delete-types-pages/index/" . $this->data['viewTypePage'][0]['id'] . "'onclick= 'return confirm(\"Tem certeza que deseja excluir este registro?\")' class='btn-danger'>Apagar</a> ";
+                    }
                    
                 }
                 ?>

@@ -60,6 +60,15 @@ class viewConfEmails
      */
     private function viewConfEmails(): void
     {
+        $button =[
+            'list_conf_emails' => ['menu_controller' =>'list-conf-emails', 'menu_metodo' => 'index'],
+            'edit_conf_emails' => ['menu_controller' => 'edit-conf-emails', 'menu_metodo' => 'index'],
+            'edit_conf_emails_password' => ['menu_controller' => 'edit-conf-emails-password', 'menu_metodo' => 'index'],
+            'delete_conf_emails' => ['menu_controller' => 'delete-conf-emails', 'menu_metodo' => 'index']];
+            $listBotton = new \App\adms\Models\helper\AdmsButton();
+            $this->data['button'] = $listBotton->buttonPermission($button);
+
+           // var_dump(  $this->data['button']);
         $this->data['sidebarActive']="list-conf-emails";
         $loadView = new \Core\ConfigView("adms/Views/confEmails/viewConfEmails", $this->data);
         $loadView->loadView();

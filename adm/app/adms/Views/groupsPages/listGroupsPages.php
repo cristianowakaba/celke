@@ -15,7 +15,9 @@ if (isset($this->data['form'])) {
             <span class="title-content">Listar grupos da Página</span>
             <div class="top-list-right">
                 <?php
+                if( $this->data['button']['add_groups_pages']){
                 echo "<a href='" . URLADM . "add-Groups-pages/index' class='btn-success'>Cadastrar</a>";
+                }
                 ?>
             </div>
 
@@ -55,10 +57,18 @@ if (isset($this->data['form'])) {
                                 <div id="actionDropdown<?php echo $id ?>" class="dropdown-action-item">
 
                                 <?php
+                                 if( $this->data['button']['order_groups_pages']){
                                     echo "<a href='" . URLADM . "order-groups-pages/index/$id?pag=" . $this->data['pag'] . "'><i class='fa-solid fa-angles-up'></i> Ordem</a>";
+                                 }
+                                 if( $this->data['button']['view_groups_pages']){
                                     echo "<a href='" . URLADM . "view-groups-pages/index/$id'><i class='fa-solid fa-eye'></i> Visualizar</a>";
+                                 }
+                                 if( $this->data['button']['edit_groups_pages']){
                                     echo "<a href='" . URLADM . "edit-groups-pages/index/$id'><i class='fa-solid fa-pen-to-square'></i> Editar</a>";
+                                 }
+                                 if( $this->data['button']['delete_groups_pages']){
                                     echo "<a href='" . URLADM . "delete-groups-pages/index/$id' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")'><i class='fa-solid fa-trash-can'></i> Apagar</a>";
+                                 }
                                     ?>
                                     
                                 </div>

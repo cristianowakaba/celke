@@ -13,8 +13,12 @@ if (!defined('C8L6K7E')) {
             <span class="title-content">Listar Nível de Acesso</span>
             <div class="top-list-right">
                 <?php
+                 if( $this->data['button']['add_access_levels']){
                 echo "<a href='" . URLADM . "add-access-levels/index' class='btn-success'>Cadastrar</a> ";
+                 }
+                 if( $this->data['button']['sync_pages_levels']){
                 echo "<a href='" . URLADM . "sync-pages-levels/index' class='btn-warning'>Sincronizar</a>";
+                 }
                 ?>
             </div>
         </div>
@@ -49,11 +53,21 @@ if (!defined('C8L6K7E')) {
                                 <button onclick="actionDropdown(<?php echo $id; ?>)" class="dropdown-btn-action">Ações</button>
                                 <div id="actionDropdown<?php echo $id; ?>" class="dropdown-action-item">
                                     <?php
+                                      if( $this->data['button']['order_access_levels']){
                                     echo "<a href='" . URLADM . "order-access-levels/index/$id?pag=".$this->data['pag']."'><i class='fa-solid fa-angles-up'></i>Ordem</a>";
+                                      }
+                                      if( $this->data['button']['list_permission']){
                                     echo "<a href='" . URLADM . "list-permission/index?level=$id'><i class='fa-solid fa-house-lock'></i>Permissão</a>";
+                                      }
+                                      if( $this->data['button']['view_access_levels']){
                                     echo "<a href='" . URLADM . "view-access-levels/index/$id'><i class='fa-solid fa-eye'></i>Visualizar</a>";
+                                      }
+                                      if( $this->data['button']['edit_access_levels']){
                                     echo "<a href='" . URLADM . "edit-access-levels/index/$id'><i class='fa-regular fa-pen-to-square'></i>Editar</a>";
+                                      }
+                                      if( $this->data['button']['delete_access_levels']){
                                     echo "<a href='" . URLADM . "delete-access-levels/index/$id' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")'><i class='fa-solid fa-trash-can'></i>Apagar</a>";
+                                      }
                                     ?>
                                 </div>
                             </div>

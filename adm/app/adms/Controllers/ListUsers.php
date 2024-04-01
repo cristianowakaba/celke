@@ -66,8 +66,16 @@ class ListUsers
             $this->data['listUsers'] = [];
             $this->data['pagination'] = "";
         }
-
-        $this->data['sidebarActive'] = "list-users";
+        $button =[
+        'add_users' => ['menu_controller' => 'add-users', 'menu_metodo' => 'index'],
+        'view_users' => ['menu_controller' => 'view-users', 'menu_metodo' => 'index'],
+        'edit_users' => ['menu_controller' => 'edit-users', 'menu_metodo' => 'index'],
+        'delete_users' => ['menu_controller' => 'delete-users', 'menu_metodo' => 'index']];
+        $listBotton = new \App\adms\Models\helper\AdmsButton();
+        $this->data['button'] = $listBotton->buttonPermission($button);
+       
+        
+        $this->data['sidebarActive'] = "list-users"; 
 
         $loadView = new \Core\ConfigView("adms/Views/users/listUsers", $this->data);
         $loadView->loadView();

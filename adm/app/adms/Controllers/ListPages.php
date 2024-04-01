@@ -49,7 +49,17 @@ class ListPages
             $this->data['listPages'] = [];                      
         }
         
-      
+        $button =[
+            'add_pages' => ['menu_controller' =>'add-pages', 'menu_metodo' => 'index'],
+            'sync_pages_levels' => ['menu_controller' => 'sync-pages-levels', 'menu_metodo' => 'index'],
+            'view_pages' => ['menu_controller' => 'view-pages', 'menu_metodo' => 'index'],
+            'edit_pages' => ['menu_controller' => 'edit-pages', 'menu_metodo' => 'index'],
+            'delete_pages' => ['menu_controller' => 'delete-pages', 'menu_metodo' => 'index']];
+            $listBotton = new \App\adms\Models\helper\AdmsButton();
+            $this->data['button'] = $listBotton->buttonPermission($button);
+           
+         // var_dump( $this->data['button'] );
+          
 
        $this->data['pag'] = $this->page;
         $this->data['sidebarActive'] = "list-pages"; 

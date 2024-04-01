@@ -16,7 +16,9 @@ if (isset($this->data['form'])) {
             <span class="title-content">Listar E-mail</span>
             <div class="top-list-right">
                 <?php
+                 if( $this->data['button']['add_conf_emails']){
                 echo "<a href='" . URLADM . "add-conf-emails/index'class='btn-success'>Cadastrar</a>";
+                 }
                 ?>
             </div>
         </div>
@@ -77,9 +79,15 @@ if (isset($this->data['form'])) {
                                     <div id="actionDropdown<?php echo $id ?>" class="dropdown-action-item">
 
                                         <?php
+                                         if( $this->data['button']['view_conf_emails']){
                                         echo "<a href='" . URLADM . "view-conf-emails/index/$id'>Visualizar</a>";
+                                         }
+                                         if( $this->data['button']['edit_conf_emails']){
                                         echo "<a href='" . URLADM . "edit-conf-emails/index/$id'>Editar</a>";
+                                         }
+                                         if( $this->data['button']['delete_conf_emails']){
                                         echo "<a href='" . URLADM . "delete-conf-emails/index/$id' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")'>Apagar</a>";
+                                         }
                                         ?>
                                     </div>
                                 </div>

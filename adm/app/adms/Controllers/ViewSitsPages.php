@@ -56,6 +56,15 @@ class ViewSitsPages
     }
      private function viewSitPage(): void
     {
+        $button =[
+            'list_sits_pages' => ['menu_controller' => 'list-sits-pages', 'menu_metodo' => 'index'],
+            'view_sits_pages' => ['menu_controller' => 'view-sits-pages', 'menu_metodo' => 'index'],
+            'edit_sits_pages' => ['menu_controller' => 'edit-sits-pages', 'menu_metodo' => 'index'],
+            'delete_sits_pages' => ['menu_controller' => 'delete-sits-pages', 'menu_metodo' => 'index']];
+            $listBotton = new \App\adms\Models\helper\AdmsButton();
+            $this->data['button'] = $listBotton->buttonPermission($button);
+           
+         // var_dump( $this->data['button'] );
         $this->data['sidebarActive']="list-sits-pages";
      
         $loadView = new \Core\ConfigView("adms/Views/sitsPages/viewSitPages", $this->data);

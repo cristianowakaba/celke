@@ -15,7 +15,9 @@ if (isset($this->data['form'])) {
             <span class="title-content">Listar Tipos da Página</span>
             <div class="top-list-right">
                 <?php
+                 if( $this->data['button']['add_types_pages']){
                 echo "<a href='" . URLADM . "add-types-pages/index' class='btn-success'>Cadastrar</a>";
+                 }
                 ?>
             </div>
 
@@ -56,10 +58,18 @@ if (isset($this->data['form'])) {
                                 <div id="actionDropdown<?php echo $id ?>" class="dropdown-action-item">
 
                                 <?php
+                                 if( $this->data['button']['order_types_pages']){
                                     echo "<a href='" . URLADM . "order-types-pages/index/$id?pag=" . $this->data['pag'] . "'><i class='fa-solid fa-angles-up'></i> Ordem</a>";
+                                 }
+                                 if( $this->data['button']['view_types_pages']){
                                     echo "<a href='" . URLADM . "view-types-pages/index/$id'><i class='fa-solid fa-eye'></i> Visualizar</a>";
+                                 }
+                                 if( $this->data['button']['edit_types_pages']){
                                     echo "<a href='" . URLADM . "edit-types-pages/index/$id'><i class='fa-solid fa-pen-to-square'></i> Editar</a>";
+                                 }
+                                 if( $this->data['button']['delete_types_pages']){
                                     echo "<a href='" . URLADM . "delete-types-pages/index/$id' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")'><i class='fa-solid fa-trash-can'></i> Apagar</a>";
+                                 }
                                     ?>
                                 </div>
                             </div>

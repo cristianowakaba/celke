@@ -69,7 +69,15 @@ class ListColors
         }
 
       
+        $button =[
+            'add_colors' => ['menu_controller' =>'add-colors', 'menu_metodo' => 'index'],
+            'view_colors' => ['menu_controller' => 'view-colors', 'menu_metodo' => 'index'],
+            'edit_colors' => ['menu_controller' => 'edit-colors', 'menu_metodo' => 'index'],
+            'delete_colors' => ['menu_controller' => 'delete-colors', 'menu_metodo' => 'index']];
+            $listBotton = new \App\adms\Models\helper\AdmsButton();
+            $this->data['button'] = $listBotton->buttonPermission($button);
 
+           // var_dump(  $this->data['button']);
         $this->data['sidebarActive'] = "list-colors";         
         $loadView = new \Core\ConfigView("adms/Views/colors/listColors", $this->data);
         $loadView->loadView();

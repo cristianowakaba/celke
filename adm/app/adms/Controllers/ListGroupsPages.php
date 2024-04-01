@@ -41,6 +41,17 @@ class ListGroupsPages
         } else {
             $this->data['listGroupsPages'] = [];
         }
+        $button =[
+            'add_groups_pages' => ['menu_controller' =>'add-groups-pages', 'menu_metodo' => 'index'],
+            'order_groups_pages' => ['menu_controller' => 'order-groups-pages', 'menu_metodo' => 'index'],
+            'view_groups_pages' => ['menu_controller' => 'view-groups-pages', 'menu_metodo' => 'index'],
+            'edit_groups_pages' => ['menu_controller' => 'edit-groups-pages', 'menu_metodo' => 'index'],
+            'delete_groups_pages' => ['menu_controller' => 'delete-groups-pages', 'menu_metodo' => 'index']];
+            $listBotton = new \App\adms\Models\helper\AdmsButton();
+            $this->data['button'] = $listBotton->buttonPermission($button);
+           
+          var_dump( $this->data['button'] );
+          
 
         $this->data['pag'] = $this->page;
         $this->data['sidebarActive'] = "list-groups-pages"; 

@@ -12,10 +12,16 @@ if(!defined('C8L6K7E')){
             <span class="title-content">Nível de Acesso</span>
             <div class="top-list-right">
                 <?php
+                  if( $this->data['button']['list_access_levels']){
                 echo "<a href='" . URLADM . "list-access-levels/index' class='btn-info'>Listar</a> ";
+                  }
                 if (!empty($this->data['viewAccessLevels'])) {
+                    if( $this->data['button']['edit_access_levels']){
                     echo "<a href='" . URLADM . "edit-access-levels/index/" . $this->data['viewAccessLevels'][0]['id'] . "' class='btn-warning'>Editar</a> ";
+                    }
+                    if( $this->data['button']['delete_access_levels']){
                     echo "<a href='" . URLADM . "delete-access-levels/index/" . $this->data['viewAccessLevels'][0]['id'] . "' onclick='return confirm(\"Tem certeza que deseja excluir este registro?\")' class='btn-danger'>Apagar</a> ";
+                    }
                 }
                 ?>
             </div>

@@ -44,7 +44,15 @@ class ListSitsPages
         $this->data['pagination'] = "";
     }
 
-        
+    $button =[
+        'add_sits_pages' => ['menu_controller' => 'add-sits-pages', 'menu_metodo' => 'index'],
+        'view_sits_pages' => ['menu_controller' => 'view-sits-pages', 'menu_metodo' => 'index'],
+        'edit_sits_pages' => ['menu_controller' => 'edit-sits-pages', 'menu_metodo' => 'index'],
+        'delete_sits_pages' => ['menu_controller' => 'delete-sits-pages', 'menu_metodo' => 'index']];
+        $listBotton = new \App\adms\Models\helper\AdmsButton();
+        $this->data['button'] = $listBotton->buttonPermission($button);
+       
+     // var_dump( $this->data['button'] );
       
        $this->data['sidebarActive']="list-sits-pages";
 
