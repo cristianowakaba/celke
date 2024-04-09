@@ -47,6 +47,8 @@ class NewUser
 
     private function viewNewUser(): void
     {
+        $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
         $loadView = new \Core\ConfigView("adms/Views/login/newUser", $this->data);
         $loadView->loadViewLogin();
     }

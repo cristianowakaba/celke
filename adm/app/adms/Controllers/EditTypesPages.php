@@ -58,6 +58,9 @@ class EditTypesPages
      */
     private function viewEditTypesPages(): void
     {
+        $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
+        
         $this->data['sidebarActive'] = "list-types-pages";
         $loadView = new \Core\ConfigView("adms/Views/typesPages/editTypesPages", $this->data);
         $loadView->loadView();

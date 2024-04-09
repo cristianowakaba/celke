@@ -45,6 +45,9 @@ class NewConfEmail
     /**carrega a view  passa por parametro a página e os dados*/
     private function viewNewConfEmail(): void
     {
+        $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
+        
         $loadView = new \Core\ConfigView("adms/Views/login/newConfEmail", $this->data);
         $loadView->loadViewLogin();
     }

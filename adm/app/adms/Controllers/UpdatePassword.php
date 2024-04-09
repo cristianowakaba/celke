@@ -93,6 +93,8 @@ class UpdatePassword
      */
     private function viewUpdatePassword():void
     {
+        $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
         $loadView = new \Core\ConfigView("adms/Views/login/updatePassword", $this->data);
         $loadView->loadViewLogin();
     }

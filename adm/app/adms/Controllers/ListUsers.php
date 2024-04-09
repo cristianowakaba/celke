@@ -74,6 +74,8 @@ class ListUsers
         $listBotton = new \App\adms\Models\helper\AdmsButton();
         $this->data['button'] = $listBotton->buttonPermission($button);
        
+        $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
         
         $this->data['sidebarActive'] = "list-users"; 
 

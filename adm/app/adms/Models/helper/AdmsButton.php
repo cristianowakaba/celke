@@ -8,8 +8,6 @@ if (!defined('C8L6K7E')) {
 }
 
 /**
- * Classe genérica para selecionar registro no banco de dados
- *
  * @author Celke
  */
 class AdmsButton
@@ -30,12 +28,7 @@ class AdmsButton
     }
 
     /** 
-     * Recebe os valores para montar a QUERY.
-     * Converte a parseString de string para array.
-     * @param string $table Recebe o nome da tabela do banco de dados
-     * @param string $terms Recebe os links da QUERY, ex: sts_situation_id =:sts_situation_id
-     * @param string $parseString Recebe o valores que devem ser subtituidos no link, ex: sts_situation_id=1
-     * 
+   
      * @return void
      */
     public function buttonPermission(array|null $data): array|null

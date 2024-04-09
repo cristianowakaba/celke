@@ -59,6 +59,9 @@ class AddPages
         $listSelect = new \App\adms\Models\AdmsAddPages();
         $this->data['select'] = $listSelect->listSelect();
 
+        $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
+        
         $this->data['sidebarActive'] = "list-pages"; 
         
         $loadView = new \Core\ConfigView("adms/Views/pages/addPages", $this->data);

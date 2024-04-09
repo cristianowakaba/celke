@@ -77,6 +77,8 @@ class ListColors
             $listBotton = new \App\adms\Models\helper\AdmsButton();
             $this->data['button'] = $listBotton->buttonPermission($button);
 
+            $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
            // var_dump(  $this->data['button']);
         $this->data['sidebarActive'] = "list-colors";         
         $loadView = new \Core\ConfigView("adms/Views/colors/listColors", $this->data);

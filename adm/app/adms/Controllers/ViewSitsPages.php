@@ -63,7 +63,10 @@ class ViewSitsPages
             'delete_sits_pages' => ['menu_controller' => 'delete-sits-pages', 'menu_metodo' => 'index']];
             $listBotton = new \App\adms\Models\helper\AdmsButton();
             $this->data['button'] = $listBotton->buttonPermission($button);
-           
+            
+            $listMenu = new \App\adms\Models\helper\AdmsMenu();
+            $this->data['menu']=$listMenu->itemMenu();
+
          // var_dump( $this->data['button'] );
         $this->data['sidebarActive']="list-sits-pages";
      

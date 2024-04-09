@@ -66,7 +66,10 @@ class ViewGroupsPages
             'delete_groups_pages' => ['menu_controller' => 'delete-groups-pages', 'menu_metodo' => 'index']];
             $listBotton = new \App\adms\Models\helper\AdmsButton();
             $this->data['button'] = $listBotton->buttonPermission($button);
-           
+
+            $listMenu = new \App\adms\Models\helper\AdmsMenu();
+            $this->data['menu']=$listMenu->itemMenu();
+            
           //var_dump( $this->data['button'] );
         $this->data['sidebarActive'] = "list-groups-pages";
         $loadView = new \Core\ConfigView("adms/Views/groupsPages/viewGroupsPages", $this->data);

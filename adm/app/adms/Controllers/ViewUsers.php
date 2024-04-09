@@ -64,6 +64,13 @@ class ViewUsers
         // var_dump( $this->data['button']);
         //var_dump($this->data);
 
+        $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
+
+        $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
+
+        
         $this->data['sidebarActive'] = "list-users"; 
         $loadView = new \Core\ConfigView("adms/Views/users/viewUser", $this->data);
         $loadView->loadView();

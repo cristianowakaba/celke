@@ -31,6 +31,9 @@ class Dashboard
         } else {
             $this->data['countUsers'] = false;
         }
+        $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
+        
 
         $this->data['sidebarActive'] = "dashboard";
 

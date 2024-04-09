@@ -62,6 +62,9 @@ class EditPages
         $listSelect = new \App\adms\Models\AdmsEditPages();
         $this->data['select'] = $listSelect->listSelect();
        // var_dump( $this->data['select'] );
+       $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
+        
         $this->data['sidebarActive'] = "list-pages";
         $loadView = new \Core\ConfigView("adms/Views/pages/editPages", $this->data);
         $loadView->loadView();

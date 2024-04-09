@@ -53,7 +53,9 @@ class ListAccessLevels
             $listBotton = new \App\adms\Models\helper\AdmsButton();
             $this->data['button'] = $listBotton->buttonPermission($button);
             //var_dump(  $this->data['button']);
-
+            $listMenu = new \App\adms\Models\helper\AdmsMenu();
+            $this->data['menu']=$listMenu->itemMenu();
+            
         $this->data['pag']= $this->page ;
         $this->data['sidebarActive'] = "list-access-levels";
         $loadView = new \Core\ConfigView("adms/Views/accessLevels/listAccessLevels", $this->data);

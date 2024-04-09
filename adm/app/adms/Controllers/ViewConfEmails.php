@@ -68,6 +68,8 @@ class viewConfEmails
             $listBotton = new \App\adms\Models\helper\AdmsButton();
             $this->data['button'] = $listBotton->buttonPermission($button);
 
+            $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
            // var_dump(  $this->data['button']);
         $this->data['sidebarActive']="list-conf-emails";
         $loadView = new \Core\ConfigView("adms/Views/confEmails/viewConfEmails", $this->data);

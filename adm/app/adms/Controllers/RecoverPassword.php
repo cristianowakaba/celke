@@ -49,6 +49,8 @@ class RecoverPassword
      */
     private function viewRecoverPass():void
     {
+      $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
         $loadView = new \Core\ConfigView("adms/Views/login/recoverPassword",$this->data);
         $loadView->loadViewLogin();
     }

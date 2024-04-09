@@ -62,6 +62,9 @@ class ViewSitsUsers
         $listBotton = new \App\adms\Models\helper\AdmsButton();
         $this->data['button'] = $listBotton->buttonPermission($button);
         // var_dump( $this->data['button']);
+        $listMenu = new \App\adms\Models\helper\AdmsMenu();
+        $this->data['menu']=$listMenu->itemMenu();
+        
         $this->data['sidebarActive']="list-sits-users";
      
         $loadView = new \Core\ConfigView("adms/Views/sitsUser/viewSitUser", $this->data);
